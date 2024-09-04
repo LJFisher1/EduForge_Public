@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
     private float verticalRotation = 0.0f; // To track vertical camera rotation
+    private bool isPuzzleMode = false; // Flag to check if puzzle mode is active
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
-        LookAround();
+        if (!isPuzzleMode)
+        {
+            MovePlayer();
+            LookAround();
+        }
     }
 
     void MovePlayer()
@@ -72,5 +76,21 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply the new vertical rotation to the camera
         playerCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+    }
+
+    public void TogglePuzzleMode(bool isPuzzleActive)
+    {
+        isPuzzleMode = isPuzzleActive;
+
+        if (isPuzzleMode)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

@@ -9,6 +9,8 @@ public class EquationPuzzle : MonoBehaviour
     public TMP_InputField inputField;
     public TextMeshProUGUI equationText;
     public Button submitButton;
+    public GameObject puzzleUI; // The puzzle UI object that we interact with to trigger the puzzle
+    public PlayerMovement playerMovement; // Reference to the PlayerMovement script
 
     private int solution;
 
@@ -18,6 +20,30 @@ public class EquationPuzzle : MonoBehaviour
     {
         GenerateEquation();
         submitButton.onClick.AddListener(CheckAnswer);
+
+        // Hide the puzzle UI initially
+        puzzleUI.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartPuzzle();
+        }
+    }
+
+    // Method to start the puzzle
+    public void StartPuzzle()
+    {
+        puzzleUI.SetActive(true); // Shows the puzzle UI
+        playerMovement.TogglePuzzleMode(true); // Disables the movement and camera controls
+    }
+
+    public void EndPuzzle()
+    {
+        puzzleUI.SetActive(false); // Hides puzzle UI
+        playerMovement.TogglePuzzleMode(false); // Re-enables the movement and camera controls
     }
 
     private void GenerateEquation()
