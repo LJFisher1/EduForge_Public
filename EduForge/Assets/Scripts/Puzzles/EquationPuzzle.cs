@@ -18,7 +18,6 @@ public class EquationPuzzle : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        GenerateEquation();
         submitButton.onClick.AddListener(CheckAnswer);
 
         // Hide the puzzle UI initially
@@ -27,15 +26,26 @@ public class EquationPuzzle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (puzzleUI.activeSelf)
         {
-            StartPuzzle();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                EndPuzzle();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartPuzzle();
+            }
         }
     }
 
     // Method to start the puzzle
     public void StartPuzzle()
     {
+        GenerateEquation();
         puzzleUI.SetActive(true); // Shows the puzzle UI
         playerMovement.TogglePuzzleMode(true); // Disables the movement and camera controls
     }
@@ -50,11 +60,11 @@ public class EquationPuzzle : MonoBehaviour
     {
         int a = Random.Range(1, 20); // Random #1 1-20
         int b = Random.Range(1, 20); // Random #2 1-20
-        string[] operators = { "+", "-", "*"}; // Array of operators
+        string[] operators = { "+", "-", "*" }; // Array of operators
         string selectedOperator = operators[Random.Range(0, operators.Length)]; // Randomly chooses an operator
 
         // Calculate the solution based on operator
-        switch(selectedOperator)
+        switch (selectedOperator)
         {
             case "+":
                 solution = a + b;
@@ -77,6 +87,7 @@ public class EquationPuzzle : MonoBehaviour
             if (userAnswer == solution)
             {
                 Debug.Log("Correct! Well done.");
+                EndPuzzle();
             }
             else
             {
