@@ -13,6 +13,7 @@ public class EquationPuzzle : MonoBehaviour
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
 
     private int solution;
+    private bool puzzleSolved = false; // Track if the puzzle was solved
 
 
     // Start is called before the first frame update
@@ -26,18 +27,11 @@ public class EquationPuzzle : MonoBehaviour
 
     private void Update()
     {
-        if (puzzleUI.activeSelf)
+        if (puzzleUI.activeSelf) // If the puzzle UI is active
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape)) // Exit the puzzle
             {
                 EndPuzzle();
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                StartPuzzle();
             }
         }
     }
@@ -48,12 +42,14 @@ public class EquationPuzzle : MonoBehaviour
         GenerateEquation();
         puzzleUI.SetActive(true); // Shows the puzzle UI
         playerMovement.TogglePuzzleMode(true); // Disables the movement and camera controls
+        puzzleSolved = false; // Reset puzzle solved status
     }
 
     public void EndPuzzle()
     {
         puzzleUI.SetActive(false); // Hides puzzle UI
         playerMovement.TogglePuzzleMode(false); // Re-enables the movement and camera controls
+
     }
 
     private void GenerateEquation()
@@ -87,11 +83,14 @@ public class EquationPuzzle : MonoBehaviour
             if (userAnswer == solution)
             {
                 Debug.Log("Correct! Well done.");
+                puzzleSolved = true; // Mark puzzle as solved
+                inputField.text = "";
                 EndPuzzle();
             }
             else
             {
                 Debug.Log("Incorrect. Try again.");
+                inputField.text = "";
             }
         }
         else
@@ -100,5 +99,8 @@ public class EquationPuzzle : MonoBehaviour
         }
     }
 
-
+    public bool IsPuzzleSolved()
+    {
+        return puzzleSolved;
+    }
 }
