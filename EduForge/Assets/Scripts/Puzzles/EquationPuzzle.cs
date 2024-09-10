@@ -14,6 +14,7 @@ public class EquationPuzzle : MonoBehaviour
 
     private int solution;
     private bool puzzleSolved = false; // Track if the puzzle was solved
+    bool isPuzzleGenerated = false;
 
 
     // Start is called before the first frame update
@@ -39,10 +40,15 @@ public class EquationPuzzle : MonoBehaviour
     // Method to start the puzzle
     public void StartPuzzle()
     {
-        GenerateEquation();
+        if (!isPuzzleGenerated || IsPuzzleSolved())
+        {
+            GenerateEquation();
+            isPuzzleGenerated = true;
+            puzzleSolved = false;
+        }
+
         puzzleUI.SetActive(true); // Shows the puzzle UI
         playerMovement.TogglePuzzleMode(true); // Disables the movement and camera controls
-        puzzleSolved = false; // Reset puzzle solved status
     }
 
     public void EndPuzzle()
