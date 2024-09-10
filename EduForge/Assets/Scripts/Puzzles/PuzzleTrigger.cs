@@ -12,10 +12,7 @@ public class PuzzleTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            if (null != equationPuzzle || equationPuzzle == equationPuzzle.IsPuzzleSolved())
-            {
-                equationPuzzle.StartPuzzle();
-            }
+            equationPuzzle.StartPuzzle();
         }
     }
 
