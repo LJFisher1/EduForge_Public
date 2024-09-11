@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\Unity Builds\\EduForge\\EduForge\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|d:\\unity builds\\eduforge\\eduforge\\assets\\scripts\\puzzles\\mathpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\mathpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\puzzles\\equationpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\equationpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|d:\\unity builds\\eduforge\\eduforge\\assets\\scripts\\puzzles\\puzzletrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\puzzletrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|d:\\unity builds\\eduforge\\eduforge\\assets\\scripts\\puzzles\\sequencepuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\sequencepuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\puzzles\\puzzletrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\puzzletrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\puzzles\\mathpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\mathpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|d:\\unity builds\\eduforge\\eduforge\\assets\\scripts\\puzzles\\equationpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\equationpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,25 +35,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SequencePuzzle.cs",
+              "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAgwHcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T19:48:44.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MathPuzzle.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowDAAAABWAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-10T19:20:03.465Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EquationPuzzle.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-04T18:40:26.993Z",
               "EditorCaption": ""
@@ -62,14 +79,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-04T19:19:16.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Player\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",
@@ -77,7 +94,8 @@
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMovement.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T19:59:03.617Z"
+              "WhenOpened": "2024-08-28T19:59:03.617Z",
+              "EditorCaption": ""
             }
           ]
         }
