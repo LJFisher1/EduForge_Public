@@ -11,8 +11,8 @@ public class SequencePuzzle : MathPuzzle
     protected override void GeneratePuzzle()
     {
         string[] patternTypes = { "Arithmetic", "Geometric", "Fibonacci" };
-        //string selectedPattern = patternTypes[Random.Range(0, patternTypes.Length)];
-        string selectedPattern = "Fibonacci"; // This is for debugging
+        string selectedPattern = patternTypes[Random.Range(0, patternTypes.Length)];
+        //string selectedPattern = "Fibonacci"; // This is for debugging
 
         // Debug to show which puzzle was generated
         Debug.Log("Generating " + selectedPattern + " sequence.");
