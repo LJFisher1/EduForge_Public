@@ -7,6 +7,8 @@ public class SequencePuzzle : MathPuzzle
 {
     public TextMeshProUGUI sequenceText;
     private int nextValueInSequence;
+    // Currently each puzzle has a fixed number of values, in the future we'll add a variable to change that based on difficulty
+    // Should also add additional text to display to the user what type of puzzle was created so they aren't confused
 
     protected override void GeneratePuzzle()
     {

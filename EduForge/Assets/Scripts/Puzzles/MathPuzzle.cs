@@ -13,6 +13,9 @@ public abstract class MathPuzzle : MonoBehaviour
     protected bool puzzleSolved = false; // Track if the puzzle was solved
     protected bool isPuzzleGenerated = false; // Track if the puzzle has been generated
 
+    // public string difficulty; // This to be implemented in the future for use in a switch in each puzzle type for the difficulty
+    // Can also use 0, 1, 2 for Easy, Medium, Hard, and so forth
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
