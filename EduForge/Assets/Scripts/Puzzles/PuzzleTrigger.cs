@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleTrigger : MonoBehaviour
 {
-    public EquationPuzzle equationPuzzle; // Reference to the equation puzzle
+    public MathPuzzle puzzle; // Reference to the puzzle
     private bool isPlayerInRange = false;
 
     // Update is called once per frame
@@ -12,10 +12,7 @@ public class PuzzleTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            if (equationPuzzle != null)
-            {
-                equationPuzzle.StartPuzzle();
-            }
+            puzzle.StartPuzzle();
         }
     }
 
