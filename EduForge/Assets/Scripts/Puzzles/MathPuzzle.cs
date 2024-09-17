@@ -13,13 +13,10 @@ public abstract class MathPuzzle : MonoBehaviour
     protected bool puzzleSolved = false; // Track if the puzzle was solved
     protected bool isPuzzleGenerated = false; // Track if the puzzle has been generated
 
-    // public string difficulty; // This to be implemented in the future for use in a switch in each puzzle type for the difficulty
-    // Can also use 0, 1, 2 for Easy, Medium, Hard, and so forth
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        submitButton.onClick.AddListener(CheckAnswer);
+        submitButton.onClick.AddListener(OnSubmitAnswer);
 
         // Hide the puzzle UI initially
         puzzleUI.SetActive(false);
@@ -64,7 +61,7 @@ public abstract class MathPuzzle : MonoBehaviour
     }
 
     // Check the player's answer; to be implemented by each puzzle type
-    protected abstract void CheckAnswer();
+    public abstract void CheckAnswer(string userAnswer); // Updated to accept input
 
     // Method to generate the puzzle; to be implemented by each puzzle type
     protected abstract void GeneratePuzzle();
@@ -72,5 +69,11 @@ public abstract class MathPuzzle : MonoBehaviour
     public bool IsPuzzleSolved()
     {
         return puzzleSolved;
+    }
+
+    // A method to handle the submit button interaction
+    protected virtual void OnSubmitAnswer()
+    {
+        CheckAnswer(inputField.text);
     }
 }
