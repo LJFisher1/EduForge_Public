@@ -1,12 +1,122 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\UI\\PuzzleInputController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\UI\\PuzzleInputController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\MathPuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Puzzles\\MathPuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\EquationPuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Puzzles\\EquationPuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\SequencePuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Puzzles\\SequencePuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\PuzzleInputController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PuzzleInputController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PuzzleInputController.cs",
+              "DocumentMoniker": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\UI\\PuzzleInputController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\PuzzleInputController.cs",
+              "ToolTip": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\UI\\PuzzleInputController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\PuzzleInputController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T00:10:55.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PuzzleTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
+              "ToolTip": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T23:34:29.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SequencePuzzle.cs",
+              "DocumentMoniker": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "ToolTip": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T23:17:51.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EquationPuzzle.cs",
+              "DocumentMoniker": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
+              "ToolTip": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T23:17:49.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PuzzleInputController.cs",
+              "DocumentMoniker": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\PuzzleInputController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PuzzleInputController.cs",
+              "ToolTip": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\PuzzleInputController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PuzzleInputController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T23:15:43.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MathPuzzle.cs",
+              "DocumentMoniker": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
+              "ToolTip": "C:\\Users\\Fox\\Documents\\GitHub\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAuwE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T23:15:36.411Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
