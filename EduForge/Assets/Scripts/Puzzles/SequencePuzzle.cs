@@ -99,7 +99,7 @@ public class SequencePuzzle : MathPuzzle
         nextValueInSequence = next;
     }
 
-    public override void CheckAnswer(string userAnswer)
+    protected override void CheckAnswer(string userAnswer)
     {
         if (int.TryParse(userAnswer, out int parsedAnswer))
         {

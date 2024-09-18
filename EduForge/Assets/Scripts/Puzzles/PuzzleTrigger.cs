@@ -13,16 +13,30 @@ public class PuzzleTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            // Set the current puzzle in PuzzleInputController
+            // Ensure puzzle is not null
+            if (puzzle == null)
+            {
+                Debug.LogError("Puzzle reference is not assigned.");
+                return;
+            }
+
+            // Ensure PuzzleInputController is assigned and not null
             if (puzzleInputController != null)
             {
                 puzzleInputController.currentPuzzle = puzzle;
                 Debug.Log("Current Puzzle has been updated to: " + puzzle.name);
             }
+            else
+            {
+                Debug.LogError("PuzzleInputController reference is not assigned.");
+                return;
+            }
 
+            // Start the puzzle
             puzzle.StartPuzzle();
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

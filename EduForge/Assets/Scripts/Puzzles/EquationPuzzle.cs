@@ -32,7 +32,7 @@ public class EquationPuzzle : MathPuzzle
         equationText.text = $"{a} {selectedOperator} {b} = ?";
     }
 
-    public override void CheckAnswer(string userAnswer)
+    protected override void CheckAnswer(string userAnswer)
     {
         if (int.TryParse(userAnswer, out int parsedAnswer))
         {

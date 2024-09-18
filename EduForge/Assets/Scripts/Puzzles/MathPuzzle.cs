@@ -61,7 +61,12 @@ public abstract class MathPuzzle : MonoBehaviour
     }
 
     // Check the player's answer; to be implemented by each puzzle type
-    public abstract void CheckAnswer(string userAnswer); // Updated to accept input
+    protected abstract void CheckAnswer(string userAnswer); // Re-protected so only the correct puzzle can call it
+
+    public void SubmitPuzzleAnswer(string userAnswer)        // To be used by the classes to call check answer
+    {
+        CheckAnswer(userAnswer);
+    }
 
     // Method to generate the puzzle; to be implemented by each puzzle type
     protected abstract void GeneratePuzzle();

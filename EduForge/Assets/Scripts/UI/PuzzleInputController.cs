@@ -60,6 +60,6 @@ public class PuzzleInputController : MonoBehaviour
         Debug.Log("Submitted answer: " + inputField.text + " for puzzle: " + currentPuzzle.name);
 
         // Pass the submitted answer to the current puzzle's CheckAnswer method
-        currentPuzzle.CheckAnswer(inputField.text);
+        currentPuzzle.SubmitPuzzleAnswer(inputField.text);
     }
 }
