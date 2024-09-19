@@ -7,12 +7,11 @@ public class DecimalPuzzle : MathPuzzle
 {
     public TextMeshProUGUI decimalText;
 
-
     // To store puzzle data 
-    private float solution;          // Store the solution
+    private float solution;             // Store the solution
     private string currentEquation;     // Store the equation text
     private string selectedOperator;    // Store the selected operator
-    private float a, b;                   // Store the operands
+    private float a, b;                 // Store the operands
 
     protected override void GeneratePuzzle()
     {
@@ -33,10 +32,13 @@ public class DecimalPuzzle : MathPuzzle
                 solution = a * b;
                 break;
         }
-        Debug.Log($"Generated equation: {a:F2} {selectedOperator} {b:F2} = ?");
+        currentEquation = $"{a:F2} {selectedOperator} {b:F2} = ?";
+        decimalText.text = currentEquation;
+
+        Debug.Log($"Generated equation: {currentEquation}");
         Debug.Log($"The correct answer is: {solution:F2}");
 
-        decimalText.text = $"{a:F2} {selectedOperator} {b:F2} = ?";
+        isPuzzleGenerated = true;
     }
 
     protected override void CheckAnswer(string userAnswer)
@@ -73,11 +75,30 @@ public class DecimalPuzzle : MathPuzzle
 
     public override void ResetPuzzleState()
     {
-        isPuzzleGenerated = false;      // Reset to allow a new puzzle to be generated
-        solution = 0;                   // Clear the solution, float is non-nullable
-        selectedOperator = "";          // Clear the selected operator
-        a = 0;                          // Clear operand a
-        b = 0;                          // Clear operand b
-        decimalText.text = "";          // Clear the displayed equation
+        if (puzzleSolved || !isPuzzleGenerated)
+        {
+            isPuzzleGenerated = false;      // Reset to allow a new puzzle to be generated
+            solution = 0;                   // Clear the solution, float is non-nullable
+            selectedOperator = "";          // Clear the selected operator
+            a = 0;                          // Clear operand a
+            b = 0;                          // Clear operand b
+            currentEquation = "";           // Clear the equation text
+            decimalText.text = "";          // Clear the displayed equation
+        }
+    }
+
+    public override void StartPuzzle()
+    {
+        if (isPuzzleGenerated && !IsPuzzleSolved())
+        {
+            Debug.Log("Resuming unsolved decimal puzzle.");
+            decimalText.text = currentEquation;
+            puzzleUI.SetActive(true);
+            playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
+            return;
+        }
+        
+        // Otherwise, generate a new puzzle
+        base.StartPuzzle();
     }
 }

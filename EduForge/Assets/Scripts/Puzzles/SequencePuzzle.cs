@@ -6,7 +6,10 @@ using UnityEngine;
 public class SequencePuzzle : MathPuzzle
 {
     public TextMeshProUGUI sequenceText;
-    private int nextValueInSequence;
+
+    // To store puzzle data 
+    private int nextValueInSequence; // The next value in the sequence (also the solution)
+    private List<int> currentSequence = new List<int>(); // To store the generated sequence
 
     protected override void GeneratePuzzle()
     {
@@ -14,26 +17,28 @@ public class SequencePuzzle : MathPuzzle
         string selectedPattern = patternTypes[Random.Range(0, patternTypes.Length)];
 
         Debug.Log("Generating " + selectedPattern + " sequence.");
-        List<int> sequence = new List<int>();
+        currentSequence.Clear();
 
         switch (selectedPattern)
         {
             case "Arithmetic":
-                GenerationArithmeticSequence(sequence);
+                GenerationArithmeticSequence(currentSequence);
                 break;
 
             case "Geometric":
-                GenerateGeometricSequence(sequence);
+                GenerateGeometricSequence(currentSequence);
                 break;
 
             case "Fibonacci":
-                GenerateFibonacciSequence(sequence);
+                GenerateFibonacciSequence(currentSequence);
                 break;
         }
 
         // Display the sequence to the player, hiding the last value
-        sequenceText.text = string.Join(", ", sequence.GetRange(0, sequence.Count - 1)) + ", ?";
+        sequenceText.text = string.Join(", ", currentSequence.GetRange(0, currentSequence.Count - 1)) + ", ?";
         Debug.Log(nextValueInSequence);
+
+        isPuzzleGenerated = true;
     }
 
     private void GenerationArithmeticSequence(List<int> sequence)
@@ -109,6 +114,7 @@ public class SequencePuzzle : MathPuzzle
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
+                ResetPuzzleState();
             }
             else
             {
@@ -122,8 +128,38 @@ public class SequencePuzzle : MathPuzzle
         }
     }
 
+    public override void StartPuzzle()
+    {
+        if (isPuzzleGenerated && !IsPuzzleSolved())
+        {
+            if (currentSequence.Count > 0)
+            {
+                // Only display the sequence if it's not empty
+                Debug.Log("Resuming unsolved sequence.");
+                sequenceText.text = string.Join(", ", currentSequence.GetRange(0, currentSequence.Count - 1)) + ", ?";
+            }
+            else
+            {
+                // Handle the case where there is no sequence to display
+                Debug.LogWarning("Current sequence is empty. Generating a new puzzle.");
+                GeneratePuzzle();
+            }
+
+            puzzleUI.SetActive(true);
+            playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
+            return;
+        }
+
+        // Otherwise, generate a new puzzle
+        base.StartPuzzle();
+    }
+
+
     public override void ResetPuzzleState()
     {
-        throw new System.NotImplementedException();
+        isPuzzleGenerated = false;  // Reset to allow a new puzzle to be generated
+        nextValueInSequence = 0;    // Clear the next value in the sequence
+        currentSequence.Clear();    // Clear the stored sequence
+        sequenceText.text = "";     // Clear the displayed sequence
     }
 }
