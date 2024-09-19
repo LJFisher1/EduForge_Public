@@ -81,4 +81,6 @@ public abstract class MathPuzzle : MonoBehaviour
     {
         CheckAnswer(inputField.text);
     }
+
+    public abstract void ResetPuzzleState(); 
 }

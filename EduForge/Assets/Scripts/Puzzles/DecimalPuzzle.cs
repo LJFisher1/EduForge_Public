@@ -63,4 +63,9 @@ public class DecimalPuzzle : MathPuzzle
         }
 
     }
+
+    public override void ResetPuzzleState()
+    {
+        throw new System.NotImplementedException();
+    }
 }

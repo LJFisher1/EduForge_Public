@@ -121,4 +121,9 @@ public class SequencePuzzle : MathPuzzle
             Debug.Log("Invalid input. Please enter a number.");
         }
     }
+
+    public override void ResetPuzzleState()
+    {
+        throw new System.NotImplementedException();
+    }
 }
