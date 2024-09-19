@@ -6,14 +6,20 @@ using UnityEngine;
 public class DecimalPuzzle : MathPuzzle
 {
     public TextMeshProUGUI decimalText;
-    private float solution;
+
+
+    // To store puzzle data 
+    private float solution;          // Store the solution
+    private string currentEquation;     // Store the equation text
+    private string selectedOperator;    // Store the selected operator
+    private float a, b;                   // Store the operands
 
     protected override void GeneratePuzzle()
     {
-        float a = Random.Range(0.1f, 10.0f);
-        float b = Random.Range(0.1f, 10.0f);
+        a = Random.Range(0.1f, 10.0f);
+        b = Random.Range(0.1f, 10.0f);
         string[] operators = { "+", "-", "*" };
-        string selectedOperator = operators[Random.Range(0, operators.Length)];
+        selectedOperator = operators[Random.Range(0, operators.Length)];
 
         switch (selectedOperator)
         {
@@ -50,6 +56,7 @@ public class DecimalPuzzle : MathPuzzle
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
+                ResetPuzzleState();
             }
             else
             {
@@ -66,6 +73,11 @@ public class DecimalPuzzle : MathPuzzle
 
     public override void ResetPuzzleState()
     {
-        throw new System.NotImplementedException();
+        isPuzzleGenerated = false;      // Reset to allow a new puzzle to be generated
+        solution = 0;                   // Clear the solution, float is non-nullable
+        selectedOperator = "";          // Clear the selected operator
+        a = 0;                          // Clear operand a
+        b = 0;                          // Clear operand b
+        decimalText.text = "";          // Clear the displayed equation
     }
 }

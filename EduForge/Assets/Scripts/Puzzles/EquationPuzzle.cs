@@ -94,5 +94,9 @@ public class EquationPuzzle : MathPuzzle
     {
         isPuzzleGenerated = false;  // Reset to allow a new puzzle to be generated
         currentEquation = null;     // Clear the stored equation
+        selectedOperator = "";        // Clear the selected operator
+        a = 0;                        // Clear operand a
+        b = 0;                        // Clear operand b
+        equationText.text = "";        // Clear the displayed equation (optional, but useful for cleanliness)
     }
 }
