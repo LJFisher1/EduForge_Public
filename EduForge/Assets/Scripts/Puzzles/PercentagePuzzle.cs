@@ -1,0 +1,122 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class PercentagePuzzle : MathPuzzle
+{
+    public TextMeshProUGUI percentageText;
+
+    // To store puzzle data
+    private float solution;             // Store the solution
+    private string currentQuestion;     // Store the equation text
+    private string puzzleType;          // Store the operation
+    private float a, b;                 // Store the operands
+
+    protected override void GeneratePuzzle()
+    {
+        a = Mathf.Round(Random.Range(1.0f, 100.0f));     // Percentage (1% to 100%) - Both are rounded to whole numbers for now, in the future when we do difficulty settings
+        b = Mathf.Round(Random.Range(10.0f, 1000.0f));   // Value for operations    - We'll change that depending on difficulty
+
+        string[] puzzleTypes = { "What is A% of B?", "What is A% off of B?", "What percentage is A of B?", "Percentage Increase", "Percentage Decrease" };
+        puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
+
+        switch (puzzleType)
+        {
+            case "What is A% of B?":
+                solution = (a / 100f) * b;
+                currentQuestion = $"What is {a:F2}% of {b:F2}?";
+                break;
+
+            case "What is A% off of B?":
+                solution = b - (a / 100f) * b;
+                currentQuestion = $"{a:F2}% off of {b:F2} is?";
+                break;
+
+            case "What percentage is A of B?":
+                solution = (a / b) * 100f;
+                currentQuestion = $"What percentage is {a:F2} of {b:F2}?";
+                break;
+
+            case "Percentage Increase":
+                float newValueIncrease = b + Random.Range(10f, 100f);  // New value for increase
+                solution = ((newValueIncrease - b) / b) * 100f;
+                currentQuestion = $"If a value increases from {b:F2} to {newValueIncrease:F2}, what is the percentage increase?";
+                break;
+
+            case "Percentage Decrease":
+                float newValueDecrease = b - Random.Range(10f, b - 10f);  // New value for decrease
+                solution = ((b - newValueDecrease) / b) * 100f;
+                currentQuestion = $"If a value decreases from {b:F2} to {newValueDecrease:F2}, what is the percentage decrease?";
+                break;
+        }
+
+        percentageText.text = currentQuestion;
+
+        Debug.Log($"Generated question: {currentQuestion}");
+        Debug.Log($"The correct answer is: {solution:F2}");
+
+        isPuzzleGenerated = true;
+    }
+
+    protected override void CheckAnswer(string userAnswer)
+    {
+        if (float.TryParse(userAnswer, out float parsedAnswer))
+        {
+            float roundedSolution = Mathf.Round(solution * 100f) / 100f;
+            float roundedParsedAnswer = Mathf.Round(parsedAnswer * 100f) / 100f;
+
+            Debug.Log($"Rounded Parsed Answer: {roundedParsedAnswer}");
+            Debug.Log($"Rounded Correct Answer: {roundedSolution}");
+
+            if (roundedSolution == roundedParsedAnswer)
+            {
+                Debug.Log("Correct! Well done.");
+                puzzleSolved = true;
+                inputField.text = "";
+                EndPuzzle();
+                ResetPuzzleState();
+            }
+            else
+            {
+                Debug.Log("Incorrect. Try again.");
+                inputField.text = "";
+            }
+        }
+        else
+        {
+            Debug.Log("Invalid input. Please enter a number.");
+        }
+    }
+
+
+    public override void ResetPuzzleState()
+    {
+        if (puzzleSolved || !isPuzzleGenerated)
+        {
+            isPuzzleGenerated = false;
+            solution = 0;
+            puzzleType = "";
+            a = 0;
+            b = 0;
+            currentQuestion = "";
+            percentageText.text = "";
+        }
+    }
+
+    public override void StartPuzzle()
+    {
+        if (isPuzzleGenerated && !IsPuzzleSolved())
+        {
+            Debug.Log("Resuming unsolved percentage puzzle.");
+            percentageText.text = currentQuestion;
+            puzzleUI.SetActive(true);
+            playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
+            return;
+        }
+
+        base.StartPuzzle();
+    }
+
+}
+
