@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject PauseButton;
+
+    public static string previousScene;
 
     // Start is called before the first frame update
     public void Start()
@@ -27,6 +30,12 @@ public class PauseMenuScript : MonoBehaviour
 
         PauseButton.SetActive(true);
         PauseMenu.SetActive(false);
+    }
+
+    public void GoToSettings()
+    {
+        previousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("Settings");
     }
 
     public void ExitGame()
