@@ -11,6 +11,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
     private int currentNumber;                  // The number to check
     private bool isPrime;                       // To store if the number is prime or not
     private List<int> primeFactors;             // To store the puzzle factors
+    private string currentQuestion;             // Store the question text
 
     private string[] puzzleTypes = { "IsPrime", "NextPrime", "PrimeFactorization" };
     private string currentPuzzleType;
@@ -24,23 +25,25 @@ public class PrimeNumbersPuzzle : MathPuzzle
         {
             case "IsPrime":
                 isPrime = IsPrime(currentNumber);
-                primeNumberText.text = $"Is {currentNumber} a prime number? (Yes/No)";
+                currentQuestion = $"Is {currentNumber} a prime number? (Yes/No)";
                 Debug.Log($"Generated number: {currentNumber}");
                 Debug.Log($"Is prime: {isPrime}");
                 break;
 
             case "NextPrime":
                 int nextPrime = FindNextPrime(currentNumber);
-                primeNumberText.text = $"What is the next prime number after {currentNumber}?";
+                currentQuestion = $"What is the next prime number after {currentNumber}?";
                 Debug.Log($"Generated number: {currentNumber}, Next Prime: {nextPrime}");
                 break;
 
             case "PrimeFactorization":
                 primeFactors = GetPrimeFactors(currentNumber);
-                primeNumberText.text = $"What are the prime factors of {currentNumber}? (Input in form X, Y, Z)";
+                currentQuestion = $"What are the prime factors of {currentNumber}? (Input in form X, Y, Z)";
                 Debug.Log($"Generated number: {currentNumber}, Prime Factors: {string.Join(", ", primeFactors)}");
                 break;
         }
+
+        primeNumberText.text = currentQuestion;
 
         Debug.Log($"Generated number: {currentNumber}");
         Debug.Log($"Is prime: {isPrime}");
@@ -168,6 +171,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
         if (puzzleSolved || !isPuzzleGenerated)
         {
             isPuzzleGenerated = false;
+            puzzleSolved = false;
             currentNumber = 0;
             primeFactors = null;
             primeNumberText.text = "";
@@ -179,18 +183,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
         if (isPuzzleGenerated && !IsPuzzleSolved())
         {
             Debug.Log("Resuming unsolved Prime Number puzzle.");
-            switch (currentPuzzleType)
-            {
-                case "IsPrime":
-                    primeNumberText.text = $"Is {currentNumber} a prime number? (Yes/No)";
-                    break;
-                case "NextPrime":
-                    primeNumberText.text = $"What is the next prime number after {currentNumber}?";
-                    break;
-                case "PrimeFactorization":
-                    primeNumberText.text = $"What are the prime factors of {currentNumber}? (Input in form X, Y, Z)";
-                    break;
-            }
+            primeNumberText.text = currentQuestion;
             puzzleUI.SetActive(true);
             playerMovement.TogglePuzzleMode(true);
             return;
