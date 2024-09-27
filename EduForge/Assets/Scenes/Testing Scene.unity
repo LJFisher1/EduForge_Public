@@ -1828,7 +1828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3f11b65389fdf419e66c4447500bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 1385038359863222238}
+  puzzle: {fileID: 7183702558672261122}
   puzzleInputController: {fileID: 1223278955}
 --- !u!65 &859015006
 BoxCollider:
@@ -4150,6 +4150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1430e2415db574ba34bce98087a508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 326572829096626645}
+  submitButton: {fileID: 4852753407032761175}
+  puzzleUI: {fileID: 5045052117482914322}
+  playerMovement: {fileID: 1002164662}
+  modularText: {fileID: 1065791102}
 --- !u!1001 &7283933756116140683
 PrefabInstance:
   m_ObjectHideFlags: 0
