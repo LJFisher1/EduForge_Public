@@ -2699,7 +2699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3f11b65389fdf419e66c4447500bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 1385038359863222238}
+  puzzle: {fileID: 1937474004}
   puzzleInputController: {fileID: 1223278955}
 --- !u!65 &1694049405
 BoxCollider:
@@ -3308,6 +3308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20da2110673b2524ca94770d270e02fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 326572829096626645}
+  submitButton: {fileID: 347010635}
+  puzzleUI: {fileID: 5045052117482914322}
+  playerMovement: {fileID: 1002164662}
+  geometricText: {fileID: 1065791102}
 --- !u!4 &1937474005
 Transform:
   m_ObjectHideFlags: 0

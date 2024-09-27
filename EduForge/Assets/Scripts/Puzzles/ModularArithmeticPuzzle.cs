@@ -109,7 +109,7 @@ public class ModularArithmeticPuzzle : MathPuzzle
     {
         if (isPuzzleGenerated && !IsPuzzleSolved())
         {
-            Debug.Log("Resuming unsolved decimal puzzle.");
+            Debug.Log("Resuming unsolved modular arithmetic puzzle.");
             modularText.text = currentEquation;
             puzzleUI.SetActive(true);
             playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
