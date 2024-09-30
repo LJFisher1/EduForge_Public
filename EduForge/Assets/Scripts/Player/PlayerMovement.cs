@@ -43,8 +43,8 @@ public class PlayerMovement : MonoBehaviour
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
 
         // Debug logs for sprint status and speed
-        Debug.Log($"Is Sprinting: {isSprinting}");
-        Debug.Log($"Base Move Speed: {moveSpeed}");
+       // Debug.Log($"Is Sprinting: {isSprinting}");
+       // Debug.Log($"Base Move Speed: {moveSpeed}");
 
         // Calculate direction based on input
         Vector3 moveDirection = transform.right * moveX + transform.forward * moveZ;
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         float currentSpeed = isSprinting ? moveSpeed * sprintModifier : moveSpeed;
 
-        Debug.Log($"Current Speed: {currentSpeed}");
+        // Debug.Log($"Current Speed: {currentSpeed}");
 
         // Apply movement
         characterController.Move(moveDirection * currentSpeed * Time.deltaTime);

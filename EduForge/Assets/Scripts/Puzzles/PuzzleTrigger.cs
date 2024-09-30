@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuzzleTrigger : MonoBehaviour
 {
     public MathPuzzle puzzle; // Reference to the puzzle
+    public PuzzleInputController puzzleInputController;
     private bool isPlayerInRange = false;
 
     // Update is called once per frame
@@ -12,6 +13,13 @@ public class PuzzleTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
+            // Set the current puzzle in PuzzleInputController
+            if (puzzleInputController != null)
+            {
+                puzzleInputController.currentPuzzle = puzzle;
+                Debug.Log("Current Puzzle has been updated to: " + puzzle.name);
+            }
+
             puzzle.StartPuzzle();
         }
     }

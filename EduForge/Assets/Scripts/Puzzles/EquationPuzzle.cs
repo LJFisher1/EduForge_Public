@@ -11,12 +11,11 @@ public class EquationPuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
-        int a = Random.Range(1, 20); // Random #1 1-20
-        int b = Random.Range(1, 20); // Random #2 1-20
-        string[] operators = { "+", "-", "*" }; // Array of operators
-        string selectedOperator = operators[Random.Range(0, operators.Length)]; // Randomly chooses an operator
+        int a = Random.Range(1, 20);
+        int b = Random.Range(1, 20);
+        string[] operators = { "+", "-", "*" };
+        string selectedOperator = operators[Random.Range(0, operators.Length)];
 
-        // Calculate the solution based on operator
         switch (selectedOperator)
         {
             case "+":
@@ -29,17 +28,18 @@ public class EquationPuzzle : MathPuzzle
                 solution = a * b;
                 break;
         }
-        equationText.text = $"{a} {selectedOperator} {b} = ?"; // Display the generation equation
+
+        equationText.text = $"{a} {selectedOperator} {b} = ?";
     }
 
-    protected override void CheckAnswer()
+    public override void CheckAnswer(string userAnswer)
     {
-        if (int.TryParse(inputField.text, out int userAnswer))
+        if (int.TryParse(userAnswer, out int parsedAnswer))
         {
-            if (userAnswer == solution)
+            if (parsedAnswer == solution)
             {
                 Debug.Log("Correct! Well done.");
-                puzzleSolved = true; // Mark puzzle as solved
+                puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
             }
@@ -54,5 +54,4 @@ public class EquationPuzzle : MathPuzzle
             Debug.Log("Invalid input. Please enter a number.");
         }
     }
-
 }
