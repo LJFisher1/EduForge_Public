@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -33,16 +34,21 @@ public class PauseMenuScript : MonoBehaviour
         bool isActive = PauseMenu.activeSelf;
         PauseMenu.SetActive(!isActive);
 
-        if (!isActive) // If pause menu is activated
+        if (!isActive)
         {
             Time.timeScale = 0f;
             PauseButton.SetActive(false);
         }
-        else // If pause menu is deactivated
+        else
         {
             Time.timeScale = 1f;
             PauseButton.SetActive(true);
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Game");
     }
 
     public void GoToSettings()
