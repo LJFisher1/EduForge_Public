@@ -48,7 +48,8 @@ public class PauseMenuScript : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("Game");
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 
     public void GoToSettings()
