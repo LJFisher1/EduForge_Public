@@ -12,6 +12,7 @@ public class DecimalPuzzle : MathPuzzle
     private string currentEquation;     // Store the equation text
     private string selectedOperator;    // Store the selected operator
     private float a, b;                 // Store the operands
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -19,6 +20,7 @@ public class DecimalPuzzle : MathPuzzle
         b = Random.Range(0.1f, 10.0f);
         string[] operators = { "+", "-", "*" };
         selectedOperator = operators[Random.Range(0, operators.Length)];
+        currentPuzzleType = "Decimal";
 
         switch (selectedOperator)
         {
@@ -100,5 +102,9 @@ public class DecimalPuzzle : MathPuzzle
         
         // Otherwise, generate a new puzzle
         base.StartPuzzle();
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }

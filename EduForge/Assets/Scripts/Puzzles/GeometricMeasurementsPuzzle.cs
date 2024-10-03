@@ -10,6 +10,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
     private string currentQuestion;
     private int measurementType;
     private int length, width, height, radius, triangleBase;
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -205,6 +206,9 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
         }
         base.StartPuzzle();
     }
-
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
+    }
 
 }

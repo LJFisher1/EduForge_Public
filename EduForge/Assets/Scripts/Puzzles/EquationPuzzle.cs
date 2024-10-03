@@ -13,15 +13,17 @@ public class EquationPuzzle : MathPuzzle
     private string currentEquation;     // Store the equation text
     private string selectedOperator;    // Store the selected operator
     private int a, b;                   // Store the operands
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
         if (!isPuzzleGenerated)
         {
-            int a = Random.Range(1, 20);
-            int b = Random.Range(1, 20);
+            a = Random.Range(1, 20);
+            b = Random.Range(1, 20);
             string[] operators = { "+", "-", "*" };
             selectedOperator = operators[Random.Range(0, operators.Length)];
+            currentPuzzleType = "Equation";
 
             switch (selectedOperator)
             {
@@ -98,5 +100,9 @@ public class EquationPuzzle : MathPuzzle
         a = 0;                        // Clear operand a
         b = 0;                        // Clear operand b
         equationText.text = "";        // Clear the displayed equation (optional, but useful for cleanliness)
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }

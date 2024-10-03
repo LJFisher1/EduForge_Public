@@ -11,6 +11,7 @@ public class PEMDASPuzzle : MathPuzzle
     private float solution;           // Store the solution
     private string currentEquation; // Store the equation text
     private float a, b, c, d, e;         // Store the operands
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -22,6 +23,7 @@ public class PEMDASPuzzle : MathPuzzle
 
         // Randomly select the structure of the equation based on PEMDAS rules 
         int structureType = Random.Range(0, 6); // Expand if you have more equation structures added
+        currentPuzzleType = "PEMDAS";
 
         switch (structureType)
         {
@@ -125,6 +127,10 @@ public class PEMDASPuzzle : MathPuzzle
         }
 
         base.StartPuzzle();
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }
 

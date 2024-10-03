@@ -10,6 +10,7 @@ public class ModularArithmeticPuzzle : MathPuzzle
     private string currentEquation;
     private string puzzleType;
     private int a, b, x, y;
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -28,6 +29,7 @@ public class ModularArithmeticPuzzle : MathPuzzle
         }
 
         puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
+        currentPuzzleType = puzzleType;
 
         switch (puzzleType)
         {
@@ -117,7 +119,10 @@ public class ModularArithmeticPuzzle : MathPuzzle
         }
         base.StartPuzzle();
     }
-
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
+    }
 }
 
 

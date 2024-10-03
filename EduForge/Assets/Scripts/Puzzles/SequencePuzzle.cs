@@ -6,6 +6,7 @@ using UnityEngine;
 public class SequencePuzzle : MathPuzzle
 {
     public TextMeshProUGUI sequenceText;
+    protected string currentPuzzleType; // To store the current puzzle type for the Textbook
 
     // To store puzzle data 
     private int nextValueInSequence; // The next value in the sequence (also the solution)
@@ -15,6 +16,7 @@ public class SequencePuzzle : MathPuzzle
     {
         string[] patternTypes = { "Arithmetic", "Geometric", "Fibonacci" };
         string selectedPattern = patternTypes[Random.Range(0, patternTypes.Length)];
+        currentPuzzleType = selectedPattern;
 
         Debug.Log("Generating " + selectedPattern + " sequence.");
         currentSequence.Clear();
@@ -161,5 +163,10 @@ public class SequencePuzzle : MathPuzzle
         nextValueInSequence = 0;    // Clear the next value in the sequence
         currentSequence.Clear();    // Clear the stored sequence
         sequenceText.text = "";     // Clear the displayed sequence
+    }
+
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }

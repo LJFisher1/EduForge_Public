@@ -55,6 +55,10 @@ public class TextbookSystem : MonoBehaviour
                 new Example("4x + 5 = 25", "To solve for x, subtract 5 from both sides, then divide by 4: x = 5")
             }
             ));
+        //textbook.Add("Sequence",
+        //    new PuzzleInfo(
+        //        "Sequences",
+        //        "")
 
     }
 
@@ -84,7 +88,21 @@ public class TextbookSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            DisplayPuzzleInfo("Equation", displayText);
+            // Get the current active puzzle (ensure there's a reference to MathPuzzle)
+            MathPuzzle currentPuzzle = FindObjectOfType<MathPuzzle>();
+
+            if (currentPuzzle != null)
+            {
+                // Call GetCurrentPuzzleType() from the current puzzle instance
+                string puzzleType = currentPuzzle.GetCurrentPuzzleType();
+
+                // Display the appropriate info using the retrieved puzzleType
+                DisplayPuzzleInfo(puzzleType, displayText);
+            }
+            else
+            {
+                Debug.LogWarning("No active puzzle found.");
+            }
         }
     }
 }

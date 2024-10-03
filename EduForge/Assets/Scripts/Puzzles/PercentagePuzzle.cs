@@ -12,6 +12,7 @@ public class PercentagePuzzle : MathPuzzle
     private string currentQuestion;     // Store the equation text
     private string puzzleType;          // Store the operation
     private float a, b;                 // Store the operands
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -20,6 +21,7 @@ public class PercentagePuzzle : MathPuzzle
 
         string[] puzzleTypes = { "What is A% of B?", "What is A% off of B?", "What percentage is A of B?", "Percentage Increase", "Percentage Decrease" };
         puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
+        currentPuzzleType = puzzleType;
 
         switch (puzzleType)
         {
@@ -117,6 +119,9 @@ public class PercentagePuzzle : MathPuzzle
 
         base.StartPuzzle();
     }
-
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
+    }
 }
 

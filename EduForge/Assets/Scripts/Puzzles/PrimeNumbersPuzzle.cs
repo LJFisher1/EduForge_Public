@@ -14,7 +14,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
     private string currentQuestion;             // Store the question text
 
     private string[] puzzleTypes = { "IsPrime", "NextPrime", "PrimeFactorization" };
-    private string currentPuzzleType;
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -190,6 +190,10 @@ public class PrimeNumbersPuzzle : MathPuzzle
         }
 
         base.StartPuzzle();
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }
 
