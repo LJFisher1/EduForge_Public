@@ -25,19 +25,18 @@ public class EquationPuzzle : MathPuzzle
             selectedOperator = operators[Random.Range(0, operators.Length)];
             currentPuzzleType = "Equation";
 
+            Debug.Log("Puzzle type set: " + currentPuzzleType);
+
             switch (selectedOperator)
             {
                 case "+":
                     solution = a + b;
-                    currentPuzzleType += ": +";
                     break;
                 case "-":
                     solution = a - b;
-                    currentPuzzleType += ": -";
                     break;
                 case "*":
                     solution = a * b;
-                    currentPuzzleType += ": *";
                     break;
             }
 
@@ -50,8 +49,6 @@ public class EquationPuzzle : MathPuzzle
             // If the puzzle is already generated, reuse the existing equation
             equationText.text = currentEquation;
         }
-
-
     }
 
     protected override void CheckAnswer(string userAnswer)
