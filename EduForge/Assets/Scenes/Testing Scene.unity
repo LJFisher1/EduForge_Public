@@ -336,6 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 6482564723018974732}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &156388739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -575,6 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1792042699}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &218138080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1017,10 +1019,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 44.75
+  m_fontSizeBase: 16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1193,6 +1195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1403409367}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!222 &597581426
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1659,6 +1662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 203912906}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &750802953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1964,6 +1968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 7183702558672261122}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &859015006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2556,6 +2561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 7393965013671562969}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &1357208541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2701,6 +2707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1385038359863222238}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &1452114452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2835,6 +2842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1937474004}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &1694049405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2969,6 +2977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 6639395219338450467}
   puzzleInputController: {fileID: 1223278955}
+  textbookSystem: {fileID: 1812291564}
 --- !u!65 &1745123512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3254,6 +3263,7 @@ GameObject:
   - component: {fileID: 1812291562}
   - component: {fileID: 1812291561}
   - component: {fileID: 1812291560}
+  - component: {fileID: 1812291564}
   m_Layer: 5
   m_Name: Textbook System
   m_TagString: Untagged
@@ -3344,6 +3354,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1812291564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812291559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af385b843aa40c44da01fb6abe9effc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textbookDisplay: {fileID: 471366869}
+  inputController: {fileID: 1223278955}
 --- !u!1 &1905857226
 GameObject:
   m_ObjectHideFlags: 0

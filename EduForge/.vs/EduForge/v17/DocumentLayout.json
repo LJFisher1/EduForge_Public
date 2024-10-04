@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\textbooksystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\puzzles\\sequencepuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\sequencepuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\ui\\puzzleinputcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\puzzleinputcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\puzzles\\equationpuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,12 +23,8 @@
       "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Puzzles\\MathPuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\ui\\puzzleinputcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\puzzleinputcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\puzzles\\sequencepuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzles\\sequencepuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E47A0170-88B2-ACA0-86CF-9CED338DFC4A}|Assembly-CSharp.csproj|D:\\Unity Builds\\EduForge\\EduForge\\assets\\scripts\\puzzles\\statisticspuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -72,33 +72,33 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\TextbookSystem.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\TextbookSystem.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\TextbookSystem.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAtwD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-02T20:39:54.142Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EquationPuzzle.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\EquationPuzzle.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB8AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAowF4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T23:17:49.059Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "SequencePuzzle.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\SequencePuzzle.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCUAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAmwCEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T23:17:51.394Z",
               "EditorCaption": ""
@@ -189,39 +189,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MathPuzzle.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\MathPuzzle.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAswFYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAYwCgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T23:15:36.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "PuzzleInputController.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\UI\\PuzzleInputController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\PuzzleInputController.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\UI\\PuzzleInputController.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\PuzzleInputController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwDsAAABhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T00:10:55.77Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "PuzzleTrigger.cs",
               "DocumentMoniker": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
               "ToolTip": "D:\\Unity Builds\\EduForge\\EduForge\\Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
               "RelativeToolTip": "Assets\\Scripts\\Puzzles\\PuzzleTrigger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T23:34:29.293Z",
               "EditorCaption": ""
