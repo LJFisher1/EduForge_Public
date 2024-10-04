@@ -115,4 +115,9 @@ public class StatisticsPuzzle : MathPuzzle
 
         base.StartPuzzle();
     }
+
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
+    }
 }

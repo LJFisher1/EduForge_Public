@@ -29,17 +29,20 @@ public class EquationPuzzle : MathPuzzle
             {
                 case "+":
                     solution = a + b;
+                    currentPuzzleType += ": +";
                     break;
                 case "-":
                     solution = a - b;
+                    currentPuzzleType += ": -";
                     break;
                 case "*":
                     solution = a * b;
+                    currentPuzzleType += ": *";
                     break;
             }
 
             currentEquation = $"{a} {selectedOperator} {b} = ?";
-            equationText.text = $"{a} {selectedOperator} {b} = ?";
+            equationText.text = currentEquation;
             isPuzzleGenerated = true;
         }
         else

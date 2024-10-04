@@ -18,6 +18,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
         switch (measurementType)
         {
             case 1: // Perimeter
+                currentPuzzleType = "Perimeter";
                 int perimeterShape = (Random.Range(0, 3));
 
                 if (perimeterShape == 0) // Rectangle
@@ -39,6 +40,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                 break;
 
             case 2: // Area
+                currentPuzzleType = "Area";
                 int areaShape = Random.Range(0, 3); // 0 = Triangle, 1 = Rectangle, 2 = Square
                 if (areaShape == 0) // Triangle
                 {
@@ -60,6 +62,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                 break;
 
             case 3: // Volume
+                currentPuzzleType = "Volume";
                 int volumeShape = Random.Range(0, 3); // 0 = Cube, 1 = Cylinder, 2 = Rectangle
                 if (volumeShape == 0) // Cube
                 {

@@ -16,7 +16,7 @@ public class SequencePuzzle : MathPuzzle
     {
         string[] patternTypes = { "Arithmetic", "Geometric", "Fibonacci" };
         string selectedPattern = patternTypes[Random.Range(0, patternTypes.Length)];
-        currentPuzzleType = selectedPattern;
+        currentPuzzleType = "Sequence";
 
         Debug.Log("Generating " + selectedPattern + " sequence.");
         currentSequence.Clear();
@@ -24,14 +24,17 @@ public class SequencePuzzle : MathPuzzle
         switch (selectedPattern)
         {
             case "Arithmetic":
+                currentPuzzleType += ": Arithmetic";
                 GenerationArithmeticSequence(currentSequence);
                 break;
 
             case "Geometric":
+                currentPuzzleType += ": Geometric";
                 GenerateGeometricSequence(currentSequence);
                 break;
 
             case "Fibonacci":
+                currentPuzzleType += ": Fibonacci";
                 GenerateFibonacciSequence(currentSequence);
                 break;
         }
