@@ -4,26 +4,69 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    // Variables to track the locked state and puzzle ID
-    public bool isLocked = true;
-    public string puzzleID; // This ID corresponds to a specific puzzle
+    public bool isLocked = true; // Start with the door locked
+    public float openRotationAngle = 90f; // How much the door will rotate to "open"
+    private bool isOpen = false; // Track if the door is open
+    private bool isPlayerNear = false; // Track if the player is near the door
+    private Quaternion closedRotation; // Save the closed position for later
+    private Quaternion openRotation; // Save the target open position
 
-    // Method to unlock the door
-    public void UnlockDoor()
+    private void Start()
     {
-        isLocked = false;
-        OpenDoor();
+        // Store the original rotation of the door as the "closed" state
+        closedRotation = transform.rotation;
+
+        // Calculate the target open rotation
+        openRotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0, openRotationAngle, 0));
     }
 
-    // Method to open the door
-    private void OpenDoor()
+    private void Update()
     {
-        if (!isLocked)
+        // Check if the player is near and presses the E key, and the door is unlocked
+        if (isPlayerNear && !isLocked && Input.GetKeyDown(KeyCode.E))
         {
-            // Play door opening animation or trigger logic to make the door move
-            Debug.Log("The door is unlocked and opened!");
-            // animate the door to rotate or move
-            // transform.Rotate(0f, 90f, 0f); // Basic example for a hinge opening
+            ToggleDoor();
+        }
+    }
+
+    private void ToggleDoor()
+    {
+        if (isOpen)
+        {
+            // Close the door (set rotation back to the closed state)
+            transform.rotation = closedRotation;
+        }
+        else
+        {
+            // Open the door (rotate by the openRotationAngle)
+            transform.rotation = openRotation;
+        }
+        isOpen = !isOpen; // Toggle the state
+    }
+
+    public void UnlockDoor()
+    {
+        isLocked = false; // Unlock the door, allows player to open it
+        Debug.Log("The door is unlocked.");
+    }
+
+    // This detects when the player is near the door
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) // Make sure the player has the tag "Player"
+        {
+            isPlayerNear = true;
+            Debug.Log("Player near the door.");
+        }
+    }
+
+    // This detects when the player moves away from the door
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNear = false;
+            Debug.Log("Player left the door.");
         }
     }
 }

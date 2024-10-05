@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 public abstract class MathPuzzle : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public abstract class MathPuzzle : MonoBehaviour
     public GameObject puzzleUI; // The puzzle UI object
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
 
+    // Declare the event that will be triggered when the puzzle is solved
+    public UnityEvent<string> onPuzzleSolved;
+
     protected bool puzzleSolved = false; // Track if the puzzle was solved
     protected bool isPuzzleGenerated = false; // Track if the puzzle has been generated
 
@@ -17,6 +22,12 @@ public abstract class MathPuzzle : MonoBehaviour
     protected virtual void Start()
     {
         submitButton.onClick.AddListener(OnSubmitAnswer);
+
+        // Initialize the UnityEvent if not already done
+        if (onPuzzleSolved == null)
+        {
+            onPuzzleSolved = new UnityEvent<string>();
+        }
 
         // Hide the puzzle UI initially
         puzzleUI.SetActive(false);
@@ -75,5 +86,12 @@ public abstract class MathPuzzle : MonoBehaviour
     protected virtual void OnSubmitAnswer()
     {
         CheckAnswer(inputField.text);
+
+        // If the puzzle is solved, invoke the onPuzzleSolved event
+        if (puzzleSolved)
+        {
+            // Trigger the event, passing the puzzle's name or ID
+            onPuzzleSolved.Invoke(this.gameObject.name);
+        }
     }
 }
