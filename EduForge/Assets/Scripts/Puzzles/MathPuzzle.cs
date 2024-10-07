@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 public abstract class MathPuzzle : MonoBehaviour
 {
@@ -10,16 +12,22 @@ public abstract class MathPuzzle : MonoBehaviour
     public GameObject puzzleUI; // The puzzle UI object
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
 
+    // Declare the event that will be triggered when the puzzle is solved
+    public UnityEvent<string> onPuzzleSolved;
+
     protected bool puzzleSolved = false; // Track if the puzzle was solved
     protected bool isPuzzleGenerated = false; // Track if the puzzle has been generated
-
-    // public string difficulty; // This to be implemented in the future for use in a switch in each puzzle type for the difficulty
-    // Can also use 0, 1, 2 for Easy, Medium, Hard, and so forth
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        submitButton.onClick.AddListener(CheckAnswer);
+        submitButton.onClick.AddListener(OnSubmitAnswer);
+
+        // Initialize the UnityEvent if not already done
+        if (onPuzzleSolved == null)
+        {
+            onPuzzleSolved = new UnityEvent<string>();
+        }
 
         // Hide the puzzle UI initially
         puzzleUI.SetActive(false);
@@ -64,7 +72,12 @@ public abstract class MathPuzzle : MonoBehaviour
     }
 
     // Check the player's answer; to be implemented by each puzzle type
-    protected abstract void CheckAnswer();
+    protected abstract void CheckAnswer(string userAnswer); // Re-protected so only the correct puzzle can call it
+
+    public void SubmitPuzzleAnswer(string userAnswer)        // To be used by the classes to call check answer
+    {
+        CheckAnswer(userAnswer);
+    }
 
     // Method to generate the puzzle; to be implemented by each puzzle type
     protected abstract void GeneratePuzzle();
@@ -73,4 +86,19 @@ public abstract class MathPuzzle : MonoBehaviour
     {
         return puzzleSolved;
     }
+
+    // A method to handle the submit button interaction
+    protected virtual void OnSubmitAnswer()
+    {
+        CheckAnswer(inputField.text);
+
+        // If the puzzle is solved, invoke the onPuzzleSolved event
+        if (puzzleSolved)
+        {
+            // Trigger the event, passing the puzzle's name or ID
+            onPuzzleSolved.Invoke(this.gameObject.name);
+        }
+    }
+
+    public abstract void ResetPuzzleState(); 
 }

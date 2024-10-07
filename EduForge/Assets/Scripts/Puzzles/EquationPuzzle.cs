@@ -7,41 +7,59 @@ using UnityEngine.UI;
 public class EquationPuzzle : MathPuzzle
 {
     public TextMeshProUGUI equationText;
-    private int solution;
+
+    // To store puzzle data 
+    private int solution;               // Store the solution
+    private string currentEquation;     // Store the equation text
+    private string selectedOperator;    // Store the selected operator
+    private int a, b;                   // Store the operands
 
     protected override void GeneratePuzzle()
     {
-        int a = Random.Range(1, 20); // Random #1 1-20
-        int b = Random.Range(1, 20); // Random #2 1-20
-        string[] operators = { "+", "-", "*" }; // Array of operators
-        string selectedOperator = operators[Random.Range(0, operators.Length)]; // Randomly chooses an operator
-
-        // Calculate the solution based on operator
-        switch (selectedOperator)
+        if (!isPuzzleGenerated)
         {
-            case "+":
-                solution = a + b;
-                break;
-            case "-":
-                solution = a - b;
-                break;
-            case "*":
-                solution = a * b;
-                break;
+            int a = Random.Range(1, 20);
+            int b = Random.Range(1, 20);
+            string[] operators = { "+", "-", "*" };
+            selectedOperator = operators[Random.Range(0, operators.Length)];
+
+            switch (selectedOperator)
+            {
+                case "+":
+                    solution = a + b;
+                    break;
+                case "-":
+                    solution = a - b;
+                    break;
+                case "*":
+                    solution = a * b;
+                    break;
+            }
+
+            currentEquation = $"{a} {selectedOperator} {b} = ?";
+            equationText.text = $"{a} {selectedOperator} {b} = ?";
+            isPuzzleGenerated = true;
         }
-        equationText.text = $"{a} {selectedOperator} {b} = ?"; // Display the generation equation
+        else
+        {
+            // If the puzzle is already generated, reuse the existing equation
+            equationText.text = currentEquation;
+        }
+
+
     }
 
-    protected override void CheckAnswer()
+    protected override void CheckAnswer(string userAnswer)
     {
-        if (int.TryParse(inputField.text, out int userAnswer))
+        if (int.TryParse(userAnswer, out int parsedAnswer))
         {
-            if (userAnswer == solution)
+            if (parsedAnswer == solution)
             {
                 Debug.Log("Correct! Well done.");
-                puzzleSolved = true; // Mark puzzle as solved
+                puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
+                ResetPuzzleState();
             }
             else
             {
@@ -55,4 +73,30 @@ public class EquationPuzzle : MathPuzzle
         }
     }
 
+    public override void StartPuzzle()
+    {
+        // If the puzzle is already generated and unsolved, show the existing equation
+        if (isPuzzleGenerated && !IsPuzzleSolved())
+        {
+            // Display the existing equation without regenerating it
+            Debug.Log("Resuming unsolved equation: " + currentEquation);
+            equationText.text = currentEquation;
+            puzzleUI.SetActive(true);
+            playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
+            return;
+        }
+
+        // Otherwise, generate a new puzzle
+        base.StartPuzzle();
+    }
+
+    public override void ResetPuzzleState()
+    {
+        isPuzzleGenerated = false;  // Reset to allow a new puzzle to be generated
+        currentEquation = null;     // Clear the stored equation
+        selectedOperator = "";        // Clear the selected operator
+        a = 0;                        // Clear operand a
+        b = 0;                        // Clear operand b
+        equationText.text = "";        // Clear the displayed equation (optional, but useful for cleanliness)
+    }
 }

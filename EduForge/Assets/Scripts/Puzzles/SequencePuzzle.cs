@@ -6,123 +6,89 @@ using UnityEngine;
 public class SequencePuzzle : MathPuzzle
 {
     public TextMeshProUGUI sequenceText;
-    private int nextValueInSequence;
-    // Currently each puzzle has a fixed number of values, in the future we'll add a variable to change that based on difficulty
-    // Should also add additional text to display to the user what type of puzzle was created so they aren't confused
+
+    // To store puzzle data 
+    private int nextValueInSequence; // The next value in the sequence (also the solution)
+    private List<int> currentSequence = new List<int>(); // To store the generated sequence
 
     protected override void GeneratePuzzle()
     {
         string[] patternTypes = { "Arithmetic", "Geometric", "Fibonacci" };
         string selectedPattern = patternTypes[Random.Range(0, patternTypes.Length)];
-        //string selectedPattern = "Fibonacci"; // This is for debugging
 
-        // Debug to show which puzzle was generated
         Debug.Log("Generating " + selectedPattern + " sequence.");
-
-        List<int> sequence = new List<int>();
+        currentSequence.Clear();
 
         switch (selectedPattern)
         {
             case "Arithmetic":
-                GenerationArithmeticSequence(sequence);
+                GenerationArithmeticSequence(currentSequence);
                 break;
 
             case "Geometric":
-                GenerateGeometricSequence(sequence);
+                GenerateGeometricSequence(currentSequence);
                 break;
 
             case "Fibonacci":
-                GenerateFibonacciSequence(sequence);
+                GenerateFibonacciSequence(currentSequence);
                 break;
         }
 
         // Display the sequence to the player, hiding the last value
-        sequenceText.text = string.Join(", ", sequence.GetRange(0, sequence.Count - 1)) + ", ?";
+        sequenceText.text = string.Join(", ", currentSequence.GetRange(0, currentSequence.Count - 1)) + ", ?";
         Debug.Log(nextValueInSequence);
+
+        isPuzzleGenerated = true;
     }
 
-    // Tested extensively
     private void GenerationArithmeticSequence(List<int> sequence)
     {
-        // Sequence is either + or -
         int start = Random.Range(1, 20);
         int difference = Random.Range(1, 10);
-
-        // Randomly choose between addition and subtraction
         bool useAddition = Random.Range(0, 2) == 0;
 
-        Debug.Log($"Starting value: {start}, Difference: {difference}, Using Addition: {useAddition}");
-
-        for (int i = 0; i < 5; i++) // Start occupies the 0 space, so its only adding 4 additional numbers even though it loops 5 times.
+        for (int i = 0; i < 5; i++)
         {
-            if (useAddition)
-            {
-                sequence.Add(start + i * difference);
-            }
-            else
-            {
-                sequence.Add(start - i * difference);
-            }
+            sequence.Add(useAddition ? start + i * difference : start - i * difference);
         }
 
-        // The next value in the sequence
-        if (useAddition)
-        {
-            nextValueInSequence = start + 4 * difference;
-        }
-        else
-        {
-            nextValueInSequence = start - 4 * difference;
-        }
-
-        Debug.Log($"Next Value in Sequence: {nextValueInSequence}");
+        nextValueInSequence = useAddition ? start + 4 * difference : start - 4 * difference;
     }
 
-    // Tested extensively
     private void GenerateGeometricSequence(List<int> sequence)
     {
-        // Sequence is * or /
-        int start = Random.Range(20, 100); // Starting value
-        int ratio = Random.Range(2, 5); // Common ratio (integer)
-
+        int start = Random.Range(20, 100);
+        int ratio = Random.Range(2, 5);
         bool useMultiplication = Random.Range(0, 2) == 0;
 
-        // Initialize sequence with starting value
-        sequence.Clear(); // Clear any invalid values from previous generations
         sequence.Add(start);
-
-        Debug.Log($"Starting value: {start}, Ratio: {ratio}, Using Multiplication: {useMultiplication}");
-
-        for (int i = 0; i < 4; i++) // Generate 4 additional values to make 5 in total
+        for (int i = 0; i < 4; i++)
         {
             if (useMultiplication)
             {
-                start *= ratio; // Multiply by the ratio
+                start *= ratio;
             }
             else
             {
                 if (start % ratio == 0)
                 {
-                    start /= ratio; // Ensure division won't create fractions
+                    start /= ratio;
                 }
                 else
                 {
-                    // If division would result in a fraction, retry with a new sequence
-                    GenerateGeometricSequence(sequence); // Recursively generate a new sequence
-                    return; // Exit to avoid adding incorrect values
-
+                    GenerateGeometricSequence(sequence);
+                    return;
                 }
             }
             sequence.Add(start);
-            Debug.Log($"Value at step {i + 1}: {start}");
         }
         nextValueInSequence = start;
     }
 
     private void GenerateFibonacciSequence(List<int> sequence)
     {
-        int a = Random.Range(0, 10);  // Random starting value for the sequence
-        int b = Random.Range(1, 10);  // Random second value for the sequence
+        int a = Random.Range(0, 10);
+        int b = Random.Range(1, 10);
         int next = 0;
 
         sequence.Add(a);
@@ -138,16 +104,17 @@ public class SequencePuzzle : MathPuzzle
         nextValueInSequence = next;
     }
 
-    protected override void CheckAnswer()
+    protected override void CheckAnswer(string userAnswer)
     {
-        if (int.TryParse(inputField.text, out int userAnswer))
+        if (int.TryParse(userAnswer, out int parsedAnswer))
         {
-            if (userAnswer == nextValueInSequence)
+            if (parsedAnswer == nextValueInSequence)
             {
                 Debug.Log("Correct! Well done.");
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
+                ResetPuzzleState();
             }
             else
             {
@@ -161,4 +128,38 @@ public class SequencePuzzle : MathPuzzle
         }
     }
 
+    public override void StartPuzzle()
+    {
+        if (isPuzzleGenerated && !IsPuzzleSolved())
+        {
+            if (currentSequence.Count > 0)
+            {
+                // Only display the sequence if it's not empty
+                Debug.Log("Resuming unsolved sequence.");
+                sequenceText.text = string.Join(", ", currentSequence.GetRange(0, currentSequence.Count - 1)) + ", ?";
+            }
+            else
+            {
+                // Handle the case where there is no sequence to display
+                Debug.LogWarning("Current sequence is empty. Generating a new puzzle.");
+                GeneratePuzzle();
+            }
+
+            puzzleUI.SetActive(true);
+            playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
+            return;
+        }
+
+        // Otherwise, generate a new puzzle
+        base.StartPuzzle();
+    }
+
+
+    public override void ResetPuzzleState()
+    {
+        isPuzzleGenerated = false;  // Reset to allow a new puzzle to be generated
+        nextValueInSequence = 0;    // Clear the next value in the sequence
+        currentSequence.Clear();    // Clear the stored sequence
+        sequenceText.text = "";     // Clear the displayed sequence
+    }
 }
