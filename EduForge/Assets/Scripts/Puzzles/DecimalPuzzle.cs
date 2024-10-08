@@ -25,12 +25,15 @@ public class DecimalPuzzle : MathPuzzle
         switch (selectedOperator)
         {
             case "+":
+                currentPuzzleType += ": +";
                 solution = a + b;
                 break;
             case "-":
+                currentPuzzleType += ": -";
                 solution = a - b;
                 break;
             case "*":
+                currentPuzzleType += ": *";
                 solution = a * b;
                 break;
         }

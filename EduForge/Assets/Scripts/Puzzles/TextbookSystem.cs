@@ -76,7 +76,49 @@ public class TextbookSystem : MonoBehaviour
             " The next number would be 13.", "Fibonacci"));
         textbook.Add("Sequence: Fibonacci", sequenceInfo);
 
-        //DisplayPuzzleInfo("Sequence"); // For testing
+        // Decimal Puzzle Info
+        var decimalInfo = new PuzzleInfo
+            ("Decimal",
+            "Decimals are numbers that include a decimal point, representing fractions in a base-10 system. They are used in various calculations."
+            );
+        decimalInfo.AddExample(new Example("What is 0.5 + 0.3?", "To solve this problem, add 0.5 and 0.3 together. The result is 0.8", "+"));
+        textbook.Add("Decimal: +", decimalInfo);
+        decimalInfo.AddExample(new Example("What is 7.4 - 3.6?", "To solve this problem, subtract 3.6 from 7.4. The result is 3.8", "-"));
+        textbook.Add("Decimal: -", decimalInfo);
+        //decimalInfo.AddExample(new Example("What is 0.6 * 0.4?", "To solve this problem, multiply 0.6 by 0.4. The result is 0.24", "*"));
+        decimalInfo.AddExample(new Example("What is 0.6 * 0.4?",
+        "To solve this problem, follow these steps: \n" +
+        "1. Ignore the decimal points and multiply as if they were whole numbers: 6 * 4 = 24. \n" +
+        "2. Count the total number of decimal places in both numbers (0.6 has 1 decimal place, and 0.4 has 1 decimal place, totaling 2). \n" +
+        "3. Place the decimal point in the result (24) so that there are 2 decimal places: The result is 0.24.",
+        "*"));
+        textbook.Add("Decimal: *", decimalInfo);
+
+
+        // Percentage Puzzle Info
+        var percentageInfo = new PuzzleInfo
+            (
+            "Percentage",
+            "A percentage expresses a number as a fraction of 100, represented by the percent symbol (%). It is commonly used to compare quantities."
+            );
+
+
+
+        // PEMDAS Puzzle Info
+
+
+        // Prime Number Puzzle Info
+
+
+        // Statistics Puzzle Info
+
+
+        // Modular Arithmetic Puzzle Info
+
+
+        // Geometric Measurements Puzzle Info
+
+
     }
 
     public void DisplayPuzzleInfo(string puzzleType, string operation = null)
@@ -99,7 +141,7 @@ public class TextbookSystem : MonoBehaviour
                 }
             }
 
-            textbookDisplay.text = displayContent;
+            textbookDisplay.text = displayContent + "\n Press 'T' to turn display on/off.";
         }
         else
         {
