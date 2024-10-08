@@ -55,11 +55,25 @@ public class TextbookSystem : MonoBehaviour
             "An equation is a mathematical statement that asserts the equality of two expressions."
             );
 
-        equationInfo.AddExample(new Example("What is 4 + 5?", "To solve this problem, add 4 and 5 together. The result is 9.", "+"));
+        equationInfo.AddExample(new Example("What is 4 + 5?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the numbers: 4 and 5. \n" +
+            "2. Add the two numbers together: 4 + 5 = 9. \n" +
+            "3. The result is 9.", "+"));
         textbook.Add("Equation: +", equationInfo);
-        equationInfo.AddExample(new Example("What is 10 - 3?", "To solve this problem, subtract 3 from 10. The result is 7.", "-"));
+
+        equationInfo.AddExample(new Example("What is 10 - 3?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the numbers: 10 and 3. \n" +
+            "2. Subtract the second number from the first: 10 - 3 = 7. \n" +
+            "3. The result is 7.", "-"));
         textbook.Add("Equation: -", equationInfo);
-        equationInfo.AddExample(new Example("What is 17 * 5?", "To solve this problem, multiply 17 by 5. The result is 85.", "*"));
+
+        equationInfo.AddExample(new Example("What is 17 * 5?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the numbers: 17 and 5. \n" +
+            "2. Multiply the two numbers together: 17 * 5 = 85. \n" +
+            "3. The result is 85.", "*"));
         textbook.Add("Equation: *", equationInfo);
 
         // Sequence Puzzle Info
@@ -68,40 +82,56 @@ public class TextbookSystem : MonoBehaviour
             "A sequence is an ordered list of numbers that follows a specific pattern or rule."
             );
 
-        sequenceInfo.AddExample(new Example("What is the next number in the Arithmetic sequence: 2, 4, 6, 8, ?", "The pattern is adding 2. The next number is 10.", "Arithmetic"));
+        sequenceInfo.AddExample(new Example("What is the next number in the Arithmetic sequence: 2, 4, 6, 8, ?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the pattern: each number increases by 2. \n" +
+            "2. Add 2 to the last number: 8 + 2 = 10. \n" +
+            "3. The next number is 10.", "Arithmetic"));
         textbook.Add("Sequence: Arithmetic", sequenceInfo);
-        sequenceInfo.AddExample(new Example("What is the next number in the Geometric sequence: 3, 9, 27, ?", "The pattern is multiplying by 3. The next number is 81.", "Geometric"));
+
+        sequenceInfo.AddExample(new Example("What is the next number in the Geometric sequence: 3, 9, 27, ?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the pattern: each number is multiplied by 3. \n" +
+            "2. Multiply the last number by 3: 27 * 3 = 81. \n" +
+            "3. The next number is 81.", "Geometric"));
         textbook.Add("Sequence: Geometric", sequenceInfo);
-        sequenceInfo.AddExample(new Example("What is the next number in the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, ?", "The pattern is that each number is the sum of the two preceding numbers." +
-            " The next number would be 13.", "Fibonacci"));
+
+        sequenceInfo.AddExample(new Example("What is the next number in the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, ?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the pattern: each number is the sum of the two preceding numbers. \n" +
+            "2. Add the last two numbers: 5 + 8 = 13. \n" +
+            "3. The next number is 13.", "Fibonacci"));
         textbook.Add("Sequence: Fibonacci", sequenceInfo);
 
         // Decimal Puzzle Info
         var decimalInfo = new PuzzleInfo
             ("Decimal",
-            "Decimals are numbers that include a decimal point, representing fractions in a base-10 system. They are used in various calculations."
+            "Decimals are numbers that include a decimal point, representing fractions in a base-10 system."
             );
-        decimalInfo.AddExample(new Example("What is 0.5 + 0.3?", "To solve this problem, add 0.5 and 0.3 together. The result is 0.8", "+"));
+
+        decimalInfo.AddExample(new Example("What is 0.5 + 0.3?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the numbers: 0.5 and 0.3. \n" +
+            "2. Add the two numbers together: 0.5 + 0.3 = 0.8. \n" +
+            "3. The result is 0.8.", "+"));
         textbook.Add("Decimal: +", decimalInfo);
-        decimalInfo.AddExample(new Example("What is 7.4 - 3.6?", "To solve this problem, subtract 3.6 from 7.4. The result is 3.8", "-"));
+
+        decimalInfo.AddExample(new Example("What is 7.4 - 3.6?",
+            "To solve this problem, follow these steps: \n" +
+            "1. Identify the numbers: 7.4 and 3.6. \n" +
+            "2. Subtract the second number from the first: 7.4 - 3.6 = 3.8. \n" +
+            "3. The result is 3.8.", "-"));
         textbook.Add("Decimal: -", decimalInfo);
-        //decimalInfo.AddExample(new Example("What is 0.6 * 0.4?", "To solve this problem, multiply 0.6 by 0.4. The result is 0.24", "*"));
+
         decimalInfo.AddExample(new Example("What is 0.6 * 0.4?",
-        "To solve this problem, follow these steps: \n" +
-        "1. Ignore the decimal points and multiply as if they were whole numbers: 6 * 4 = 24. \n" +
-        "2. Count the total number of decimal places in both numbers (0.6 has 1 decimal place, and 0.4 has 1 decimal place, totaling 2). \n" +
-        "3. Place the decimal point in the result (24) so that there are 2 decimal places: The result is 0.24.",
-        "*"));
+            "To solve this problem, follow these steps: \n" +
+            "1. Ignore the decimal points and multiply as if they were whole numbers: 6 * 4 = 24. \n" +
+            "2. Count the total number of decimal places in both numbers (0.6 has 1 decimal place, and 0.4 has 1 decimal place, totaling 2). \n" +
+            "3. Place the decimal point in the result (24) so that there are 2 decimal places: The result is 0.24.", "*"));
         textbook.Add("Decimal: *", decimalInfo);
 
 
         // Percentage Puzzle Info
-        var percentageInfo = new PuzzleInfo
-            (
-            "Percentage",
-            "A percentage expresses a number as a fraction of 100, represented by the percent symbol (%). It is commonly used to compare quantities."
-            );
-
 
 
         // PEMDAS Puzzle Info
