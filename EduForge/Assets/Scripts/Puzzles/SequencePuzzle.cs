@@ -24,14 +24,17 @@ public class SequencePuzzle : MathPuzzle
         switch (selectedPattern)
         {
             case "Arithmetic":
+                currentPuzzleType += ": Arithmetic";
                 GenerationArithmeticSequence(currentSequence);
                 break;
 
             case "Geometric":
+                currentPuzzleType += ": Geometric";
                 GenerateGeometricSequence(currentSequence);
                 break;
 
             case "Fibonacci":
+                currentPuzzleType += ": Fibonacci";
                 GenerateFibonacciSequence(currentSequence);
                 break;
         }

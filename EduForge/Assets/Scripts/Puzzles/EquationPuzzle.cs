@@ -30,16 +30,19 @@ public class EquationPuzzle : MathPuzzle
             switch (selectedOperator)
             {
                 case "+":
+                    currentPuzzleType += ": +";
                     solution = a + b;
                     break;
                 case "-":
+                    currentPuzzleType += ": -";
                     solution = a - b;
                     break;
                 case "*":
+                    currentPuzzleType += ": *";
                     solution = a * b;
                     break;
             }
-
+            Debug.Log("Puzzle type set: " + currentPuzzleType);
             currentEquation = $"{a} {selectedOperator} {b} = ?";
             equationText.text = currentEquation;
             isPuzzleGenerated = true;
@@ -94,12 +97,12 @@ public class EquationPuzzle : MathPuzzle
 
     public override void ResetPuzzleState()
     {
-        isPuzzleGenerated = false;  // Reset to allow a new puzzle to be generated
-        currentEquation = null;     // Clear the stored equation
-        selectedOperator = "";        // Clear the selected operator
-        a = 0;                        // Clear operand a
-        b = 0;                        // Clear operand b
-        equationText.text = "";        // Clear the displayed equation (optional, but useful for cleanliness)
+        isPuzzleGenerated = false;      // Reset to allow a new puzzle to be generated
+        currentEquation = null;         // Clear the stored equation
+        selectedOperator = "";          // Clear the selected operator
+        a = 0;                          // Clear operand a
+        b = 0;                          // Clear operand b
+        equationText.text = "";         // Clear the displayed equation (optional, but useful for cleanliness)
     }
     public override string GetCurrentPuzzleType()
     {
