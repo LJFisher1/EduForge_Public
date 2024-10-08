@@ -6,6 +6,7 @@ public class TextbookSystem : MonoBehaviour
 {
     public TextMeshProUGUI textbookDisplay;
     public PuzzleInputController inputController;
+    private bool isTextbookVisible = false;
 
     public class Example
     {
@@ -121,7 +122,16 @@ public class TextbookSystem : MonoBehaviour
                 string puzzleType = inputController.currentPuzzle.GetCurrentPuzzleType();
                 if (!string.IsNullOrEmpty(puzzleType))
                 {
-                    DisplayExampleForPuzzleType(puzzleType);
+                    if (isTextbookVisible)
+                    {
+                        textbookDisplay.text = "";
+                        isTextbookVisible = false;
+                    }
+                    else
+                    {
+                        DisplayExampleForPuzzleType(puzzleType);
+                        isTextbookVisible = true;
+                    }
                 }
                 else
                 {
