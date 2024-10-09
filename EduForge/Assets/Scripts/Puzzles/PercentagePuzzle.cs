@@ -38,7 +38,7 @@ public class PercentagePuzzle : MathPuzzle
                 break;
 
             case "Percentage Ratio":
-                currentPuzzleType += "Percentage Ratio";
+                currentPuzzleType += ": Percentage Ratio";
                 solution = (a / b) * 100f;
                 currentQuestion = $"What percentage is {a:F2} of {b:F2}?";
                 break;
