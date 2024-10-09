@@ -50,14 +50,15 @@ public class DecimalPuzzle : MathPuzzle
     {
         if (float.TryParse(userAnswer, out float parsedAnswer))
         {
+            float tolerance = 0.01f; // Small tolerance for comparison
+            float difference = Mathf.Abs(solution - parsedAnswer);
 
-            float roundedSolution = Mathf.Round(solution * 100f) / 100f;
-            float roundedParsedAnswer = Mathf.Round(parsedAnswer * 100f) / 100f;
+            Debug.Log($"Parsed Answer: {parsedAnswer}");
+            Debug.Log($"Correct Answer: {solution}");
+            Debug.Log($"Difference: {difference}");
 
-            Debug.Log($"Rounded Parsed Answer: {roundedParsedAnswer}");
-            Debug.Log($"Rounded Correct Answer: {roundedSolution}");
-
-            if (roundedSolution == roundedParsedAnswer)
+            // Had an issue where the answer was 12.25 but the program thought 12.24, giving a false negative.
+            if (difference <= tolerance)
             {
                 Debug.Log("Correct! Well done.");
                 puzzleSolved = true;
@@ -102,7 +103,7 @@ public class DecimalPuzzle : MathPuzzle
             playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
             return;
         }
-        
+
         // Otherwise, generate a new puzzle
         base.StartPuzzle();
     }
