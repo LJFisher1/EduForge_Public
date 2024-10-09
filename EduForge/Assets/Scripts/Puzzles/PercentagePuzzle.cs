@@ -19,34 +19,39 @@ public class PercentagePuzzle : MathPuzzle
         a = Mathf.Round(Random.Range(1.0f, 100.0f));     // Percentage (1% to 100%) - Both are rounded to whole numbers for now, in the future when we do difficulty settings
         b = Mathf.Round(Random.Range(10.0f, 1000.0f));   // Value for operations    - We'll change that depending on difficulty
 
-        string[] puzzleTypes = { "What is A% of B?", "What is A% off of B?", "What percentage is A of B?", "Percentage Increase", "Percentage Decrease" };
+        string[] puzzleTypes = { "Percentage Of", "Percentage Discount", "Percentage Ratio", "Percentage Increase", "Percentage Decrease" };
         puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
-        currentPuzzleType = puzzleType;
+        currentPuzzleType = "Percentage";
 
         switch (puzzleType)
         {
-            case "What is A% of B?":
+            case "Percentage Of":
+                currentPuzzleType += ": Percentage Of";
                 solution = (a / 100f) * b;
                 currentQuestion = $"What is {a:F2}% of {b:F2}?";
                 break;
 
-            case "What is A% off of B?":
+            case "Percentage Discount":
+                currentPuzzleType += ": Percentage Discount";
                 solution = b - (a / 100f) * b;
                 currentQuestion = $"{a:F2}% off of {b:F2} is?";
                 break;
 
-            case "What percentage is A of B?":
+            case "Percentage Ratio":
+                currentPuzzleType += "Percentage Ratio";
                 solution = (a / b) * 100f;
                 currentQuestion = $"What percentage is {a:F2} of {b:F2}?";
                 break;
 
             case "Percentage Increase":
+                currentPuzzleType += ": Percentage Increase";
                 float newValueIncrease = b + Random.Range(10f, 100f);  // New value for increase
                 solution = ((newValueIncrease - b) / b) * 100f;
                 currentQuestion = $"If a value increases from {b:F2} to {newValueIncrease:F2}, what is the percentage increase?";
                 break;
 
             case "Percentage Decrease":
+                currentPuzzleType += ": Percentage Decrease";
                 float newValueDecrease = b - Random.Range(10f, b - 10f);  // New value for decrease
                 solution = ((b - newValueDecrease) / b) * 100f;
                 currentQuestion = $"If a value decreases from {b:F2} to {newValueDecrease:F2}, what is the percentage decrease?";
