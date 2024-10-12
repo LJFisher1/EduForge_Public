@@ -13,6 +13,7 @@ public class StatisticsPuzzle : MathPuzzle
     private string currentQuestion;            // Store the equation text
     protected string currentPuzzleType;
     private string[] puzzleTypes = { "Mean", "Median", "Range" }; // "Mode" is another type but with only 5 elements, the chances of Mode being applicable are almost zero
+    private string puzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -22,7 +23,7 @@ public class StatisticsPuzzle : MathPuzzle
             numbers.Add(Random.Range(1, 101));
         }
 
-        string puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
+        puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
 
         switch (puzzleType)
         {
@@ -65,7 +66,7 @@ public class StatisticsPuzzle : MathPuzzle
         {
             float correctAnswer = 0;
 
-            switch (currentPuzzleType)
+            switch (puzzleType)
             {
                 case "Mean":
                     correctAnswer = (float)(Math.Round(numbers.Average(), 2));

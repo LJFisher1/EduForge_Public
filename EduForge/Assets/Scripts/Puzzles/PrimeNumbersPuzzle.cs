@@ -97,12 +97,6 @@ public class PrimeNumbersPuzzle : MathPuzzle
         switch (currentPuzzleType)
         {
             case "IsPrime":
-                //    bool playerAnswerIsYes = userAnswer.ToLower() == "yes";
-                //    bool correctAnswer = isPrime == playerAnswerIsYes;
-                //    HandlePrimeAnswer(correctAnswer);
-                //    break;
-                // Below is temporary, until we have Yes/No buttons 0 is No and 1 is Yes
-                // Once those buttons are in place, remove all but commented code from this case
                 if (int.TryParse(userAnswer, out int parsedAnswer) && (parsedAnswer == 1 || parsedAnswer == 0))
                 {
                     bool playerAnswerIsYes = parsedAnswer == 1;
@@ -114,7 +108,6 @@ public class PrimeNumbersPuzzle : MathPuzzle
                     Debug.Log("Invalid input. Please enter 1 for Yes or 0 for No.");
                 }
                 break;
-
 
             case "NextPrime":
                 if (int.TryParse(userAnswer, out int nextPrimeAnswer))

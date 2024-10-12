@@ -435,14 +435,29 @@ public class TextbookSystem : MonoBehaviour
                 }
                 else
                 {
-                    textbookDisplay.text = "";
-                    isTextbookVisible = false;
+                    isTextbookVisible = !isTextbookVisible;
+                    if (isTextbookVisible == true)
+                    {
+                        textbookDisplay.text = "Interact with another puzzle!";
+                    }
+                    else
+                    {
+                        textbookDisplay.text = "";
+                    }
                     Debug.Log("Puzzle type is null or empty.");
                 }
             }
             else
             {
-                textbookDisplay.text = "Interact with a puzzle first!";
+                isTextbookVisible = !isTextbookVisible;
+                if (isTextbookVisible == true)
+                {
+                    textbookDisplay.text = "Interact with a puzzle first!";
+                }
+                else
+                {
+                    textbookDisplay.text = "";
+                }
                 Debug.Log("No active puzzle found.");
             }
         }
