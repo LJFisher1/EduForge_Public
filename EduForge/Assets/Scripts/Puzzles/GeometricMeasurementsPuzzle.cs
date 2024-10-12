@@ -14,11 +14,13 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
+        currentPuzzleType = "Geometric Measurements";
         measurementType = Random.Range(1, 4); // 1 = Perimeter, 2 = Area, 3 = Volume
         switch (measurementType)
         {
             case 1: // Perimeter
-                currentPuzzleType = "Perimeter";
+                currentPuzzleType += ": Perimeter";
+                Debug.Log(currentPuzzleType);
                 int perimeterShape = (Random.Range(0, 3));
 
                 if (perimeterShape == 0) // Rectangle
@@ -40,7 +42,8 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                 break;
 
             case 2: // Area
-                currentPuzzleType = "Area";
+                currentPuzzleType += ": Area";
+                Debug.Log(currentPuzzleType);
                 int areaShape = Random.Range(0, 3); // 0 = Triangle, 1 = Rectangle, 2 = Square
                 if (areaShape == 0) // Triangle
                 {
@@ -62,7 +65,8 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                 break;
 
             case 3: // Volume
-                currentPuzzleType = "Volume";
+                currentPuzzleType += ": Volume";
+                Debug.Log(currentPuzzleType);
                 int volumeShape = Random.Range(0, 3); // 0 = Cube, 1 = Cylinder, 2 = Rectangle
                 if (volumeShape == 0) // Cube
                 {
@@ -159,7 +163,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
 
             // Using a tolerance for floating point comparison
             float tolerance = 0.01f;
-            if (Mathf.Abs(roundedParsedAnswer - correctAnswer) < tolerance)
+            if ((roundedParsedAnswer - correctAnswer) < tolerance)
             {
                 Debug.Log("Correct! The answer is correct.");
                 puzzleSolved = true;
@@ -194,6 +198,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
             triangleBase = 0;
             measurementType = 0;
             geometricText.text = "";
+            currentPuzzleType = "";
         }
     }
 

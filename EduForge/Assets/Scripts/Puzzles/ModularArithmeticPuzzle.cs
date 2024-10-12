@@ -29,19 +29,22 @@ public class ModularArithmeticPuzzle : MathPuzzle
         }
 
         puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
-        currentPuzzleType = puzzleType;
+        currentPuzzleType = "Modular Arithmetic";
 
         switch (puzzleType)
         {
             case "Basic Modulo":
+                currentPuzzleType += ": Basic Modulo";
                 currentEquation = $"What is {a} % {b}?";
                 break;
 
             case "Equivalence":
+                currentPuzzleType += ": Equivalence";
                 currentEquation = $"Are {x} and {y} congruent under modulo {b}? (yes/no)";
                 break;
 
             case "Word Problem":
+                currentPuzzleType += ": Word Problem";
                 currentEquation = $"You have {a} items and {b} boxes. How many items are left after distributing evenly?";
                 break;
         }
@@ -62,6 +65,7 @@ public class ModularArithmeticPuzzle : MathPuzzle
             y = 0;
             currentEquation = "";
             modularText.text = "";
+            currentPuzzleType = "";
         }
     }
 

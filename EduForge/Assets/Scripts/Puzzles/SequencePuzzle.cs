@@ -166,6 +166,7 @@ public class SequencePuzzle : MathPuzzle
         nextValueInSequence = 0;    // Clear the next value in the sequence
         currentSequence.Clear();    // Clear the stored sequence
         sequenceText.text = "";     // Clear the displayed sequence
+        currentPuzzleType = "";
     }
 
     public override string GetCurrentPuzzleType()

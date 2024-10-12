@@ -90,6 +90,7 @@ public class DecimalPuzzle : MathPuzzle
             b = 0;                          // Clear operand b
             currentEquation = "";           // Clear the equation text
             decimalText.text = "";          // Clear the displayed equation
+            currentPuzzleType = "";
         }
     }
 

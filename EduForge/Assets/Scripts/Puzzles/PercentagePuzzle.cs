@@ -108,6 +108,7 @@ public class PercentagePuzzle : MathPuzzle
             b = 0;
             currentQuestion = "";
             percentageText.text = "";
+            currentPuzzleType = "";
         }
     }
 

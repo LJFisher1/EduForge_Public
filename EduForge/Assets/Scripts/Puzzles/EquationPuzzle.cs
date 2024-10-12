@@ -103,6 +103,7 @@ public class EquationPuzzle : MathPuzzle
         a = 0;                          // Clear operand a
         b = 0;                          // Clear operand b
         equationText.text = "";         // Clear the displayed equation (optional, but useful for cleanliness)
+        currentPuzzleType = "";
     }
     public override string GetCurrentPuzzleType()
     {
