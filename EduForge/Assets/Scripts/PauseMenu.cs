@@ -83,8 +83,6 @@ public class PauseMenuScript : MonoBehaviour
             UpdateHintCounterUI();
             DisplayHint();
         }
-
-        Resume();
     }
 
     private void UpdateHintCounterUI()
@@ -100,7 +98,13 @@ public class PauseMenuScript : MonoBehaviour
         Time.timeScale = 1;
         PauseMenu.SetActive(false);
         hintCounterUI.SetActive(true);
-        PauseButton.SetActive(true);
+        PauseButton.SetActive(false);
+    }
+
+    public void CloseHintAndResume()
+    {
+        HintPopUpUI.SetActive(false);
+        Resume();
     }
 
     public void CloseHintPopUp()

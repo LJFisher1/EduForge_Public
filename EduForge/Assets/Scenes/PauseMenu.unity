@@ -1279,6 +1279,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1274495514}
+  - {fileID: 1710575239}
+  - {fileID: 2138660461}
   m_Father: {fileID: 1193793696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2057,9 +2059,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1710575239}
-  - {fileID: 2138660461}
+  m_Children: []
   m_Father: {fileID: 846039257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2467,11 +2467,11 @@ RectTransform:
   m_LocalScale: {x: 0.97124, y: 0.97124, z: 0.97124}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1274495514}
+  m_Father: {fileID: 846039257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 17, y: -19}
+  m_AnchoredPosition: {x: 141.875, y: -174.99998}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1710575240
@@ -2520,7 +2520,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 207018240}
         m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
-        m_MethodName: CloseHintPopUp
+        m_MethodName: CloseHintAndResume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3519,7 +3519,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1274495514}
+  m_Father: {fileID: 846039257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
