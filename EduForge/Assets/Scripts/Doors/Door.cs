@@ -4,63 +4,63 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool isLocked = true; // Start with the door locked
-    public float openRotationAngle = 90f; // How much the door will rotate to "open"
+    public bool isLocked = true; // Determines if the door is locked
+    public Vector3 openPositionOffset = new Vector3(0, 5, 0); // How far the door moves up/down
+    public float moveSpeed = 2f; // Speed of the door's movement
+
     private bool isOpen = false; // Track if the door is open
     private bool isPlayerNear = false; // Track if the player is near the door
-    private Quaternion closedRotation; // Save the closed position for later
-    private Quaternion openRotation; // Save the target open position
+    private Vector3 closedPosition; // Store the initial position of the door
+    private Vector3 openPosition; // Calculate the target open position
 
     private void Start()
     {
-        // Store the original rotation of the door as the "closed" state
-        closedRotation = transform.rotation;
+        // Store the closed position
+        closedPosition = transform.position;
 
-        // Calculate the target open rotation
-        openRotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0, openRotationAngle, 0));
+        // Calculate the open position by adding the offset
+        openPosition = closedPosition + openPositionOffset;
     }
 
     private void Update()
     {
-        // Check if the player is near and presses the E key, and the door is unlocked
+        // If the player is near, presses E, and the door is unlocked, toggle the door
         if (isPlayerNear && !isLocked && Input.GetKeyDown(KeyCode.E))
         {
             ToggleDoor();
+        }
+
+        // Smoothly move the door to the target position (either open or closed)
+        if (isOpen)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, openPosition, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, closedPosition, moveSpeed * Time.deltaTime);
         }
     }
 
     private void ToggleDoor()
     {
-        if (isOpen)
-        {
-            // Close the door (set rotation back to the closed state)
-            transform.rotation = closedRotation;
-        }
-        else
-        {
-            // Open the door (rotate by the openRotationAngle)
-            transform.rotation = openRotation;
-        }
-        isOpen = !isOpen; // Toggle the state
+        isOpen = !isOpen; // Toggle the door state
     }
 
     public void UnlockDoor()
     {
-        isLocked = false; // Unlock the door, allows player to open it
+        isLocked = false; // Unlock the door
         Debug.Log("The door is unlocked.");
     }
 
-    // This detects when the player is near the door
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Make sure the player has the tag "Player"
+        if (other.CompareTag("Player"))
         {
             isPlayerNear = true;
             Debug.Log("Player near the door.");
         }
     }
 
-    // This detects when the player moves away from the door
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

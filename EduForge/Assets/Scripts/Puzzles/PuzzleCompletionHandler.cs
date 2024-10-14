@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class PuzzleCompletionHandler : MonoBehaviour
 {
-    public MathPuzzle linkedPuzzle;  // Now references MathPuzzle (your abstract base class)
-    public Door linkedDoor;          // The door this puzzle should unlock
+    public MathPuzzle linkedPuzzle;  // Reference to the puzzle
+    public List<Door> linkedDoors = new List<Door>();  // List of doors this puzzle unlocks
 
     private void Start()
     {
-        // Make sure the puzzle event listener is set up
         if (linkedPuzzle != null)
         {
-            linkedPuzzle.onPuzzleSolved.AddListener(OnPuzzleSolved); // Subscribe to puzzle solved event
+            linkedPuzzle.onPuzzleSolved.AddListener(OnPuzzleSolved);  // Subscribe to puzzle solved event
         }
     }
 
-    // This method is triggered when the puzzle is solved
+    // Triggered when the puzzle is solved
     private void OnPuzzleSolved(string puzzleID)
     {
-        Debug.Log("Puzzle solved with ID: " + puzzleID);
+        Debug.Log("Puzzle solved! Unlocking doors...");
 
-        // If the door is linked, unlock it directly
-        if (linkedDoor != null)
+        // Unlock all doors linked to this puzzle
+        foreach (Door door in linkedDoors)
         {
-            linkedDoor.UnlockDoor();
-            Debug.Log("Door unlocked for puzzle ID: " + puzzleID);
+            if (door != null)
+            {
+                door.UnlockDoor();
+            }
         }
     }
 }
