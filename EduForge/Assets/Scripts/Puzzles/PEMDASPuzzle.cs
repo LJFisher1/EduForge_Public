@@ -11,6 +11,7 @@ public class PEMDASPuzzle : MathPuzzle
     private float solution;           // Store the solution
     private string currentEquation; // Store the equation text
     private float a, b, c, d, e;         // Store the operands
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -22,25 +23,30 @@ public class PEMDASPuzzle : MathPuzzle
 
         // Randomly select the structure of the equation based on PEMDAS rules 
         int structureType = Random.Range(0, 6); // Expand if you have more equation structures added
+        currentPuzzleType = "PEMDAS";
 
         switch (structureType)
         {
             case 0: // (A + B) * (C - D)
+                currentPuzzleType += ": BPM";
                 solution = (a + b) * (c - d);
                 currentEquation = $"({a} + {b}) * ({c} - {d}) = ?";
                 break;
 
             case 1: // A * B + C / D
+                currentPuzzleType += ": MD";
                 solution = a * b + c / d;
                 currentEquation = $"{a} * {b} + {c} / {d} = ?";
                 break;
 
             case 2: // A + B * C - D
+                currentPuzzleType += ": AMS";
                 solution = a + b * c - d;
                 currentEquation = $"{a} + {b} * {c} - {d} = ?";
                 break;
 
             case 3: // A + (B * C) - (D / E)
+                currentPuzzleType += ": PMS";
                 solution = a + (b * c) - (d / e);
                 currentEquation = $"{a:F2} + ({b:F2} * {c:F2}) - ({d:F2} / {e:F2}) = ?";
                 break;
@@ -50,11 +56,13 @@ public class PEMDASPuzzle : MathPuzzle
                 {
                     c = d + 1.0f;
                 }
+                currentPuzzleType += ": DMS";
                 solution = (a + b) / (c - d) * e;
                 currentEquation = $"({a:F2} + {b:F2}) / ({c:F2} - {d:F2}) * {e:F2} = ?";
                 break;
 
             case 5: // A * (B + C) - (D + E)
+                currentPuzzleType += ": NMA";
                 solution = a * (b + c) - (d + e);
                 currentEquation = $"{a:F2} * ({b:F2} + {c:F2}) - ({d:F2} + {e:F2}) = ?";
                 break;
@@ -110,6 +118,7 @@ public class PEMDASPuzzle : MathPuzzle
             e = 0;
             currentEquation = "";
             pemdasText.text = "";
+            currentPuzzleType = "";
         }
     }
 
@@ -125,6 +134,10 @@ public class PEMDASPuzzle : MathPuzzle
         }
 
         base.StartPuzzle();
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }
 

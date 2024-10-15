@@ -62,4 +62,16 @@ public class PuzzleInputController : MonoBehaviour
         // Pass the submitted answer to the current puzzle's CheckAnswer method
         currentPuzzle.SubmitPuzzleAnswer(inputField.text);
     }
+
+    public void YesButton()
+    {
+        inputField.text += "1";
+        currentPuzzle.SubmitPuzzleAnswer(inputField.text);
+    }
+
+    public void NoButton()
+    {
+        inputField.text += "0";
+        currentPuzzle.SubmitPuzzleAnswer(inputField.text);
+    }
 }

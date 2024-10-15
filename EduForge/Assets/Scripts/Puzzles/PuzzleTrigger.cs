@@ -7,6 +7,7 @@ public class PuzzleTrigger : MonoBehaviour
     public MathPuzzle puzzle; // Reference to the puzzle
     public PuzzleInputController puzzleInputController;
     private bool isPlayerInRange = false;
+    public TextbookSystem textbookSystem;
 
     // Update is called once per frame
     void Update()

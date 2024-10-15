@@ -12,6 +12,7 @@ public class DecimalPuzzle : MathPuzzle
     private string currentEquation;     // Store the equation text
     private string selectedOperator;    // Store the selected operator
     private float a, b;                 // Store the operands
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
@@ -19,16 +20,20 @@ public class DecimalPuzzle : MathPuzzle
         b = Random.Range(0.1f, 10.0f);
         string[] operators = { "+", "-", "*" };
         selectedOperator = operators[Random.Range(0, operators.Length)];
+        currentPuzzleType = "Decimal";
 
         switch (selectedOperator)
         {
             case "+":
+                currentPuzzleType += ": +";
                 solution = a + b;
                 break;
             case "-":
+                currentPuzzleType += ": -";
                 solution = a - b;
                 break;
             case "*":
+                currentPuzzleType += ": *";
                 solution = a * b;
                 break;
         }
@@ -45,14 +50,15 @@ public class DecimalPuzzle : MathPuzzle
     {
         if (float.TryParse(userAnswer, out float parsedAnswer))
         {
+            float tolerance = 0.01f; // Small tolerance for comparison
+            float difference = Mathf.Abs(solution - parsedAnswer);
 
-            float roundedSolution = Mathf.Round(solution * 100f) / 100f;
-            float roundedParsedAnswer = Mathf.Round(parsedAnswer * 100f) / 100f;
+            Debug.Log($"Parsed Answer: {parsedAnswer}");
+            Debug.Log($"Correct Answer: {solution}");
+            Debug.Log($"Difference: {difference}");
 
-            Debug.Log($"Rounded Parsed Answer: {roundedParsedAnswer}");
-            Debug.Log($"Rounded Correct Answer: {roundedSolution}");
-
-            if (roundedSolution == roundedParsedAnswer)
+            // Had an issue where the answer was 12.25 but the program thought 12.24, giving a false negative.
+            if (difference <= tolerance)
             {
                 Debug.Log("Correct! Well done.");
                 puzzleSolved = true;
@@ -84,6 +90,7 @@ public class DecimalPuzzle : MathPuzzle
             b = 0;                          // Clear operand b
             currentEquation = "";           // Clear the equation text
             decimalText.text = "";          // Clear the displayed equation
+            currentPuzzleType = "";
         }
     }
 
@@ -97,8 +104,12 @@ public class DecimalPuzzle : MathPuzzle
             playerMovement.TogglePuzzleMode(true); // Disable movement/camera controls
             return;
         }
-        
+
         // Otherwise, generate a new puzzle
         base.StartPuzzle();
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }

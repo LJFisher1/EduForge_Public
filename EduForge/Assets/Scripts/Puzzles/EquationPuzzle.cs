@@ -13,31 +13,38 @@ public class EquationPuzzle : MathPuzzle
     private string currentEquation;     // Store the equation text
     private string selectedOperator;    // Store the selected operator
     private int a, b;                   // Store the operands
+    protected string currentPuzzleType;
 
     protected override void GeneratePuzzle()
     {
         if (!isPuzzleGenerated)
         {
-            int a = Random.Range(1, 20);
-            int b = Random.Range(1, 20);
+            a = Random.Range(1, 20);
+            b = Random.Range(1, 20);
             string[] operators = { "+", "-", "*" };
             selectedOperator = operators[Random.Range(0, operators.Length)];
+            currentPuzzleType = "Equation";
+
+            Debug.Log("Puzzle type set: " + currentPuzzleType);
 
             switch (selectedOperator)
             {
                 case "+":
+                    currentPuzzleType += ": +";
                     solution = a + b;
                     break;
                 case "-":
+                    currentPuzzleType += ": -";
                     solution = a - b;
                     break;
                 case "*":
+                    currentPuzzleType += ": *";
                     solution = a * b;
                     break;
             }
-
+            Debug.Log("Puzzle type set: " + currentPuzzleType);
             currentEquation = $"{a} {selectedOperator} {b} = ?";
-            equationText.text = $"{a} {selectedOperator} {b} = ?";
+            equationText.text = currentEquation;
             isPuzzleGenerated = true;
         }
         else
@@ -45,8 +52,6 @@ public class EquationPuzzle : MathPuzzle
             // If the puzzle is already generated, reuse the existing equation
             equationText.text = currentEquation;
         }
-
-
     }
 
     protected override void CheckAnswer(string userAnswer)
@@ -92,11 +97,16 @@ public class EquationPuzzle : MathPuzzle
 
     public override void ResetPuzzleState()
     {
-        isPuzzleGenerated = false;  // Reset to allow a new puzzle to be generated
-        currentEquation = null;     // Clear the stored equation
-        selectedOperator = "";        // Clear the selected operator
-        a = 0;                        // Clear operand a
-        b = 0;                        // Clear operand b
-        equationText.text = "";        // Clear the displayed equation (optional, but useful for cleanliness)
+        isPuzzleGenerated = false;      // Reset to allow a new puzzle to be generated
+        currentEquation = null;         // Clear the stored equation
+        selectedOperator = "";          // Clear the selected operator
+        a = 0;                          // Clear operand a
+        b = 0;                          // Clear operand b
+        equationText.text = "";         // Clear the displayed equation (optional, but useful for cleanliness)
+        currentPuzzleType = "";
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }

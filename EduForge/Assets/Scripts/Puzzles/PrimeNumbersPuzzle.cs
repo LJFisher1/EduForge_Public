@@ -12,18 +12,20 @@ public class PrimeNumbersPuzzle : MathPuzzle
     private bool isPrime;                       // To store if the number is prime or not
     private List<int> primeFactors;             // To store the puzzle factors
     private string currentQuestion;             // Store the question text
-
+    protected string currentPuzzleType;
     private string[] puzzleTypes = { "IsPrime", "NextPrime", "PrimeFactorization" };
-    private string currentPuzzleType;
+
 
     protected override void GeneratePuzzle()
     {
+        currentPuzzleType = "Prime Number";
         currentNumber = Random.Range(1, 100);   // Random number between 1 and 100
-        currentPuzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
+        string puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
 
-        switch (currentPuzzleType)
+        switch (puzzleType)
         {
             case "IsPrime":
+                currentPuzzleType += ": IsPrime";
                 isPrime = IsPrime(currentNumber);
                 currentQuestion = $"Is {currentNumber} a prime number? (Yes/No)";
                 Debug.Log($"Generated number: {currentNumber}");
@@ -31,12 +33,14 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 break;
 
             case "NextPrime":
+                currentPuzzleType += "NextPrime";
                 int nextPrime = FindNextPrime(currentNumber);
                 currentQuestion = $"What is the next prime number after {currentNumber}?";
                 Debug.Log($"Generated number: {currentNumber}, Next Prime: {nextPrime}");
                 break;
 
             case "PrimeFactorization":
+                currentPuzzleType += "PrimeFactorization";
                 primeFactors = GetPrimeFactors(currentNumber);
                 currentQuestion = $"What are the prime factors of {currentNumber}? (Input in form X, Y, Z)";
                 Debug.Log($"Generated number: {currentNumber}, Prime Factors: {string.Join(", ", primeFactors)}");
@@ -93,12 +97,6 @@ public class PrimeNumbersPuzzle : MathPuzzle
         switch (currentPuzzleType)
         {
             case "IsPrime":
-                //    bool playerAnswerIsYes = userAnswer.ToLower() == "yes";
-                //    bool correctAnswer = isPrime == playerAnswerIsYes;
-                //    HandlePrimeAnswer(correctAnswer);
-                //    break;
-                // Below is temporary, until we have Yes/No buttons 0 is No and 1 is Yes
-                // Once those buttons are in place, remove all but commented code from this case
                 if (int.TryParse(userAnswer, out int parsedAnswer) && (parsedAnswer == 1 || parsedAnswer == 0))
                 {
                     bool playerAnswerIsYes = parsedAnswer == 1;
@@ -110,7 +108,6 @@ public class PrimeNumbersPuzzle : MathPuzzle
                     Debug.Log("Invalid input. Please enter 1 for Yes or 0 for No.");
                 }
                 break;
-
 
             case "NextPrime":
                 if (int.TryParse(userAnswer, out int nextPrimeAnswer))
@@ -175,6 +172,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
             currentNumber = 0;
             primeFactors = null;
             primeNumberText.text = "";
+            currentPuzzleType = "";
         }
     }
 
@@ -190,6 +188,10 @@ public class PrimeNumbersPuzzle : MathPuzzle
         }
 
         base.StartPuzzle();
+    }
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }
 

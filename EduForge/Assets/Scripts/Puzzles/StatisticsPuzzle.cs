@@ -11,30 +11,34 @@ public class StatisticsPuzzle : MathPuzzle
     public TextMeshProUGUI statisticsText;     // UI to display the number
     List<int> numbers = new List<int>();       // To store the numbers
     private string currentQuestion;            // Store the equation text
-
+    protected string currentPuzzleType;
     private string[] puzzleTypes = { "Mean", "Median", "Range" }; // "Mode" is another type but with only 5 elements, the chances of Mode being applicable are almost zero
-    private string currentPuzzleType;
+    private string puzzleType;
 
     protected override void GeneratePuzzle()
     {
+        currentPuzzleType = "Statistics";
         for (int i = 0; i < 5; i++)
         {
             numbers.Add(Random.Range(1, 101));
         }
 
-        currentPuzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
+        puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
 
-        switch (currentPuzzleType)
+        switch (puzzleType)
         {
             case "Mean":
+                currentPuzzleType += ": Mean";
                 currentQuestion = $"Calculate the mean of the numbers: {string.Join(", ", numbers)}";
                 break;
 
             case "Median":  // Adjust in the future if elements changes from 5
+                currentPuzzleType += ": Median";
                 currentQuestion = $"Calculate the median of the numbers: {string.Join(", ", numbers)}";
                 break;
 
             case "Range":
+                currentPuzzleType += ": Range";
                 currentQuestion = $"Find the range of the numbers: {string.Join(", ", numbers)}";
                 break;
         }
@@ -52,6 +56,7 @@ public class StatisticsPuzzle : MathPuzzle
             numbers.Clear();
             currentQuestion = "";
             statisticsText.text = "";
+            currentPuzzleType = "";
         }
     }
 
@@ -61,7 +66,7 @@ public class StatisticsPuzzle : MathPuzzle
         {
             float correctAnswer = 0;
 
-            switch (currentPuzzleType)
+            switch (puzzleType)
             {
                 case "Mean":
                     correctAnswer = (float)(Math.Round(numbers.Average(), 2));
@@ -114,5 +119,10 @@ public class StatisticsPuzzle : MathPuzzle
         }
 
         base.StartPuzzle();
+    }
+
+    public override string GetCurrentPuzzleType()
+    {
+        return currentPuzzleType;
     }
 }

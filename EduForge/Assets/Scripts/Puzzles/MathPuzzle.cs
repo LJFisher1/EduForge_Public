@@ -100,5 +100,7 @@ public abstract class MathPuzzle : MonoBehaviour
         }
     }
 
-    public abstract void ResetPuzzleState(); 
+    public abstract void ResetPuzzleState();
+
+    public abstract string GetCurrentPuzzleType();
 }
