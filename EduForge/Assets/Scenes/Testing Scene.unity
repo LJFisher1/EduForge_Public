@@ -4272,6 +4272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuzzleInputUIUpdate
       objectReference: {fileID: 0}
+    - target: {fileID: 8136393391669073552, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
