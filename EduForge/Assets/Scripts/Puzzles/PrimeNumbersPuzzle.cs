@@ -13,14 +13,15 @@ public class PrimeNumbersPuzzle : MathPuzzle
     private List<int> primeFactors;             // To store the puzzle factors
     private string currentQuestion;             // Store the question text
     protected string currentPuzzleType;
+    private string puzzleType;
     private string[] puzzleTypes = { "IsPrime", "NextPrime", "PrimeFactorization" };
 
 
     protected override void GeneratePuzzle()
     {
-        currentPuzzleType = "Prime Number";
+        currentPuzzleType = "PrimeNumber";
         currentNumber = Random.Range(1, 100);   // Random number between 1 and 100
-        string puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
+        puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
 
         switch (puzzleType)
         {
@@ -33,14 +34,14 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 break;
 
             case "NextPrime":
-                currentPuzzleType += "NextPrime";
+                currentPuzzleType += ": NextPrime";
                 int nextPrime = FindNextPrime(currentNumber);
                 currentQuestion = $"What is the next prime number after {currentNumber}?";
                 Debug.Log($"Generated number: {currentNumber}, Next Prime: {nextPrime}");
                 break;
 
             case "PrimeFactorization":
-                currentPuzzleType += "PrimeFactorization";
+                currentPuzzleType += ": PrimeFactorization";
                 primeFactors = GetPrimeFactors(currentNumber);
                 currentQuestion = $"What are the prime factors of {currentNumber}? (Input in form X, Y, Z)";
                 Debug.Log($"Generated number: {currentNumber}, Prime Factors: {string.Join(", ", primeFactors)}");
@@ -50,6 +51,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
         primeNumberText.text = currentQuestion;
 
         Debug.Log($"Generated number: {currentNumber}");
+        Debug.Log($"Current Puzzle Type: {currentPuzzleType}");
         Debug.Log($"Is prime: {isPrime}");
 
         isPuzzleGenerated = true;
@@ -94,7 +96,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
 
     protected override void CheckAnswer(string userAnswer)
     {
-        switch (currentPuzzleType)
+        switch (puzzleType)
         {
             case "IsPrime":
                 if (int.TryParse(userAnswer, out int parsedAnswer) && (parsedAnswer == 1 || parsedAnswer == 0))
