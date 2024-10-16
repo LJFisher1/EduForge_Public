@@ -18,6 +18,8 @@ public abstract class MathPuzzle : MonoBehaviour
     protected bool puzzleSolved = false; // Track if the puzzle was solved
     protected bool isPuzzleGenerated = false; // Track if the puzzle has been generated
 
+    protected string selectedDifficulty; // To hold the difficulty 
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -103,4 +105,24 @@ public abstract class MathPuzzle : MonoBehaviour
     public abstract void ResetPuzzleState();
 
     public abstract string GetCurrentPuzzleType();
+
+    // Placeholders for the difficulty methods to be overridden by each child puzzle class
+    public virtual void SetEasyDifficulty()
+    {
+        Debug.Log("Easy difficulty not implemented for this puzzle type.");
+    }
+    public virtual void SetMediumDifficulty()
+    {
+        Debug.Log("Medium difficulty not implemented for this puzzle type.");
+    }
+    public virtual void SetHardDifficulty()
+    {
+        Debug.Log("Hard difficulty not implemented for this puzzle type.");
+    }
+
+    public void SetDiffculty(string difficulty)
+    {
+        selectedDifficulty = difficulty;
+    }
+
 }
