@@ -3550,6 +3550,9 @@ MonoBehaviour:
   submitButton: {fileID: 347010635}
   puzzleUI: {fileID: 5529538756383776878}
   playerMovement: {fileID: 1002164662}
+  onPuzzleSolved:
+    m_PersistentCalls:
+      m_Calls: []
   geometricText: {fileID: 5589005547980451527}
 --- !u!4 &1937474005
 Transform:
@@ -4188,6 +4191,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 278417972520230803, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 773068803649961002, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.9999895
+      objectReference: {fileID: 0}
+    - target: {fileID: 909058824335099537, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870660364196859889, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311539518745728831, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.9999895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770565940163910393, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64.99999
+      objectReference: {fileID: 0}
     - target: {fileID: 2955706077167403905, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4268,13 +4295,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4214269741538260320, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490798778441630503, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 97.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5328995603349499158, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 97.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782333034709862348, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201939295399636769, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6764569352182300875, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -46.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768742876270854076, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.9999895
+      objectReference: {fileID: 0}
     - target: {fileID: 8136393391669073552, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
       propertyPath: m_Name
       value: PuzzleInputUIUpdate
       objectReference: {fileID: 0}
     - target: {fileID: 8136393391669073552, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463391994970884055, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491523512345791491, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.9999895
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603982885374924084, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693378481126310690, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 88.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947416496484368317, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047391307362560474, guid: b9777dd10bd692c45a4828bea8e560d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 97.00001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4520,6 +4599,9 @@ MonoBehaviour:
   submitButton: {fileID: 4852753407032761175}
   puzzleUI: {fileID: 5529538756383776878}
   playerMovement: {fileID: 1002164662}
+  onPuzzleSolved:
+    m_PersistentCalls:
+      m_Calls: []
   modularText: {fileID: 5589005547980451527}
 --- !u!114 &7393965013671562969 stripped
 MonoBehaviour:
