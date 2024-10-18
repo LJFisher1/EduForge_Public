@@ -20,7 +20,7 @@ public class EquationPuzzle : MathPuzzle
         if (!isPuzzleGenerated)
         {
             // For testing purposes
-            selectedDifficulty = "Hard";
+            // selectedDifficulty = "Hard";
             // End testing
             switch (selectedDifficulty)
             {

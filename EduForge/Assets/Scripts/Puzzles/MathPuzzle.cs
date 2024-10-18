@@ -120,7 +120,7 @@ public abstract class MathPuzzle : MonoBehaviour
         Debug.Log("Hard difficulty not implemented for this puzzle type.");
     }
 
-    public void SetDiffculty(string difficulty)
+    public void SetDifficulty(string difficulty)
     {
         selectedDifficulty = difficulty;
     }
