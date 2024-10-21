@@ -32,6 +32,14 @@ public class PauseMenuScript : MonoBehaviour
         hintCounterUI.SetActive(true);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePauseMenu();
+        }
+    }
+
     public void Pause()
     {
         Time.timeScale = 0;
