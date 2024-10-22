@@ -52,7 +52,7 @@ public class TextbookSystem : MonoBehaviour
         // Equation Puzzle Info
         var equationInfo = new PuzzleInfo
             ("Equation",
-            "An equation is a mathematical statement that asserts the equality of two expressions."
+            "An equation is a mathematical statement that asserts the equality of two expressions. \nDouble negatives ( - - ) make a positive ( + )."
             );
 
         // Equation: Add

@@ -12,14 +12,44 @@ public class SequencePuzzle : MathPuzzle
     private int nextValueInSequence; // The next value in the sequence (also the solution)
     private List<int> currentSequence = new List<int>(); // To store the generated sequence
 
+    // Values used in puzzles
+    int initialValue = 0;
+    int stepValue = 0;
+    int firstValue = 0;
+    int secondValue = 0;
+
     protected override void GeneratePuzzle()
     {
+        // For testing purposes
+        // selectedDifficulty = "Hard";
+        // End testing
+        switch (selectedDifficulty)
+        {
+
+            case "Easy":
+                SetEasyDifficulty();
+                break;
+
+            case "Medium":
+                SetMediumDifficulty();
+                break;
+
+            case "Hard":
+                SetHardDifficulty();
+                break;
+
+            default:
+                SetEasyDifficulty();
+                break;
+        }
+
         string[] patternTypes = { "Arithmetic", "Geometric", "Fibonacci" };
         string selectedPattern = patternTypes[Random.Range(0, patternTypes.Length)];
         currentPuzzleType = "Sequence";
 
         Debug.Log("Generating " + selectedPattern + " sequence.");
         currentSequence.Clear();
+
 
         switch (selectedPattern)
         {
@@ -48,65 +78,58 @@ public class SequencePuzzle : MathPuzzle
 
     private void GenerationArithmeticSequence(List<int> sequence)
     {
-        int start = Random.Range(1, 20);
-        int difference = Random.Range(1, 10);
         bool useAddition = Random.Range(0, 2) == 0;
 
         for (int i = 0; i < 5; i++)
         {
-            sequence.Add(useAddition ? start + i * difference : start - i * difference);
+            sequence.Add(useAddition ? initialValue + i * stepValue : initialValue - i * stepValue);
         }
 
-        nextValueInSequence = useAddition ? start + 4 * difference : start - 4 * difference;
+        nextValueInSequence = useAddition ? initialValue + 4 * stepValue : initialValue - 4 * stepValue;
     }
 
     private void GenerateGeometricSequence(List<int> sequence)
     {
-        int start = Random.Range(20, 100);
-        int ratio = Random.Range(2, 5);
         bool useMultiplication = Random.Range(0, 2) == 0;
 
-        sequence.Add(start);
+        sequence.Add(initialValue);
         for (int i = 0; i < 4; i++)
         {
             if (useMultiplication)
             {
-                start *= ratio;
+                initialValue *= stepValue;
             }
             else
             {
-                if (start % ratio == 0)
+                if (initialValue % stepValue == 0)
                 {
-                    start /= ratio;
+                    initialValue /= stepValue;
                 }
                 else
                 {
                     GenerateGeometricSequence(sequence);
-                    return;
                 }
             }
-            sequence.Add(start);
+            sequence.Add(initialValue);
         }
-        nextValueInSequence = start;
+        nextValueInSequence = initialValue;
     }
 
     private void GenerateFibonacciSequence(List<int> sequence)
     {
-        int a = Random.Range(0, 10);
-        int b = Random.Range(1, 10);
-        int next = 0;
+        int nextValue = 0;
 
-        sequence.Add(a);
-        sequence.Add(b);
+        sequence.Add(firstValue);
+        sequence.Add(secondValue);
 
         for (int i = 2; i < 5; i++)
         {
-            next = a + b;
-            sequence.Add(next);
-            a = b;
-            b = next;
+            nextValue = firstValue + secondValue;
+            sequence.Add(nextValue);
+            firstValue = secondValue;
+            secondValue = nextValue;
         }
-        nextValueInSequence = next;
+        nextValueInSequence = nextValue;
     }
 
     protected override void CheckAnswer(string userAnswer)
@@ -172,5 +195,31 @@ public class SequencePuzzle : MathPuzzle
     public override string GetCurrentPuzzleType()
     {
         return currentPuzzleType;
+    }
+
+    public override void SetEasyDifficulty()
+    {
+        initialValue = Random.Range(1, 11);
+        stepValue = Random.Range(1, 6);
+        firstValue = Random.Range(1, 6);
+        secondValue = Random.Range(1, 6);
+    }
+
+    public override void SetMediumDifficulty()
+    {
+        initialValue = Random.Range(10, 31);
+        stepValue = Random.Range(5, 11);
+        firstValue = Random.Range(5, 16);
+        secondValue = Random.Range(5, 16);
+    }
+
+    public override void SetHardDifficulty()
+    {
+        // With the multiplication, anything above these initial/step values
+        // exceeds the max 32-bit int limit
+        initialValue = Random.Range(10, 31);
+        stepValue = Random.Range(10, 16);
+        firstValue = Random.Range(10, 31);
+        secondValue = Random.Range(10, 31);
     }
 }
