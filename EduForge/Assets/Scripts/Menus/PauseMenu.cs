@@ -172,8 +172,6 @@ public class PauseMenuScript : MonoBehaviour
         SettingsUI.SetActive(true);
     }
 
-
-
     public void CloseSettings()
     {
         SettingsUI.SetActive(false);

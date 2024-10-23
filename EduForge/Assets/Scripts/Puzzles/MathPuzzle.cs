@@ -93,31 +93,11 @@ public abstract class MathPuzzle : MonoBehaviour
     }
 
     // Method to generate the puzzle; to be implemented by each puzzle type
-    protected virtual void GeneratePuzzle()
+    protected abstract void GeneratePuzzle();
+
+    public bool IsPuzzleSolved()
     {
-        if (pauseMenuScript != null)
-        {
-            selectedDifficulty = pauseMenuScript.GetSelectedDifficulty();
-        }
-
-        switch (selectedDifficulty)
-        {
-            case "Easy":
-                SetEasyDifficulty();
-                break;
-
-            case "Medium":
-                SetMediumDifficulty();
-                break;
-
-            case "Hard":
-                SetHardDifficulty();
-                break;
-
-            default:
-                SetEasyDifficulty();
-                break;
-        }
+        return puzzleSolved;
     }
 
     public bool IsPuzzleSolved()
