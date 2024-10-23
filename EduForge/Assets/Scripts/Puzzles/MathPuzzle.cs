@@ -5,12 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 
+
 public abstract class MathPuzzle : MonoBehaviour
 {
     public TMP_InputField inputField;
     public Button submitButton;
     public GameObject puzzleUI; // The puzzle UI object
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
+    public PauseMenuScript pauseMenuScript; // Reference to the PauseMenu script
 
     // Declare the event that will be triggered when the puzzle is solved
     public UnityEvent<string> onPuzzleSolved;
@@ -33,6 +35,12 @@ public abstract class MathPuzzle : MonoBehaviour
 
         // Hide the puzzle UI initially
         puzzleUI.SetActive(false);
+
+        // Get the difficulty from the PauseMenu script
+        if (pauseMenuScript != null)
+        {
+            selectedDifficulty = pauseMenuScript.GetSelectedDifficulty();
+        }
     }
 
     protected virtual void Update()
@@ -49,6 +57,9 @@ public abstract class MathPuzzle : MonoBehaviour
     // Method to start the puzzle
     public virtual void StartPuzzle()
     {
+        selectedDifficulty = pauseMenuScript.GetSelectedDifficulty(); // Gets the selected difficult from the Pause Menu script
+
+
         if (!isPuzzleGenerated || IsPuzzleSolved())
         {
             GeneratePuzzle(); // Abstract method to be implemented by derived classes
@@ -82,7 +93,32 @@ public abstract class MathPuzzle : MonoBehaviour
     }
 
     // Method to generate the puzzle; to be implemented by each puzzle type
-    protected abstract void GeneratePuzzle();
+    protected virtual void GeneratePuzzle()
+    {
+        if (pauseMenuScript != null)
+        {
+            selectedDifficulty = pauseMenuScript.GetSelectedDifficulty();
+        }
+
+        switch (selectedDifficulty)
+        {
+            case "Easy":
+                SetEasyDifficulty();
+                break;
+
+            case "Medium":
+                SetMediumDifficulty();
+                break;
+
+            case "Hard":
+                SetHardDifficulty();
+                break;
+
+            default:
+                SetEasyDifficulty();
+                break;
+        }
+    }
 
     public bool IsPuzzleSolved()
     {
