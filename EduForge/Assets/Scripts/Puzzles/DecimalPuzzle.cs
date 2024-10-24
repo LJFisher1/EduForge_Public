@@ -135,19 +135,19 @@ public class DecimalPuzzle : MathPuzzle
 
     public override void SetEasyDifficulty()
     {
-        a = Mathf.Round(Random.Range(0.1f, 20.01f) * 100) / 100;
-        b = Mathf.Round(Random.Range(0.01f, 20.01f) * 100) / 100;
+        a = Mathf.Round(Random.Range(0.1f, 20.0f) * 100f) / 100f;
+        b = Mathf.Round(Random.Range(0.01f, 20.0f) * 100f) / 100f;
     }
 
     public override void SetMediumDifficulty()
     {
-        a = Mathf.Round(Random.Range(1.0f, 100.01f) * 100) / 100;
-        b = Mathf.Round(Random.Range(1.0f, 100.01f) * 100) / 100;
+        a = Mathf.Round(Random.Range(1.0f, 100.0f) * 100f) / 100f;
+        b = Mathf.Round(Random.Range(1.0f, 100.0f) * 100f) / 100f;
     }
 
     public override void SetHardDifficulty()
     {
-        a = Mathf.Round(Random.Range(10.0f, 500.01f) * 100) / 100;
-        b = Mathf.Round(Random.Range(10.0f, 500.01f) * 100) / 100;
+        a = Mathf.Round(Random.Range(10.0f, 500.0f) * 100f) / 100f;
+        b = Mathf.Round(Random.Range(10.0f, 500.0f) * 100f) / 100f;
     }
 }
