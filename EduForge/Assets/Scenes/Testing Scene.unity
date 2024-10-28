@@ -2792,7 +2792,7 @@ GameObject:
   - component: {fileID: 1694049404}
   - component: {fileID: 1694049403}
   m_Layer: 0
-  m_Name: Geometric Measurements Puzzle Test Cube (2)
+  m_Name: Geometric Measurements Puzzle Test Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

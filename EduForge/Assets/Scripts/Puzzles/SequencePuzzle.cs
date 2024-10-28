@@ -25,7 +25,6 @@ public class SequencePuzzle : MathPuzzle
         // End testing
         switch (selectedDifficulty)
         {
-
             case "Easy":
                 SetEasyDifficulty();
                 break;
