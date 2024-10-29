@@ -100,11 +100,6 @@ public abstract class MathPuzzle : MonoBehaviour
         return puzzleSolved;
     }
 
-    public bool IsPuzzleSolved()
-    {
-        return puzzleSolved;
-    }
-
     // A method to handle the submit button interaction
     protected virtual void OnSubmitAnswer()
     {
