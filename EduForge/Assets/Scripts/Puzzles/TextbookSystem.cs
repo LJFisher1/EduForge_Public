@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TextbookSystem : MonoBehaviour
@@ -282,7 +283,7 @@ public class TextbookSystem : MonoBehaviour
         // Statistics Puzzle Info
         var statisticsInfo = new PuzzleInfo(
             "Statistics",
-            "Description needed"
+            "Statistics involves collecting and analyzing data to understand trends and make informed decisions."
             );
 
         // Mean

@@ -17,11 +17,29 @@ public class StatisticsPuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
-        currentPuzzleType = "Statistics";
-        for (int i = 0; i < 5; i++)
+        // For testing purposes
+        // selectedDifficulty = "Hard";
+        // End testing
+        switch (selectedDifficulty)
         {
-            numbers.Add(Random.Range(1, 101));
+            case "Easy":
+                SetEasyDifficulty();
+                break;
+
+            case "Medium":
+                SetMediumDifficulty();
+                break;
+
+            case "Hard":
+                SetHardDifficulty();
+                break;
+
+            default:
+                SetEasyDifficulty();
+                break;
         }
+
+        currentPuzzleType = "Statistics";
 
         puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
 
@@ -74,7 +92,15 @@ public class StatisticsPuzzle : MathPuzzle
 
                 case "Median":
                     numbers.Sort();
-                    correctAnswer = numbers[2];
+                    int count = numbers.Count;
+                    if (numbers.Count % 2 == 1)
+                    {
+                        correctAnswer = numbers[count / 2];
+                    }
+                    else
+                    {
+                        correctAnswer = (numbers[(count / 2) - 1] + numbers[count / 2]) / 2.0f;
+                    }
                     break;
 
                 case "Range":
@@ -124,5 +150,31 @@ public class StatisticsPuzzle : MathPuzzle
     public override string GetCurrentPuzzleType()
     {
         return currentPuzzleType;
+    }
+    public override void SetEasyDifficulty()
+    {
+        numbers.Clear();
+        for (int i = 0; i < 5; i++)
+        {
+            numbers.Add(Random.Range(1, 21));
+        }
+    }
+
+    public override void SetMediumDifficulty()
+    {
+        numbers.Clear();
+        for (int i = 0; i < 5; i++)
+        {
+            numbers.Add(Random.Range(20, 61));
+        }
+    }
+
+    public override void SetHardDifficulty()
+    {
+        numbers.Clear();
+        for (int i = 0; i < 5; i++)
+        {
+            numbers.Add(Random.Range(60, 141));
+        }
     }
 }
