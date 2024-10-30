@@ -15,7 +15,7 @@ public class ModularArithmeticPuzzle : MathPuzzle
     protected override void GeneratePuzzle()
     {
         // For testing purposes
-        selectedDifficulty = "Hard";
+        // selectedDifficulty = "Hard";
         // End testing
 
         switch (selectedDifficulty)
