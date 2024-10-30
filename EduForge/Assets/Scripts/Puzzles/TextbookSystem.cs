@@ -312,7 +312,7 @@ public class TextbookSystem : MonoBehaviour
         // Modular Arithmetic Puzzle Info
         var modularArithmeticInfo = new PuzzleInfo(
             "Modular Arithmetic",
-            "Modular arithmetic deals with remainders after division operations."
+            "Modular arithmetic deals with remainders after division operations. % is the Modulo Operator."
             );
 
         // Basic Modulo
