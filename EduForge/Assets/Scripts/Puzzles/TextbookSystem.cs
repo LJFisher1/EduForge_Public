@@ -275,7 +275,8 @@ public class TextbookSystem : MonoBehaviour
             "1. Start by dividing 28 by the smallest prime number, 2: 28 / 2 = 14. \n" +
             "2. Divide 14 by 2 again: 2 / 14 = 7. \n" +
             "3. The number 7 is prime, so you cannot divide further. \n" +
-            "4. The prime factors of 28 are 2, 2, and 7.", "PrimeFactorization"));
+            "4. The prime factors of 28 are 2, 2, and 7.\n" +
+            "Note: Exclude 1 from any answers.", "PrimeFactorization"));
         textbook.Add("PrimeNumber: PrimeFactorization", primeInfo);
 
         // Statistics Puzzle Info
