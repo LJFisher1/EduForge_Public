@@ -189,6 +189,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
             if ((roundedParsedAnswer - correctAnswer) < tolerance)
             {
                 Debug.Log("Correct! The answer is correct.");
+                DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
@@ -198,12 +199,14 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
             {
                 Debug.Log("Incorrect. Try again.");
                 Debug.Log($"Expected: {correctAnswer} | Got: {roundedParsedAnswer}");
+                DisplayFeedback("Incorrect. Try again.", false);
                 inputField.text = "";
             }
         }
         else
         {
             Debug.Log("Invalid input. Please enter a valid number.");
+            DisplayFeedback("Invalid input. Please enter a number.", false);
         }
     }
 

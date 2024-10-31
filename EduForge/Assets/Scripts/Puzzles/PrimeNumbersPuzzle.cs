@@ -129,6 +129,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 else
                 {
                     Debug.Log("Invalid input. Please enter 1 for Yes or 0 for No.");
+                    DisplayFeedback("Invalid input.  Please enter 1 for Yes or 0 for No.", false);
                 }
                 break;
 
@@ -141,6 +142,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 else
                 {
                     Debug.Log("Invalid input. Please enter a number.");
+                    DisplayFeedback("Invalid input. Please enter a number.", false);
                 }
                 break;
 
@@ -156,6 +158,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                     else
                     {
                         Debug.Log("Invalid input. Please enter numbers separated by commas.");
+                        DisplayFeedback("Invalid input. Please enter numbers separated by commas.", false);
                         return;
                     }
                 }
@@ -174,6 +177,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
         if (isCorrect)
         {
             Debug.Log("Correct! Well done.");
+            DisplayFeedback("Correct! Well done.", true);
             puzzleSolved = true;
             inputField.text = "";
             EndPuzzle();
@@ -182,6 +186,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
         else
         {
             Debug.Log("Incorrect. Try again.");
+            DisplayFeedback("Incorrect. Try again.", false);
             inputField.text = "";
         }
     }

@@ -116,6 +116,7 @@ public class StatisticsPuzzle : MathPuzzle
             if (parsedAnswer == correctAnswer)
             {
                 Debug.Log("Correct! The answer is correct.");
+                DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
@@ -124,12 +125,14 @@ public class StatisticsPuzzle : MathPuzzle
             else
             {
                 Debug.Log("Incorrect. Try again.");
+                DisplayFeedback("Incorrect. Try again.", false);
                 inputField.text = "";
             }
         }
         else
         {
             Debug.Log("Invalid input. Please enter a valid number.");
+            DisplayFeedback("Invalid input. Please enter a number.", false);
         }
     }
 
