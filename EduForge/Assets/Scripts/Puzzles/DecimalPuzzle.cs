@@ -81,6 +81,7 @@ public class DecimalPuzzle : MathPuzzle
             if (difference <= tolerance)
             {
                 Debug.Log("Correct! Well done.");
+                DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
@@ -89,12 +90,14 @@ public class DecimalPuzzle : MathPuzzle
             else
             {
                 Debug.Log("Incorrect. Try again.");
+                DisplayFeedback("Incorrect. Try again.", false);
                 inputField.text = "";
             }
         }
         else
         {
             Debug.Log("Invalid input. Please enter a number.");
+            DisplayFeedback("Invalid input. Please enter a number.", false);
         }
 
     }

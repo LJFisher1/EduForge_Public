@@ -19,8 +19,29 @@ public class PrimeNumbersPuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
+        // For testing purposes
+        // selectedDifficulty = "Hard";
+        // End testing
+        switch (selectedDifficulty)
+        {
+            case "Easy":
+                SetEasyDifficulty();
+                break;
+
+            case "Medium":
+                SetMediumDifficulty();
+                break;
+
+            case "Hard":
+                SetHardDifficulty();
+                break;
+
+            default:
+                SetEasyDifficulty();
+                break;
+        }
+
         currentPuzzleType = "PrimeNumber";
-        currentNumber = Random.Range(1, 100);   // Random number between 1 and 100
         puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
 
         switch (puzzleType)
@@ -108,6 +129,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 else
                 {
                     Debug.Log("Invalid input. Please enter 1 for Yes or 0 for No.");
+                    DisplayFeedback("Invalid input.  Please enter 1 for Yes or 0 for No.", false);
                 }
                 break;
 
@@ -120,6 +142,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 else
                 {
                     Debug.Log("Invalid input. Please enter a number.");
+                    DisplayFeedback("Invalid input. Please enter a number.", false);
                 }
                 break;
 
@@ -135,6 +158,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                     else
                     {
                         Debug.Log("Invalid input. Please enter numbers separated by commas.");
+                        DisplayFeedback("Invalid input. Please enter numbers separated by commas.", false);
                         return;
                     }
                 }
@@ -153,6 +177,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
         if (isCorrect)
         {
             Debug.Log("Correct! Well done.");
+            DisplayFeedback("Correct! Well done.", true);
             puzzleSolved = true;
             inputField.text = "";
             EndPuzzle();
@@ -161,6 +186,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
         else
         {
             Debug.Log("Incorrect. Try again.");
+            DisplayFeedback("Incorrect. Try again.", false);
             inputField.text = "";
         }
     }
@@ -194,6 +220,22 @@ public class PrimeNumbersPuzzle : MathPuzzle
     public override string GetCurrentPuzzleType()
     {
         return currentPuzzleType;
+    }
+    public override void SetEasyDifficulty()
+    {
+        currentNumber = Random.Range(10, 51);
+       
+    }
+
+    public override void SetMediumDifficulty()
+    {
+        currentNumber = Random.Range(20, 101);
+
+    }
+
+    public override void SetHardDifficulty()
+    {
+        currentNumber = Random.Range(50, 151);
     }
 }
 

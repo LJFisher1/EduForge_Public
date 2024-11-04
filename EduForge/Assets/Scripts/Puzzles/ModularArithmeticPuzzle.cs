@@ -14,10 +14,29 @@ public class ModularArithmeticPuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
-        a = Random.Range(1, 20);
-        b = Random.Range(1, 20);
-        x = Random.Range(1, 50);
-        y = Random.Range(1, 50);
+        // For testing purposes
+        // selectedDifficulty = "Hard";
+        // End testing
+
+        switch (selectedDifficulty)
+        {
+
+            case "Easy":
+                SetEasyDifficulty();
+                break;
+
+            case "Medium":
+                SetMediumDifficulty();
+                break;
+
+            case "Hard":
+                SetHardDifficulty();
+                break;
+
+            default:
+                SetEasyDifficulty();
+                break;
+        }
 
         string[] puzzleTypes = { "Basic Modulo", "Equivalence", "Word Problem" };
 
@@ -93,6 +112,7 @@ public class ModularArithmeticPuzzle : MathPuzzle
             if (parsedAnswer == correctAnswer)
             {
                 Debug.Log("Correct! The answer is correct.");
+                DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
@@ -101,12 +121,14 @@ public class ModularArithmeticPuzzle : MathPuzzle
             else
             {
                 Debug.Log("Incorrect. Try again.");
+                DisplayFeedback("Incorrect. Try again.", false);
                 inputField.text = "";
             }
         }
         else
         {
             Debug.Log("Invalid input. Please enter a valid number.");
+            DisplayFeedback("Invalid input. Please enter a number.", false);
         }
 
     }
@@ -126,6 +148,30 @@ public class ModularArithmeticPuzzle : MathPuzzle
     public override string GetCurrentPuzzleType()
     {
         return currentPuzzleType;
+    }
+    public override void SetEasyDifficulty()
+    {
+        a = Random.Range(1, 11);
+        b = Random.Range(1, 11);
+        x = Random.Range(1, 21);
+        y = Random.Range(1, 21);
+
+    }
+
+    public override void SetMediumDifficulty()
+    {
+        a = Random.Range(1, 31);
+        b = Random.Range(1, 31);
+        x = Random.Range(1, 51);
+        y = Random.Range(1, 51);
+    }
+
+    public override void SetHardDifficulty()
+    {
+        a = Random.Range(20, 101);
+        b = Random.Range(20, 101);
+        x = Random.Range(1, 101);
+        y = Random.Range(1, 101);
     }
 }
 
