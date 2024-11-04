@@ -36,10 +36,23 @@ public abstract class MathPuzzle : MonoBehaviour
         // Hide the puzzle UI initially
         puzzleUI.SetActive(false);
 
+        // Attempts to find the Pause Menu script if it wasn't assigned in the editor
+        if (pauseMenuScript == null)
+        {
+            GameObject pauseMenuObject = GameObject.Find("PauseMenu");
+            if (pauseMenuObject != null)
+            {
+                pauseMenuScript = pauseMenuObject.GetComponent<PauseMenuScript>();
+            }
+        }
         // Get the difficulty from the PauseMenu script
         if (pauseMenuScript != null)
         {
             selectedDifficulty = pauseMenuScript.GetSelectedDifficulty();
+        }
+        else
+        {
+            Debug.LogWarning("PauseMenuScript not found in the scene. Ensure the PauseMenu GameObject has the PauseMenuScript attached.");
         }
     }
 
@@ -57,7 +70,14 @@ public abstract class MathPuzzle : MonoBehaviour
     // Method to start the puzzle
     public virtual void StartPuzzle()
     {
-        selectedDifficulty = pauseMenuScript.GetSelectedDifficulty(); // Gets the selected difficult from the Pause Menu script
+        if (pauseMenuScript != null)
+        {
+            selectedDifficulty = pauseMenuScript.GetSelectedDifficulty(); // Gets the selected difficulty from the Pause Menu script
+        }
+        else
+        {
+            Debug.LogWarning("PauseMenuScript is not assigned. Difficulty level may not be set correctly.");
+        }
 
 
         if (!isPuzzleGenerated || IsPuzzleSolved())
