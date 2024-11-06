@@ -7,8 +7,8 @@ public class SecretObject : MonoBehaviour
 {
     public UnityEvent<string> onSecretCollected;  // Event for when the secret is collected
     public string secretID;  // Unique ID for the secret object
-
     private bool isCollected = false;  // Track if the secret is collected
+    private bool isPlayerNear = false;  // Track if the player is near the secret
 
     private void Start()
     {
@@ -18,8 +18,17 @@ public class SecretObject : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // Check if the player is near and presses the interact key
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
+        {
+            CollectSecret();
+        }
+    }
+
     // Call this method when the secret is collected
-    public void CollectSecret()
+    private void CollectSecret()
     {
         if (!isCollected)
         {
@@ -30,12 +39,23 @@ public class SecretObject : MonoBehaviour
         }
     }
 
-    // When the player interacts with or collides with the secret
+    // Detect player entering the trigger zone
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))  // Check if the player interacts
+        if (other.CompareTag("Player"))  // Check if the player enters
         {
-            CollectSecret();
+            isPlayerNear = true;
+            Debug.Log("Player near secret " + secretID);
+        }
+    }
+
+    // Detect player leaving the trigger zone
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNear = false;
+            Debug.Log("Player left secret " + secretID);
         }
     }
 }
