@@ -74,10 +74,10 @@ public abstract class MathPuzzle : MonoBehaviour
     // Check the player's answer; to be implemented by each puzzle type
     protected abstract void CheckAnswer(string userAnswer); // Re-protected so only the correct puzzle can call it
 
-    public void SubmitPuzzleAnswer(string userAnswer)        // To be used by the classes to call check answer
-    {
-        CheckAnswer(userAnswer);
-    }
+    //public void SubmitPuzzleAnswer(string userAnswer)        // To be used by the classes to call check answer
+    //{
+    //    CheckAnswer(userAnswer);
+    //}
 
     // Method to generate the puzzle; to be implemented by each puzzle type
     protected abstract void GeneratePuzzle();
@@ -88,8 +88,12 @@ public abstract class MathPuzzle : MonoBehaviour
     }
 
     // A method to handle the submit button interaction
-    protected virtual void OnSubmitAnswer()
+    public virtual void OnSubmitAnswer()
     {
+        // Prevent answer checking if the puzzle is already solved
+        if (puzzleSolved)
+            return;
+
         CheckAnswer(inputField.text);
 
         // If the puzzle is solved, invoke the onPuzzleSolved event

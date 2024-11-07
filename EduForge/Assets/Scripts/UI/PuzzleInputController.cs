@@ -60,18 +60,18 @@ public class PuzzleInputController : MonoBehaviour
         Debug.Log("Submitted answer: " + inputField.text + " for puzzle: " + currentPuzzle.name);
 
         // Pass the submitted answer to the current puzzle's CheckAnswer method
-        currentPuzzle.SubmitPuzzleAnswer(inputField.text);
+        currentPuzzle.OnSubmitAnswer();
     }
 
     public void YesButton()
     {
         inputField.text += "1";
-        currentPuzzle.SubmitPuzzleAnswer(inputField.text);
+        currentPuzzle.OnSubmitAnswer();
     }
 
     public void NoButton()
     {
         inputField.text += "0";
-        currentPuzzle.SubmitPuzzleAnswer(inputField.text);
+        currentPuzzle.OnSubmitAnswer();
     }
 }
