@@ -325,7 +325,7 @@ public class TextbookSystem : MonoBehaviour
 
         // Equivalence
         modularArithmeticInfo.AddExample(new Example("Are 24 and 14 congruent under modulo 5? (Yes/No)",
-            "To determine if two numbesr are congruent under modulo 5: \n" +
+            "To determine if two numbers are congruent under modulo 5: \n" +
             "Congruent means 'Equal' \n" +
             "1. Find the remainder of each number when divided by 5: \n" +
             "  24 % 5 = 4 \n" +
