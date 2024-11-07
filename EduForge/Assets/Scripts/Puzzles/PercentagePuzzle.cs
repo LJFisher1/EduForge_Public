@@ -16,8 +16,28 @@ public class PercentagePuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
-        a = Mathf.Round(Random.Range(1.0f, 100.0f));     // Percentage (1% to 100%) - Both are rounded to whole numbers for now, in the future when we do difficulty settings
-        b = Mathf.Round(Random.Range(10.0f, 1000.0f));   // Value for operations    - We'll change that depending on difficulty
+        // For testing purposes
+        // selectedDifficulty = "Hard";
+        // End testing
+        switch (selectedDifficulty)
+        {
+            case "Easy":
+                SetEasyDifficulty();
+                break;
+
+            case "Medium":
+                SetMediumDifficulty();
+                break;
+
+            case "Hard":
+                SetHardDifficulty();
+                break;
+
+            default:
+                SetEasyDifficulty();
+                break;
+        }
+       
 
         string[] puzzleTypes = { "Percentage Of", "Percentage Discount", "Percentage Ratio", "Percentage Increase", "Percentage Decrease" };
         puzzleType = puzzleTypes[Random.Range(0, puzzleTypes.Length)];
@@ -79,6 +99,7 @@ public class PercentagePuzzle : MathPuzzle
             if (roundedSolution == roundedParsedAnswer)
             {
                 Debug.Log("Correct! Well done.");
+                DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
@@ -87,12 +108,14 @@ public class PercentagePuzzle : MathPuzzle
             else
             {
                 Debug.Log("Incorrect. Try again.");
+                DisplayFeedback("Incorrect. Try again.", false);
                 inputField.text = "";
             }
         }
         else
         {
             Debug.Log("Invalid input. Please enter a number.");
+            DisplayFeedback("Invalid input. Please enter a number.", false);
         }
     }
 
@@ -128,6 +151,23 @@ public class PercentagePuzzle : MathPuzzle
     public override string GetCurrentPuzzleType()
     {
         return currentPuzzleType;
+    }
+    public override void SetEasyDifficulty()
+    {
+        a = Mathf.Round(Random.Range(1.0f, 50.0f));     // Whole numbers for percentages
+        b = Mathf.Round(Random.Range(10.0f, 100.0f));   // Whole numbers for value
+    }
+
+    public override void SetMediumDifficulty()
+    {
+        a = Mathf.Round(Random.Range(1.0f, 100.0f) * 10f) / 10f;
+        b = Mathf.Round(Random.Range(100.0f, 500.0f) * 10f) / 10f;
+    }
+
+    public override void SetHardDifficulty()
+    {
+        a = Mathf.Round(Random.Range(0.1f, 100.0f) * 100f) / 100f;
+        b = Mathf.Round(Random.Range(500.0f, 1000.0f) * 100f) / 100f;
     }
 }
 

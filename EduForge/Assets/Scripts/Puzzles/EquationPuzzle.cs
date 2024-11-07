@@ -19,8 +19,28 @@ public class EquationPuzzle : MathPuzzle
     {
         if (!isPuzzleGenerated)
         {
-            a = Random.Range(1, 20);
-            b = Random.Range(1, 20);
+            // For testing purposes
+            // selectedDifficulty = "Hard";
+            // End testing
+            switch (selectedDifficulty)
+            {
+                case "Easy":
+                    SetEasyDifficulty();
+                    break;
+
+                case "Medium":
+                    SetMediumDifficulty();
+                    break;
+
+                case "Hard":
+                    SetHardDifficulty();
+                    break;
+
+                default:
+                    SetEasyDifficulty();
+                    break;
+            }
+
             string[] operators = { "+", "-", "*" };
             selectedOperator = operators[Random.Range(0, operators.Length)];
             currentPuzzleType = "Equation";
@@ -61,6 +81,7 @@ public class EquationPuzzle : MathPuzzle
             if (parsedAnswer == solution)
             {
                 Debug.Log("Correct! Well done.");
+                DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
@@ -69,12 +90,14 @@ public class EquationPuzzle : MathPuzzle
             else
             {
                 Debug.Log("Incorrect. Try again.");
+                DisplayFeedback("Incorrect. Try again.", false);
                 inputField.text = "";
             }
         }
         else
         {
             Debug.Log("Invalid input. Please enter a number.");
+            DisplayFeedback("Invalid input. Please enter a number.", false);
         }
     }
 
@@ -108,5 +131,23 @@ public class EquationPuzzle : MathPuzzle
     public override string GetCurrentPuzzleType()
     {
         return currentPuzzleType;
+    }
+
+    public override void SetEasyDifficulty()
+    {
+        a = Random.Range(1, 11);
+        b = Random.Range(1, 11);
+    }
+
+    public override void SetMediumDifficulty()
+    {
+        a = Random.Range(-10, 51);
+        b = Random.Range(-10, 51);
+    }
+
+    public override void SetHardDifficulty()
+    {
+        a = Random.Range(-100, 101);
+        b = Random.Range(-100, 101);
     }
 }

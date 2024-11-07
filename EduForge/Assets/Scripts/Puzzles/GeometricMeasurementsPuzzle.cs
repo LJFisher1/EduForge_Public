@@ -14,6 +14,29 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
+        // For testing purposes
+        // selectedDifficulty = "Hard";
+        // End testing
+
+        switch (selectedDifficulty)
+        {
+            case "Easy":
+                SetEasyDifficulty();
+                break;
+
+            case "Medium":
+                SetMediumDifficulty();
+                break;
+
+            case "Hard":
+                SetHardDifficulty();
+                break;
+
+            default:
+                SetEasyDifficulty();
+                break;
+        }
+
         currentPuzzleType = "Geometric Measurements";
         measurementType = Random.Range(1, 4); // 1 = Perimeter, 2 = Area, 3 = Volume
         switch (measurementType)
@@ -166,6 +189,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
             if ((roundedParsedAnswer - correctAnswer) < tolerance)
             {
                 Debug.Log("Correct! The answer is correct.");
+                DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
                 inputField.text = "";
                 EndPuzzle();
@@ -175,12 +199,14 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
             {
                 Debug.Log("Incorrect. Try again.");
                 Debug.Log($"Expected: {correctAnswer} | Got: {roundedParsedAnswer}");
+                DisplayFeedback("Incorrect. Try again.", false);
                 inputField.text = "";
             }
         }
         else
         {
             Debug.Log("Invalid input. Please enter a valid number.");
+            DisplayFeedback("Invalid input. Please enter a number.", false);
         }
     }
 
@@ -218,5 +244,30 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
     {
         return currentPuzzleType;
     }
+    public override void SetEasyDifficulty()
+    {
+        length = Random.Range(5, 11);
+        width = Random.Range(5, 11);
+        height = Random.Range(5, 11);
+        radius = Random.Range(5, 11);
+        triangleBase = Random.Range(5, 11);
+    }
 
+    public override void SetMediumDifficulty()
+    {
+        length = Random.Range(10, 21);
+        width = Random.Range(10, 21);
+        height = Random.Range(10, 21);
+        radius = Random.Range(10, 21);
+        triangleBase = Random.Range(10, 21);
+    }
+
+    public override void SetHardDifficulty()
+    {
+        length = Random.Range(20, 41);
+        width = Random.Range(20, 41);
+        height = Random.Range(20, 41);
+        radius = Random.Range(20, 41);
+        triangleBase = Random.Range(20, 41);
+    }
 }
