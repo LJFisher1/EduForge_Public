@@ -2327,6 +2327,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1849931159342526530, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849931159342526530, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849931159342526530, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
+      propertyPath: m_Size.z
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2804326621636744830, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
       propertyPath: puzzle
       value: 
@@ -2401,7 +2413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7516130643626411976, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.14
+      value: 2.516
       objectReference: {fileID: 0}
     - target: {fileID: 7516130643626411976, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2426,6 +2438,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1970777161}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8835062292815877892, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1720474988}
     - targetCorrespondingSourceObject: {fileID: 1738656448221622287, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -6466,15 +6481,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -10118,6 +10133,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1720474982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8835062292815877892, guid: 77a8f415021f2874f8d961e41f5006b4, type: 3}
+  m_PrefabInstance: {fileID: 322165638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1720474988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720474982}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1726159918
 GameObject:
   m_ObjectHideFlags: 0
@@ -12085,7 +12126,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.2, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}

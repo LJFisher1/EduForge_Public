@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     public bool isLocked = true;
     public bool showOrderNumber = false;  // Toggle for showing door order
 
-    private TextMeshProUGUI lockStatusText;
+    private TextMeshProUGUI doorLockText;
     private TextMeshProUGUI doorOrderText;
 
     private bool isOpen = false;  // Track if the door is open
@@ -23,7 +23,7 @@ public class Door : MonoBehaviour
         openPosition = closedPosition + openPositionOffset;
 
         // Find TextMeshPro components in the child Canvas
-        lockStatusText = transform.Find("DoorUI/LockStatusText").GetComponent<TextMeshProUGUI>();
+        doorLockText = transform.Find("DoorUI/DoorLockText").GetComponent<TextMeshProUGUI>();
         doorOrderText = transform.Find("DoorUI/DoorOrderText").GetComponent<TextMeshProUGUI>();
 
         UpdateLockStatus();
@@ -51,9 +51,9 @@ public class Door : MonoBehaviour
 
     private void UpdateLockStatus()
     {
-        if (lockStatusText != null)
+        if (doorLockText != null)
         {
-            lockStatusText.text = isLocked ? "Locked" : "Unlocked";
+            doorLockText.text = isLocked ? "Locked" : "Unlocked";
         }
     }
 
