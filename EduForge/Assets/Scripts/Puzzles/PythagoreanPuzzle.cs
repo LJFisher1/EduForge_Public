@@ -20,7 +20,7 @@ public class PythagoreanPuzzle : MathPuzzle
         if (!isPuzzleGenerated)
         {
             // For testing purposes
-            // selectedDifficulty = "Hard";
+            selectedDifficulty = "Hard";
             // End testing
             switch (selectedDifficulty)
             {
@@ -41,32 +41,36 @@ public class PythagoreanPuzzle : MathPuzzle
                     break;
             }
 
-            currentPuzzleType = "Pythagorean Theorum";
+            currentPuzzleType = "Pythagorean Theorem";
 
             c = Math.Round(Math.Sqrt(a * a + b * b), 2);
             int missingVariable = UnityEngine.Random.Range(0, 3);
+
 
             switch (missingVariable)
             {
                 case 0:
                     // Solve for a: a^2 + b^2 = c^2 becomes a = sqrt(c^2 - b^2)
-                    currentPuzzleType += ": A";
+                    currentPuzzleType += ": Solving for A";
                     solution = Math.Sqrt(c * c - b * b);  // Solve for a
                     currentTheorem = $"?^2 + {b}^2 = {c}^2";
+                    Debug.Log(solution);
                     break;
 
                 case 1:
                     // Solve for b: a^2 + b^2 = c^2 becomes b = sqrt(c^2 - a^2)
-                    currentPuzzleType += ": B";
+                    currentPuzzleType += ": Solving for B";
                     solution = Math.Sqrt(c * c - a * a);  // Solve for b
                     currentTheorem = $"{a}^2 + ?^2 = {c}^2";
+                    Debug.Log(solution);
                     break;
 
                 case 2:
                     // Solve for c: a^2 + b^2 = c^2
-                    currentPuzzleType += ": C";
+                    currentPuzzleType += ": Solving for C";
                     solution = c;
                     currentTheorem = $"{a}^2 + {b}^2 = ?^2";
+                    Debug.Log(solution);
                     break;
             }
 
@@ -90,7 +94,7 @@ public class PythagoreanPuzzle : MathPuzzle
             parsedAnswer = Math.Round(parsedAnswer, 2);
 
             // Set tolerance for precision comparison
-            double tolerance = 0.01;  // Small tolerance for comparison
+            double tolerance = 0.02;  // Small tolerance for comparison
             double difference = Math.Abs(solution - parsedAnswer);
 
             // Check if the answer is correct within the tolerance
