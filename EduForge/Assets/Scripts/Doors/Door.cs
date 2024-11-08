@@ -1,36 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Door : MonoBehaviour
 {
-    public bool isLocked = true; // Determines if the door is locked
-    public Vector3 openPositionOffset = new Vector3(0, 5, 0); // How far the door moves up/down
-    public float moveSpeed = 2f; // Speed of the door's movement
+    public bool isLocked = true;
+    public bool showOrderNumber = false;  // Toggle for showing door order
 
-    private bool isOpen = false; // Track if the door is open
-    private bool isPlayerNear = false; // Track if the player is near the door
-    private Vector3 closedPosition; // Store the initial position of the door
-    private Vector3 openPosition; // Calculate the target open position
+    private TextMeshProUGUI lockStatusText;
+    private TextMeshProUGUI doorOrderText;
+
+    private bool isOpen = false;  // Track if the door is open
+    private Vector3 closedPosition;
+    private Vector3 openPosition;
+    public Vector3 openPositionOffset = new Vector3(0, 5, 0);  // Offset for opening door
+    public float moveSpeed = 2f;
 
     private void Start()
     {
-        // Store the closed position
         closedPosition = transform.position;
-
-        // Calculate the open position by adding the offset
         openPosition = closedPosition + openPositionOffset;
+
+        // Find TextMeshPro components in the child Canvas
+        lockStatusText = transform.Find("DoorUI/LockStatusText").GetComponent<TextMeshProUGUI>();
+        doorOrderText = transform.Find("DoorUI/DoorOrderText").GetComponent<TextMeshProUGUI>();
+
+        UpdateLockStatus();
+        ToggleDoorOrderVisibility();
     }
 
     private void Update()
     {
-        // If the player is near, presses E, and the door is unlocked, toggle the door
-        if (isPlayerNear && !isLocked && Input.GetKeyDown(KeyCode.E))
-        {
-            ToggleDoor();
-        }
-
-        // Smoothly move the door to the target position (either open or closed)
         if (isOpen)
         {
             transform.position = Vector3.MoveTowards(transform.position, openPosition, moveSpeed * Time.deltaTime);
@@ -41,23 +42,34 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void ToggleDoor()
-    {
-        isOpen = !isOpen; // Toggle the door state
-    }
-
     public void UnlockDoor()
     {
-        isLocked = false; // Unlock the door
-        Debug.Log("The door is unlocked.");
+        isLocked = false;
+        UpdateLockStatus();  // Update lock status display when unlocked
+        Debug.Log($"{gameObject.name} is unlocked.");
+    }
+
+    private void UpdateLockStatus()
+    {
+        if (lockStatusText != null)
+        {
+            lockStatusText.text = isLocked ? "Locked" : "Unlocked";
+        }
+    }
+
+    private void ToggleDoorOrderVisibility()
+    {
+        if (doorOrderText != null)
+        {
+            doorOrderText.gameObject.SetActive(showOrderNumber);  // Toggle visibility only, keep the text constant
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isLocked)
         {
-            isPlayerNear = true;
-            Debug.Log("Player near the door.");
+            isOpen = true;
         }
     }
 
@@ -65,8 +77,7 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerNear = false;
-            Debug.Log("Player left the door.");
+            isOpen = false;
         }
     }
 }

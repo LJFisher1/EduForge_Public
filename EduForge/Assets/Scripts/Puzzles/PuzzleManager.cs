@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PuzzleManager : MonoBehaviour
     public Door exitDoor;  // Reference to the exit door
 
     private int puzzlesCompleted = 0;  // Track the number of solved puzzles
+    private HashSet<string> completedPuzzles = new HashSet<string>();  // Track completed puzzle IDs
 
     private void Start()
     {
@@ -24,13 +26,23 @@ public class PuzzleManager : MonoBehaviour
     // Called whenever a puzzle is solved
     private void OnPuzzleSolved(string puzzleID)
     {
-        puzzlesCompleted++;
-        Debug.Log($"Puzzle {puzzleID} solved! {puzzlesCompleted}/{mainPuzzles.Count} puzzles completed.");
-
-        // Check if all puzzles are completed
-        if (puzzlesCompleted >= mainPuzzles.Count)
+        // Check if the puzzle has already been completed
+        if (!completedPuzzles.Contains(puzzleID))
         {
-            UnlockExitDoor();
+            // Mark puzzle as completed
+            completedPuzzles.Add(puzzleID);
+            puzzlesCompleted++;
+            Debug.Log($"Puzzle {puzzleID} solved! {puzzlesCompleted}/{mainPuzzles.Count} puzzles completed.");
+
+            // Check if all puzzles are completed
+            if (puzzlesCompleted >= mainPuzzles.Count)
+            {
+                UnlockExitDoor();
+            }
+        }
+        else
+        {
+            Debug.Log($"Puzzle {puzzleID} has already been completed and will not be counted again.");
         }
     }
 
