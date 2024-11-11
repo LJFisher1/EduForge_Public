@@ -8,11 +8,10 @@ public class PauseMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject PauseMenu; // pause menu ui panel
     [SerializeField] GameObject SettingsUI; // settings ui panel
-    [SerializeField] GameObject MainMenuUI; // main menu ui panel
 
     [SerializeField] Text hintCounterText; // text element for hint counter
-    [SerializeField] GameObject hintCounterUI; // hint counter ui panel
-    [SerializeField] GameObject HintPopUpUI; // hint pop-up ui panel
+    [SerializeField] GameObject hintCounterUI1; // hint counter ui panel
+    [SerializeField] GameObject HintPopUpUI1; // hint pop-up ui panel
     [SerializeField] Text hintText; // text element for the hint message
 
     [SerializeField] Slider difficultySlider; // difficulty slider
@@ -35,10 +34,10 @@ public class PauseMenuScript : MonoBehaviour
     public void Start()
     {
         PauseMenu.SetActive(false); // pause menu not open
-        HintPopUpUI.SetActive(false); // hint pop-up not open
+        HintPopUpUI1.SetActive(false); // hint pop-up not open
         SettingsUI.SetActive(false); // settings page not open
         UpdateHintCounterUI(); // hint counter auto-set to 5
-        hintCounterUI.SetActive(true); // hint counter appearing
+        hintCounterUI1.SetActive(true); // hint counter appearing
 
         difficultySlider.value = 0; // difficulty slider set to easy
         mathPuzzleInstance = FindObjectOfType<MathPuzzle>(); // find mathpuzzle instance
@@ -81,8 +80,8 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1;
         PauseMenu.SetActive(false);
-        HintPopUpUI.SetActive(false);
-        hintCounterUI.SetActive(true);
+        HintPopUpUI1.SetActive(false);
+        hintCounterUI1.SetActive(true);
     }
 
     public void TogglePauseMenu()
@@ -95,15 +94,15 @@ public class PauseMenuScript : MonoBehaviour
         if (!isActive) // pausing the game
         {
             Time.timeScale = 0f; // pause gameplay
-            hintCounterUI?.SetActive(false); // hide the hint counter if assigned
+            hintCounterUI1.SetActive(false); // hide the hint counter if assigned
             Cursor.lockState = CursorLockMode.None; // unlock the cursor for UI interaction
             Cursor.visible = true; // make cursor visible
         }
         else // resuming the game
         {
             Time.timeScale = 1f; // resume gameplay
-            HintPopUpUI?.SetActive(false); // hide the hint pop-up if open
-            hintCounterUI?.SetActive(true); // show the hint counter if assigned
+            HintPopUpUI1.SetActive(false); // hide the hint pop-up if open
+            hintCounterUI1.SetActive(true); // show the hint counter if assigned
             Cursor.lockState = CursorLockMode.Locked; // lock the cursor for gameplay
             Cursor.visible = false; // hide the cursor during gameplay
         }
@@ -113,6 +112,8 @@ public class PauseMenuScript : MonoBehaviour
     // restarts current level
     public void Restart()
     {
+        Time.timeScale = 1;
+        Debug.Log("Restart button clicked");
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
@@ -138,24 +139,18 @@ public class PauseMenuScript : MonoBehaviour
     private void DisplayHint()
     {
         hintText.text = hints[5 - hintCounter - 1]; // show next hint
-        HintPopUpUI.SetActive(true); // display hint
+        HintPopUpUI1.SetActive(true); // display hint
 
         Time.timeScale = 1; // resume gameplay
         PauseMenu.SetActive(false); // hide pause menu
-        hintCounterUI.SetActive(true); // show hint counter
+        hintCounterUI1.SetActive(true); // show hint counter
     }
 
     // back button to exit out of hint pop-up
     public void CloseHintAndResume()
     {
-        HintPopUpUI.SetActive(false);
+        HintPopUpUI1.SetActive(false);
         Resume();
-    }
-
-    // closes only the hint pop-up without resuming the game
-    public void CloseHintPopUp()
-    {
-        HintPopUpUI.SetActive(false);
     }
 
     // open settings ui panel
