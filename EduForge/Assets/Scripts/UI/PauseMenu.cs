@@ -8,6 +8,7 @@ public class PauseMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject PauseMenu; // pause menu ui panel
     [SerializeField] GameObject SettingsUI; // settings ui panel
+    [SerializeField] GameObject MainMenuUI; // main menu ui panel
 
     [SerializeField] Text hintCounterText; // text element for hint counter
     [SerializeField] GameObject hintCounterUI; // hint counter ui panel
@@ -16,6 +17,7 @@ public class PauseMenuScript : MonoBehaviour
 
     [SerializeField] Slider difficultySlider; // difficulty slider
     private MathPuzzle mathPuzzleInstance; // reference to math puzzle script
+    private PlayerMovement playerMovement; // reference to the player movement script
 
     // array for hint counter on the top right of the screen. goes from 5 to 0 and stops. hard-coded list currently til hints are in place
     private int hintCounter = 5;
@@ -41,6 +43,12 @@ public class PauseMenuScript : MonoBehaviour
         difficultySlider.value = 0; // difficulty slider set to easy
         mathPuzzleInstance = FindObjectOfType<MathPuzzle>(); // find mathpuzzle instance
         SetInitialDifficulty();
+    }
+
+    // new game button on main menu is pressed and it starts the game
+    public void NewGame()
+    {
+        SceneManager.LoadScene("Testing Scene");
     }
 
     // sets the initial difficulty for the puzzle when the game starts
@@ -77,30 +85,30 @@ public class PauseMenuScript : MonoBehaviour
         hintCounterUI.SetActive(true);
     }
 
-    // toggles the pause menu open or closed if no puzzle is currently active
     public void TogglePauseMenu()
     {
-        if (isPuzzleMode) return; // dont open pause menu if a puzzle is active
+        if (isPuzzleMode) return; // don't open pause menu if a puzzle is active
 
         bool isActive = PauseMenu.activeSelf;
-        PauseMenu.SetActive(!isActive); // pause menu visibility
+        PauseMenu.SetActive(!isActive); // toggle pause menu visibility
 
-        if (!isActive)
+        if (!isActive) // pausing the game
         {
-            Time.timeScale = 0f; // pause the game while menu is open
-            hintCounterUI.SetActive(false); // hide the hint counter
+            Time.timeScale = 0f; // pause gameplay
+            hintCounterUI?.SetActive(false); // hide the hint counter if assigned
             Cursor.lockState = CursorLockMode.None; // unlock the cursor for UI interaction
             Cursor.visible = true; // make cursor visible
         }
-        else
+        else // resuming the game
         {
-            Time.timeScale = 1f; // resume the game
-            HintPopUpUI.SetActive(false); // hide the hint pop-up if open
-            hintCounterUI.SetActive(true); // show the hint counter
+            Time.timeScale = 1f; // resume gameplay
+            HintPopUpUI?.SetActive(false); // hide the hint pop-up if open
+            hintCounterUI?.SetActive(true); // show the hint counter if assigned
             Cursor.lockState = CursorLockMode.Locked; // lock the cursor for gameplay
             Cursor.visible = false; // hide the cursor during gameplay
         }
     }
+
 
     // restarts current level
     public void Restart()

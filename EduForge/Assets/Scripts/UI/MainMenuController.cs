@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
+    public PauseMenuScript pauseMenuScript;
+
     // This method will be linked to the "New Game" button
     public void NewGame()
     {
@@ -26,7 +29,7 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Settings button clicked!");
         // Open the settings menu or settings screen
-        
+
     }
 
     // This method will be linked to the "Exit" button
