@@ -13,7 +13,7 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("New Game button clicked!");
         // Load the first level or main gameplay scene
-        
+        SceneManager.LoadScene("Testing Scene");
     }
 
     // This method will be linked to the "Load Game" button
@@ -29,7 +29,7 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Settings button clicked!");
         // Open the settings menu or settings screen
-
+        pauseMenuScript.GoToSettings();
     }
 
     // This method will be linked to the "Exit" button

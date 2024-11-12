@@ -44,12 +44,6 @@ public class PauseMenuScript : MonoBehaviour
         SetInitialDifficulty();
     }
 
-    // new game button on main menu is pressed and it starts the game
-    public void NewGame()
-    {
-        SceneManager.LoadScene("Testing Scene");
-    }
-
     // sets the initial difficulty for the puzzle when the game starts
     private void SetInitialDifficulty()
     {
