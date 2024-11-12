@@ -9,7 +9,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
 {
     public TextMeshProUGUI primeNumberText;     // UI to display the number
     private int currentNumber;                  // The number to check
-    private bool isPrime;                       // To store if the number is prime or not
+    public bool isPrime;                       // To store if the number is prime or not
     private List<int> primeFactors;             // To store the puzzle factors
     private string currentQuestion;             // Store the question text
     protected string currentPuzzleType;
@@ -124,7 +124,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 {
                     bool playerAnswerIsYes = parsedAnswer == 1;
                     bool correctAnswer = isPrime == playerAnswerIsYes;
-                    HandlePrimeAnswer(correctAnswer);
+                    puzzleSolved = HandlePrimeAnswer(correctAnswer);
                 }
                 else
                 {
@@ -137,7 +137,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 if (int.TryParse(userAnswer, out int nextPrimeAnswer))
                 {
                     int nextPrime = FindNextPrime(currentNumber);
-                    HandlePrimeAnswer(nextPrimeAnswer == nextPrime);
+                    puzzleSolved = HandlePrimeAnswer(nextPrimeAnswer == nextPrime);
                 }
                 else
                 {
@@ -167,27 +167,28 @@ public class PrimeNumbersPuzzle : MathPuzzle
                 primeFactors.Sort();
 
                 bool isCorrect = parsedFactors.SequenceEqual(primeFactors);
-                HandlePrimeAnswer(isCorrect);
+                puzzleSolved = HandlePrimeAnswer(isCorrect);
                 break;
         }
     }
 
-    private void HandlePrimeAnswer(bool isCorrect)
+    private bool HandlePrimeAnswer(bool isCorrect)
     {
         if (isCorrect)
         {
             Debug.Log("Correct! Well done.");
             DisplayFeedback("Correct! Well done.", true);
-            puzzleSolved = true;
             inputField.text = "";
             EndPuzzle();
             ResetPuzzleState();
+            return true;
         }
         else
         {
             Debug.Log("Incorrect. Try again.");
             DisplayFeedback("Incorrect. Try again.", false);
             inputField.text = "";
+            return false;
         }
     }
 
@@ -224,7 +225,7 @@ public class PrimeNumbersPuzzle : MathPuzzle
     public override void SetEasyDifficulty()
     {
         currentNumber = Random.Range(10, 51);
-       
+
     }
 
     public override void SetMediumDifficulty()
