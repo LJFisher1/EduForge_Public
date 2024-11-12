@@ -869,7 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &83073585
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &140304336
@@ -2353,7 +2353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &273382766
@@ -5989,7 +5989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &593156119
@@ -7187,7 +7187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &767332895
@@ -10667,7 +10667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &1127703478
@@ -11799,7 +11799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &1229812304
@@ -12154,7 +12154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &1293343960
@@ -17182,7 +17182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &1963264668
@@ -17997,7 +17997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  showOrderNumber: 0
+  showOrderNumber: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
 --- !u!65 &2069338785

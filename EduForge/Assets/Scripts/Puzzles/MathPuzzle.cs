@@ -135,6 +135,7 @@ public abstract class MathPuzzle : MonoBehaviour
         {
             DisplayFeedback("Correct!", true);
             // Trigger the event, passing the puzzle's name or ID
+            Debug.Log("You are aright before invocation of event");
             onPuzzleSolved.Invoke(this.gameObject.name);
         }
         else
