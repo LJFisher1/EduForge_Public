@@ -9,8 +9,8 @@ public class PythagoreanPuzzle : MathPuzzle
     public TextMeshProUGUI pythagoreanText;
 
     // To store puzzle data 
-    private double solution;               // Store the solution (hypotenuse)
-    private string currentTheorem;     // Store the pythagorean theorum text
+    private double solution;            // Store the solution (hypotenuse)
+    private string currentTheorem;      // Store the pythagorean theorum text
     private int a, b;                   // Store the operands
     private double c;
     protected string currentPuzzleType;
@@ -19,9 +19,9 @@ public class PythagoreanPuzzle : MathPuzzle
     {
         if (!isPuzzleGenerated)
         {
-            // For testing purposes
-            selectedDifficulty = "Hard";
-            // End testing
+            //  For testing purposes
+            //  selectedDifficulty = "Hard";
+            //  End testing
             switch (selectedDifficulty)
             {
                 case "Easy":

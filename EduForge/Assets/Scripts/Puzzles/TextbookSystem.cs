@@ -266,7 +266,7 @@ public class TextbookSystem : MonoBehaviour
         primeInfo.AddExample(new Example("What is the next prime number after 17?",
             "To find the next prime number: \n" +
             "1. The number 18 is not prime (it's divisible by 2). \n" +
-            "2. The number 19 is prime, as it can only be divided by 1 and 19." +
+            "2. The number 19 is prime, as it can only be divided by 1 and 19. \n" +
             "3. Therefore, the next prime number after 17 is 19.", "NextPrime"));
         textbook.Add("PrimeNumber: NextPrime", primeInfo);
 
@@ -297,15 +297,15 @@ public class TextbookSystem : MonoBehaviour
         // Median
         statisticsInfo.AddExample(new Example("Calculate the median of the numbers: 5, 6, 3, 9, 7.",
             "To solve this problem, follow these steps: \n" +
-            "1. First, order the numbers from smallest to largest: 3, 5, 6, 7, 9." +
-            "2. The middle number is 6." +
+            "1. First, order the numbers from smallest to largest: 3, 5, 6, 7, 9. \n" +
+            "2. The middle number is 6. \n" +
             "3. Therefore, the median is 6.", "Median"));
         textbook.Add("Statistics: Median", statisticsInfo);
 
         // Range
         statisticsInfo.AddExample(new Example("Find the range of the numbers: 15, 2, 8, 19, 7.",
             "To find the range, follow these steps: \n" +
-            "1. Subtract the smallest number from the largest number: 19 - 2 = 17." +
+            "1. Subtract the smallest number from the largest number: 19 - 2 = 17. \n" +
             "2. The range is 17.", "Range"));
         textbook.Add("Statistics: Range", statisticsInfo);
 
@@ -318,7 +318,7 @@ public class TextbookSystem : MonoBehaviour
         // Basic Modulo
         modularArithmeticInfo.AddExample(new Example("What is 17 % 5?",
             "To solve this problem, follow these steps: \n" +
-            "1. Divide 17 by 5: 17 / 5 = 3 (quotient), with a remainder of 2." +
+            "1. Divide 17 by 5: 17 / 5 = 3 (quotient), with a remainder of 2. \n" +
             "2. The modulo operator (%) gives the remainder after division. \n" +
             "3. Therefore, 17 % 5 = 2.", "Basic Modulo"));
         textbook.Add("Modular Arithmetic: Basic Modulo", modularArithmeticInfo);
@@ -330,7 +330,7 @@ public class TextbookSystem : MonoBehaviour
             "1. Find the remainder of each number when divided by 5: \n" +
             "  24 % 5 = 4 \n" +
             "  14 % 5 = 4 \n" +
-            "2. Since both remainders are the same, 24 and 14 are congruent under modulo 5." +
+            "2. Since both remainders are the same, 24 and 14 are congruent under modulo 5. \n" +
             "The answer is Yes.", "Equivalence"));
         textbook.Add("Modular Arithmetic: Equivalence", modularArithmeticInfo);
 

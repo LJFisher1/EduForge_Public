@@ -171,7 +171,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
 
             // Using a tolerance for floating point comparison
             float tolerance = 0.01f;
-            if ((roundedParsedAnswer - correctAnswer) < tolerance)
+            if (roundedParsedAnswer == correctAnswer)
             {
                 Debug.Log("Correct! The answer is correct.");
                 DisplayFeedback("Correct! Well done.", true);

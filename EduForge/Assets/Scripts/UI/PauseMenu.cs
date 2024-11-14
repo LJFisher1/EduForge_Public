@@ -76,6 +76,7 @@ public class PauseMenuScript : MonoBehaviour
         PauseMenu.SetActive(false);
         HintPopUpUI1.SetActive(false);
         hintCounterUI1.SetActive(true);
+        Cursor.visible = false;
     }
 
     public void TogglePauseMenu()
