@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 31336711}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &4569120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -347,6 +348,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -729,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 317794187}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &73716297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1614,6 +1618,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -2072,6 +2078,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -2673,6 +2681,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -2921,6 +2931,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -4769,6 +4781,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -5562,6 +5576,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1001 &777064137
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.9902945
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8803895
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3331146
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 230066317323887189, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451052934048835388, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_Name
+      value: PauseMenu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
 --- !u!1 &794735532
 GameObject:
   m_ObjectHideFlags: 0
@@ -7628,6 +7699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 2011337742}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &1231307387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7696,6 +7768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 1798637603}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &1239486950
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9808,6 +9881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 604784816}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &1696807880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10187,6 +10261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 177408015}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &1740320891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10470,6 +10545,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -10912,6 +10989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 309999989}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &1885582542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11503,6 +11581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 267074244}
   puzzleInputController: {fileID: 8232101669181178286}
+  textbookSystem: {fileID: 0}
 --- !u!65 &1944765932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11786,6 +11865,8 @@ MonoBehaviour:
   submitButton: {fileID: 3883351520417565956}
   puzzleUI: {fileID: 1989990404680269205}
   playerMovement: {fileID: 1339065336}
+  pauseMenuScript: {fileID: 0}
+  feedbackText: {fileID: 0}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls: []
@@ -13011,3 +13092,4 @@ SceneRoots:
   - {fileID: 309999993}
   - {fileID: 317794191}
   - {fileID: 1900565703}
+  - {fileID: 777064137}

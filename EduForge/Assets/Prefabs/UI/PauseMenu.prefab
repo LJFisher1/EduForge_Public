@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4662811023606034476}
   - component: {fileID: 2737913143851598882}
   - component: {fileID: 6985811537591962614}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 329483094621021586}
   - component: {fileID: 4012656194111785109}
   - component: {fileID: 9166691952841365186}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: PauseUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 152254435869584350}
   - component: {fileID: 664616379772197426}
   - component: {fileID: 1843985543765953250}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: PauseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1145,7 +1145,7 @@ GameObject:
   - component: {fileID: 6280166207107505529}
   - component: {fileID: 4158266237182537885}
   - component: {fileID: 1585643516943758348}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 1485910243653036177}
   - component: {fileID: 1205053421559611035}
   - component: {fileID: 3136073225840160058}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1246,7 +1246,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 175, y: -205}
-  m_SizeDelta: {x: 350, y: 42}
+  m_SizeDelta: {x: 349, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1485910243653036177
 CanvasRenderer:
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 5220424018037556202}
   - component: {fileID: 3739419272123104100}
   - component: {fileID: 6401265951817023764}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ButtonBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1432,7 +1432,7 @@ GameObject:
   - component: {fileID: 8643927665643545369}
   - component: {fileID: 9112443279640725134}
   - component: {fileID: 5943475037732902003}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1874,7 +1874,7 @@ GameObject:
   - component: {fileID: 5329681555851447138}
   - component: {fileID: 367749082783909288}
   - component: {fileID: 6516431582071370443}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RestartText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2236,7 +2236,7 @@ GameObject:
   - component: {fileID: 5074107600835612261}
   - component: {fileID: 8127451968730564270}
   - component: {fileID: 3857806947989297032}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2523,7 +2523,7 @@ GameObject:
   - component: {fileID: 967236869058282390}
   - component: {fileID: 6114562880506379079}
   - component: {fileID: 5682123820956447292}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2862,7 +2862,7 @@ GameObject:
   - component: {fileID: 507501077906596766}
   - component: {fileID: 8067816965751380803}
   - component: {fileID: 6603206241007261998}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3048,7 +3048,7 @@ GameObject:
   - component: {fileID: 3990754332903116234}
   - component: {fileID: 2525998486102952462}
   - component: {fileID: 4944234231230583634}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ResumeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3203,7 +3203,7 @@ GameObject:
   - component: {fileID: 81302237153922505}
   - component: {fileID: 1666103905362221640}
   - component: {fileID: 2961511527255591076}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3360,7 +3360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc369f3e82001ed41b9ebdecb950aaf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 7705227105603146047}
+  PauseMenu: {fileID: 315107696331680723}
   SettingsUI: {fileID: 4445833224245702669}
   hintCounterText: {fileID: 4040063703408590742}
   hintCounterUI1: {fileID: 1585132086861983600}
@@ -3376,7 +3376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8687507964886784352}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3415,7 +3415,7 @@ GameObject:
   - component: {fileID: 6043616550265201439}
   - component: {fileID: 2718421883098809639}
   - component: {fileID: 7627987817570659070}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HintText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3494,7 +3494,7 @@ GameObject:
   - component: {fileID: 4693221230657419252}
   - component: {fileID: 8441734365312960473}
   - component: {fileID: 1737458756762677992}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: SettingsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3653,7 +3653,7 @@ GameObject:
   - component: {fileID: 4219172710859535012}
   - component: {fileID: 8282926639736720136}
   - component: {fileID: 604132979960300740}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ExitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

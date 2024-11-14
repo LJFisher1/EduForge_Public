@@ -30,9 +30,11 @@ public class PauseMenuScript : MonoBehaviour
 
     private string[] difficultyOptions = { "Easy", "Medium", "Hard" }; // array of difficulty options
     private bool isPuzzleMode = false; // bool to check if a puzzle is active or not
+    private bool isInMainMenu; // bool to check if the settings was opened from the main menu or in-game
 
     public void Start()
     {
+        isInMainMenu = SceneManager.GetActiveScene().name == "MainMenu"; // checks if the main menu scene is open
         PauseMenu.SetActive(false); // pause menu not open
         HintPopUpUI1.SetActive(false); // hint pop-up not open
         SettingsUI.SetActive(false); // settings page not open
@@ -82,6 +84,7 @@ public class PauseMenuScript : MonoBehaviour
     public void TogglePauseMenu()
     {
         if (isPuzzleMode) return; // don't open pause menu if a puzzle is active
+        if (isInMainMenu) return; // don't open pause menu if main menu is open
 
         bool isActive = PauseMenu.activeSelf;
         PauseMenu.SetActive(!isActive); // toggle pause menu visibility
@@ -102,7 +105,6 @@ public class PauseMenuScript : MonoBehaviour
             Cursor.visible = false; // hide the cursor during gameplay
         }
     }
-
 
     // restarts current level
     public void Restart()
@@ -159,7 +161,15 @@ public class PauseMenuScript : MonoBehaviour
     public void CloseSettings()
     {
         SettingsUI.SetActive(false);
-        PauseMenu.SetActive(true);
+
+        if (isInMainMenu)
+        {
+            PauseMenu.SetActive(false);
+        }
+        else
+        {
+            PauseMenu.SetActive(true);
+        }
     }
 
     // exit the game
