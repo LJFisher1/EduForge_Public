@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3487989234328299732, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18.400024
+      objectReference: {fileID: 0}
     - target: {fileID: 3639497571998584584, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -930,7 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db955e2beb950844bdfc11e5f035a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuScript: {fileID: 0}
+  pauseMenuScript: {fileID: 1332439423}
 --- !u!4 &937332617
 Transform:
   m_ObjectHideFlags: 0
