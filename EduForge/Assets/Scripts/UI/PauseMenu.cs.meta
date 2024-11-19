@@ -3,7 +3,14 @@ guid: bc369f3e82001ed41b9ebdecb950aaf4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PauseMenu: {fileID: 7451052934048835388, guid: b72f9d44ef5b4464aa91777edd1375df, type: 3}
+  - SettingsUI: {instanceID: 0}
+  - hintCounterText: {instanceID: 0}
+  - hintCounterUI: {instanceID: 0}
+  - HintPopUpUI: {instanceID: 0}
+  - hintText: {instanceID: 0}
+  - difficultySlider: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

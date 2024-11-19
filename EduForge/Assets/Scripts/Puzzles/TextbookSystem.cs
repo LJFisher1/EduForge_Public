@@ -266,7 +266,7 @@ public class TextbookSystem : MonoBehaviour
         primeInfo.AddExample(new Example("What is the next prime number after 17?",
             "To find the next prime number: \n" +
             "1. The number 18 is not prime (it's divisible by 2). \n" +
-            "2. The number 19 is prime, as it can only be divided by 1 and 19." +
+            "2. The number 19 is prime, as it can only be divided by 1 and 19. \n" +
             "3. Therefore, the next prime number after 17 is 19.", "NextPrime"));
         textbook.Add("PrimeNumber: NextPrime", primeInfo);
 
@@ -297,15 +297,15 @@ public class TextbookSystem : MonoBehaviour
         // Median
         statisticsInfo.AddExample(new Example("Calculate the median of the numbers: 5, 6, 3, 9, 7.",
             "To solve this problem, follow these steps: \n" +
-            "1. First, order the numbers from smallest to largest: 3, 5, 6, 7, 9." +
-            "2. The middle number is 6." +
+            "1. First, order the numbers from smallest to largest: 3, 5, 6, 7, 9. \n" +
+            "2. The middle number is 6. \n" +
             "3. Therefore, the median is 6.", "Median"));
         textbook.Add("Statistics: Median", statisticsInfo);
 
         // Range
         statisticsInfo.AddExample(new Example("Find the range of the numbers: 15, 2, 8, 19, 7.",
             "To find the range, follow these steps: \n" +
-            "1. Subtract the smallest number from the largest number: 19 - 2 = 17." +
+            "1. Subtract the smallest number from the largest number: 19 - 2 = 17. \n" +
             "2. The range is 17.", "Range"));
         textbook.Add("Statistics: Range", statisticsInfo);
 
@@ -318,19 +318,19 @@ public class TextbookSystem : MonoBehaviour
         // Basic Modulo
         modularArithmeticInfo.AddExample(new Example("What is 17 % 5?",
             "To solve this problem, follow these steps: \n" +
-            "1. Divide 17 by 5: 17 / 5 = 3 (quotient), with a remainder of 2." +
+            "1. Divide 17 by 5: 17 / 5 = 3 (quotient), with a remainder of 2. \n" +
             "2. The modulo operator (%) gives the remainder after division. \n" +
             "3. Therefore, 17 % 5 = 2.", "Basic Modulo"));
         textbook.Add("Modular Arithmetic: Basic Modulo", modularArithmeticInfo);
 
         // Equivalence
         modularArithmeticInfo.AddExample(new Example("Are 24 and 14 congruent under modulo 5? (Yes/No)",
-            "To determine if two numbesr are congruent under modulo 5: \n" +
+            "To determine if two numbers are congruent under modulo 5: \n" +
             "Congruent means 'Equal' \n" +
             "1. Find the remainder of each number when divided by 5: \n" +
             "  24 % 5 = 4 \n" +
             "  14 % 5 = 4 \n" +
-            "2. Since both remainders are the same, 24 and 14 are congruent under modulo 5." +
+            "2. Since both remainders are the same, 24 and 14 are congruent under modulo 5. \n" +
             "The answer is Yes.", "Equivalence"));
         textbook.Add("Modular Arithmetic: Equivalence", modularArithmeticInfo);
 
@@ -379,6 +379,49 @@ public class TextbookSystem : MonoBehaviour
             "Rectangluar Prism: Length * Width * Height", "Volume"));
         textbook.Add("Geometric Measurements: Volume", geometricInfo);
 
+
+        var pythagoreanInfo = new PuzzleInfo(
+            "Pythagorean Theorem",
+            "The Pythagorean Theorem finds a side length in right triangles using a^2 + b^2 = c^2, where c is the longest side."
+            );
+
+        // Solving for A
+        pythagoreanInfo.AddExample(new Example(
+            "Find the length of side A if side B is 5 units and the hypotenuse C is 13.01 units.",
+            "Use: A = sqrt(C^2 - B^2)\n" +
+            "1. C^2 = 13.01^2 = 169.2601\n" +
+            "2. B^2 = 5^2 = 25\n" +
+            "3. 169.2601 - 25 = 144.2601, sqrt(144.2601) = 12.00\n" +
+            "Result: A is approximately 12.00 units (rounded to 2 decimal places).",
+            "Solving for A"
+        ));
+        textbook.Add("Pythagorean Theorem: Solving for A", pythagoreanInfo);
+
+        // Solving for B
+        pythagoreanInfo.AddExample(new Example(
+            "Find the length of side B if side A is 6 units and the hypotenuse C is 10.77 units.",
+            "Use: B = sqrt(C^2 - A^2)\n" +
+            "1. C^2 = 10.77^2 = 116.0329\n" +
+            "2. A^2 = 6^2 = 36\n" +
+            "3. 116.0329 - 36 = 80.0329, sqrt(80.0329) = 8.94\n" +
+            "Result: B is approximately 8.94 units (rounded to 2 decimal places).",
+            "Solving for B"
+        ));
+        textbook.Add("Pythagorean Theorem: Solving for B", pythagoreanInfo);
+
+        // Solving for C (Hypotenuse)
+        pythagoreanInfo.AddExample(new Example(
+            "Find the hypotenuse C if side A is 4 units and side B is 10 units.",
+            "Use: C = sqrt(A^2 + B^2)\n" +
+            "1. A^2 = 4^2 = 16\n" +
+            "2. B^2 = 10^2 = 100\n" +
+            "3. 16 + 100 = 116, sqrt(116) = 10.77\n" +
+            "Result: The hypotenuse C is approximately 10.77 units (rounded to 2 decimal places).",
+            "Solving for C"
+        ));
+        textbook.Add("Pythagorean Theorem: Solving for C", pythagoreanInfo);
+
+
     }
 
     public void DisplayPuzzleInfo(string puzzleType, string operation = null)
@@ -396,8 +439,8 @@ public class TextbookSystem : MonoBehaviour
             {
                 if (operation == null || example.Operation == operation)
                 {
-                    displayContent += "Example Problem:\n" + example.Problem + "\n\n" +
-                        "Solution: " + example.SolutionExplanation + "\n\n";
+                    displayContent += "Example Problem:\n" + example.Problem + "\n" +
+                        "Solution: " + example.SolutionExplanation + "\n";
                 }
             }
 

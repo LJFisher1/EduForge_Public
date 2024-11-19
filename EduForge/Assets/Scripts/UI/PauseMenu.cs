@@ -10,12 +10,13 @@ public class PauseMenuScript : MonoBehaviour
     [SerializeField] GameObject SettingsUI; // settings ui panel
 
     [SerializeField] Text hintCounterText; // text element for hint counter
-    [SerializeField] GameObject hintCounterUI; // hint counter ui panel
-    [SerializeField] GameObject HintPopUpUI; // hint pop-up ui panel
+    [SerializeField] GameObject hintCounterUI1; // hint counter ui panel
+    [SerializeField] GameObject HintPopUpUI1; // hint pop-up ui panel
     [SerializeField] Text hintText; // text element for the hint message
 
     [SerializeField] Slider difficultySlider; // difficulty slider
     private MathPuzzle mathPuzzleInstance; // reference to math puzzle script
+    private PlayerMovement playerMovement; // reference to the player movement script
 
     // array for hint counter on the top right of the screen. goes from 5 to 0 and stops. hard-coded list currently til hints are in place
     private int hintCounter = 5;
@@ -29,14 +30,16 @@ public class PauseMenuScript : MonoBehaviour
 
     private string[] difficultyOptions = { "Easy", "Medium", "Hard" }; // array of difficulty options
     private bool isPuzzleMode = false; // bool to check if a puzzle is active or not
+    private bool isInMainMenu; // bool to check if the settings was opened from the main menu or in-game
 
     public void Start()
     {
+        isInMainMenu = SceneManager.GetActiveScene().name == "MainMenu"; // checks if the main menu scene is open
         PauseMenu.SetActive(false); // pause menu not open
-        HintPopUpUI.SetActive(false); // hint pop-up not open
+        HintPopUpUI1.SetActive(false); // hint pop-up not open
         SettingsUI.SetActive(false); // settings page not open
         UpdateHintCounterUI(); // hint counter auto-set to 5
-        hintCounterUI.SetActive(true); // hint counter appearing
+        hintCounterUI1.SetActive(true); // hint counter appearing
 
         difficultySlider.value = 0; // difficulty slider set to easy
         mathPuzzleInstance = FindObjectOfType<MathPuzzle>(); // find mathpuzzle instance
@@ -73,30 +76,31 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1;
         PauseMenu.SetActive(false);
-        HintPopUpUI.SetActive(false);
-        hintCounterUI.SetActive(true);
+        HintPopUpUI1.SetActive(false);
+        hintCounterUI1.SetActive(true);
+        Cursor.visible = false;
     }
 
-    // toggles the pause menu open or closed if no puzzle is currently active
     public void TogglePauseMenu()
     {
-        if (isPuzzleMode) return; // dont open pause menu if a puzzle is active
+        if (isPuzzleMode) return; // don't open pause menu if a puzzle is active
+        if (isInMainMenu) return; // don't open pause menu if main menu is open
 
         bool isActive = PauseMenu.activeSelf;
-        PauseMenu.SetActive(!isActive); // pause menu visibility
+        PauseMenu.SetActive(!isActive); // toggle pause menu visibility
 
-        if (!isActive)
+        if (!isActive) // pausing the game
         {
-            Time.timeScale = 0f; // pause the game while menu is open
-            hintCounterUI.SetActive(false); // hide the hint counter
+            Time.timeScale = 0f; // pause gameplay
+            hintCounterUI1.SetActive(false); // hide the hint counter if assigned
             Cursor.lockState = CursorLockMode.None; // unlock the cursor for UI interaction
             Cursor.visible = true; // make cursor visible
         }
-        else
+        else // resuming the game
         {
-            Time.timeScale = 1f; // resume the game
-            HintPopUpUI.SetActive(false); // hide the hint pop-up if open
-            hintCounterUI.SetActive(true); // show the hint counter
+            Time.timeScale = 1f; // resume gameplay
+            HintPopUpUI1.SetActive(false); // hide the hint pop-up if open
+            hintCounterUI1.SetActive(true); // show the hint counter if assigned
             Cursor.lockState = CursorLockMode.Locked; // lock the cursor for gameplay
             Cursor.visible = false; // hide the cursor during gameplay
         }
@@ -105,6 +109,8 @@ public class PauseMenuScript : MonoBehaviour
     // restarts current level
     public void Restart()
     {
+        Time.timeScale = 1;
+        Debug.Log("Restart button clicked");
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
@@ -130,24 +136,18 @@ public class PauseMenuScript : MonoBehaviour
     private void DisplayHint()
     {
         hintText.text = hints[5 - hintCounter - 1]; // show next hint
-        HintPopUpUI.SetActive(true); // display hint
+        HintPopUpUI1.SetActive(true); // display hint
 
         Time.timeScale = 1; // resume gameplay
         PauseMenu.SetActive(false); // hide pause menu
-        hintCounterUI.SetActive(true); // show hint counter
+        hintCounterUI1.SetActive(true); // show hint counter
     }
 
     // back button to exit out of hint pop-up
     public void CloseHintAndResume()
     {
-        HintPopUpUI.SetActive(false);
+        HintPopUpUI1.SetActive(false);
         Resume();
-    }
-
-    // closes only the hint pop-up without resuming the game
-    public void CloseHintPopUp()
-    {
-        HintPopUpUI.SetActive(false);
     }
 
     // open settings ui panel
@@ -161,7 +161,15 @@ public class PauseMenuScript : MonoBehaviour
     public void CloseSettings()
     {
         SettingsUI.SetActive(false);
-        PauseMenu.SetActive(true);
+
+        if (isInMainMenu)
+        {
+            PauseMenu.SetActive(false);
+        }
+        else
+        {
+            PauseMenu.SetActive(true);
+        }
     }
 
     // exit the game

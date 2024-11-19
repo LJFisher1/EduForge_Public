@@ -48,18 +48,14 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
 
                 if (perimeterShape == 0) // Rectangle
                 {
-                    length = Random.Range(5, 15);
-                    width = Random.Range(5, 15);
                     currentQuestion = $"What is the perimeter of a rectangle with length {length} and width {width}?";
                 }
                 else if (perimeterShape == 1) // Square
                 {
-                    length = (Random.Range(5, 15));
                     currentQuestion = $"What is the perimeter of a square with side length {length}?";
                 }
                 else // Circle
                 {
-                    radius = Random.Range(5, 15);
                     currentQuestion = $"What is the circumference of a circle with radius {radius}?";
                 }
                 break;
@@ -70,19 +66,14 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                 int areaShape = Random.Range(0, 3); // 0 = Triangle, 1 = Rectangle, 2 = Square
                 if (areaShape == 0) // Triangle
                 {
-                    triangleBase = Random.Range(5, 15);
-                    height = Random.Range(5, 15);
                     currentQuestion = $"What is the area of a triangle with base {triangleBase} and height {height}?";
                 }
                 else if (areaShape == 1) // Rectangle
                 {
-                    length = Random.Range(5, 15);
-                    width = Random.Range(5, 15);
                     currentQuestion = $"What is the area of a rectangle with length {length} and width {width}?";
                 }
                 else // Square
                 {
-                    length = Random.Range(5, 15);
                     currentQuestion = $"What is the area of a square with side length {length}?";
                 }
                 break;
@@ -93,21 +84,15 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                 int volumeShape = Random.Range(0, 3); // 0 = Cube, 1 = Cylinder, 2 = Rectangle
                 if (volumeShape == 0) // Cube
                 {
-                    length = Random.Range(5, 15);
                     currentQuestion = $"What is the volume of a cube with side length {length}?";
 
                 }
                 else if (volumeShape == 1) // Cylinder
                 {
-                    radius = Random.Range(5, 15);
-                    height = Random.Range(5, 15);
                     currentQuestion = $"What is the volume of a cylinder with radius {radius} and height {height}?";
                 }
                 else // Rectangle
                 {
-                    length = Random.Range(5, 15);
-                    width = Random.Range(5, 15);
-                    height = Random.Range(5, 15);
                     currentQuestion = $"What is the volume of a rectangular prism with length {length}, width {width} and height {height}?";
                 }
                 break;
@@ -139,7 +124,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                     }
                     else // Circle
                     {
-                        correctAnswer = (float)(2 * Mathf.PI * radius);
+                        correctAnswer = (float)(2 * 3.14 * radius);
                     }
                     break;
 
@@ -169,7 +154,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
                     }
                     else if (volumeShape == 1) // Cylinder
                     {
-                        correctAnswer = (float)(Mathf.PI * radius * radius * height);
+                        correctAnswer = (float)(3.14 * radius * radius * height);
                     }
                     else // Rectangular Prism
                     {
@@ -186,7 +171,7 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
 
             // Using a tolerance for floating point comparison
             float tolerance = 0.01f;
-            if ((roundedParsedAnswer - correctAnswer) < tolerance)
+            if (roundedParsedAnswer == correctAnswer)
             {
                 Debug.Log("Correct! The answer is correct.");
                 DisplayFeedback("Correct! Well done.", true);

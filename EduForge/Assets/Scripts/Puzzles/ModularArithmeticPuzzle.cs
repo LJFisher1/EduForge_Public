@@ -14,9 +14,8 @@ public class ModularArithmeticPuzzle : MathPuzzle
 
     protected override void GeneratePuzzle()
     {
-        // For testing purposes
-        // selectedDifficulty = "Hard";
-        // End testing
+        // This is the secret puzzle, therefore we need the special difficulty set.
+        selectedDifficulty = "Special";
 
         switch (selectedDifficulty)
         {
@@ -31,6 +30,10 @@ public class ModularArithmeticPuzzle : MathPuzzle
 
             case "Hard":
                 SetHardDifficulty();
+                break;
+
+            case "Special":
+                SetSpecialDifficulty();
                 break;
 
             default:
@@ -69,6 +72,7 @@ public class ModularArithmeticPuzzle : MathPuzzle
         }
 
         modularText.text = currentEquation;
+        Debug.Log(selectedDifficulty);
 
         isPuzzleGenerated = true;
 
@@ -172,6 +176,14 @@ public class ModularArithmeticPuzzle : MathPuzzle
         b = Random.Range(20, 101);
         x = Random.Range(1, 101);
         y = Random.Range(1, 101);
+    }
+
+    public void SetSpecialDifficulty()
+    {
+        a = Random.Range(50, 101);
+        b = Random.Range(2, 11);
+        x = Random.Range(1, 201);
+        y = Random.Range(1, 201);
     }
 }
 
