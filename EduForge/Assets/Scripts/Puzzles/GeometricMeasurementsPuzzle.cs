@@ -170,12 +170,13 @@ public class GeometricMeasurementsPuzzle : MathPuzzle
             Debug.Log($"Parsed Answer: {roundedParsedAnswer}, Correct Answer: {correctAnswer}");
 
             // Using a tolerance for floating point comparison
-            float tolerance = 0.01f;
-            if (roundedParsedAnswer == correctAnswer)
+            float tolerance = 0.1f;
+            if (Mathf.Abs(roundedParsedAnswer - correctAnswer) <= tolerance)
             {
                 Debug.Log("Correct! The answer is correct.");
                 DisplayFeedback("Correct! Well done.", true);
                 puzzleSolved = true;
+                onPuzzleSolved.Invoke(this.gameObject.name);
                 inputField.text = "";
                 EndPuzzle();
                 ResetPuzzleState();

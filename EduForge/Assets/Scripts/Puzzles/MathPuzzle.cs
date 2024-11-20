@@ -133,15 +133,11 @@ public abstract class MathPuzzle : MonoBehaviour
         // If the puzzle is solved, invoke the onPuzzleSolved event
         if (puzzleSolved)
         {
-            DisplayFeedback("Correct!", true);
             // Trigger the event, passing the puzzle's name or ID
             Debug.Log("You are aright before invocation of event");
             onPuzzleSolved.Invoke(this.gameObject.name);
         }
-        else
-        {
-            DisplayFeedback("Incorrect. Try again.", false);
-        }
+
     }
 
     public abstract void ResetPuzzleState();
