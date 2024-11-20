@@ -15,6 +15,7 @@ public abstract class MathPuzzle : MonoBehaviour
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
     public PauseMenuScript pauseMenuScript; // Reference to the PauseMenu script
     public TextMeshProUGUI feedbackText; // Feedback text for the user
+    public Canvas feedbackCanvas;
 
 
     // Declare the event that will be triggered when the puzzle is solved
@@ -39,25 +40,58 @@ public abstract class MathPuzzle : MonoBehaviour
         // Hide the puzzle UI initially
         puzzleUI.SetActive(false);
 
-        // Attempts to find the Pause Menu script if it wasn't assigned in the editor
-        if (pauseMenuScript == null)
+        // Ensure the PauseMenu script and its GameObject are properly set up
+        if (pauseMenuScript != null)
         {
+            // Check if the GameObject containing the script is inactive
+            if (!pauseMenuScript.gameObject.activeSelf)
+            {
+                pauseMenuScript.gameObject.SetActive(true);
+                Debug.Log("PauseMenu GameObject was disabled and has been enabled.");
+            }
+        }
+        else
+        {
+            // If the script isn't assigned, try finding it in the scene
             GameObject pauseMenuObject = GameObject.Find("PauseMenu");
             if (pauseMenuObject != null)
             {
                 pauseMenuScript = pauseMenuObject.GetComponent<PauseMenuScript>();
+
+                if (pauseMenuScript != null)
+                {
+                    if (!pauseMenuObject.activeSelf)
+                    {
+                        pauseMenuObject.SetActive(true);
+                        Debug.Log("PauseMenu GameObject was disabled and has been enabled.");
+                    }
+                    else
+                    {
+                        Debug.Log("PauseMenu GameObject is already active.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("PauseMenuScript component was not found on the 'PauseMenu' GameObject.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("PauseMenu GameObject not found in the scene. Ensure a GameObject named 'PauseMenu' exists.");
             }
         }
-        // Get the difficulty from the PauseMenu script
+
+        // Get the difficulty from the PauseMenu script if it's set up correctly
         if (pauseMenuScript != null)
         {
             selectedDifficulty = pauseMenuScript.GetSelectedDifficulty();
         }
         else
         {
-            Debug.LogWarning("PauseMenuScript not found in the scene. Ensure the PauseMenu GameObject has the PauseMenuScript attached.");
+            Debug.LogWarning("PauseMenuScript is not assigned. Difficulty level may not be set correctly.");
         }
     }
+
 
     protected virtual void Update()
     {
@@ -165,6 +199,7 @@ public abstract class MathPuzzle : MonoBehaviour
 
     protected void DisplayFeedback(string message, bool isCorrect)
     {
+
         feedbackText.text = message;
         feedbackText.color = new Color(feedbackText.color.r, feedbackText.color.g, feedbackText.color.b, 1); // Ensure it's fully opaque
 
