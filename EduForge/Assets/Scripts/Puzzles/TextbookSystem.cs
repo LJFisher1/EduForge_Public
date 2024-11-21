@@ -469,7 +469,7 @@ public class TextbookSystem : MonoBehaviour
                 {
                     if (isTextbookVisible)
                     {
-                        textbookDisplay.text = "";
+                        textbookDisplay.text = "Press 'T' to turn display on/off.";
                         isTextbookVisible = false;
                     }
                     else
@@ -487,7 +487,7 @@ public class TextbookSystem : MonoBehaviour
                     }
                     else
                     {
-                        textbookDisplay.text = "";
+                        textbookDisplay.text = "Press 'T' to turn display on/off.";
                     }
                     Debug.Log("Puzzle type is null or empty.");
                 }
@@ -501,7 +501,7 @@ public class TextbookSystem : MonoBehaviour
                 }
                 else
                 {
-                    textbookDisplay.text = "";
+                    textbookDisplay.text = "Press 'T' to turn display on/off.";
                 }
                 Debug.Log("No active puzzle found.");
             }
