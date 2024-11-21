@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isPuzzleMode)
+        if (Time.timeScale > 0 && !isPuzzleMode)
         {
             MovePlayer();
             LookAround();
