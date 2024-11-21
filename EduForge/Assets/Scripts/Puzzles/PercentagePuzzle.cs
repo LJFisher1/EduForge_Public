@@ -96,7 +96,9 @@ public class PercentagePuzzle : MathPuzzle
             Debug.Log($"Rounded Parsed Answer: {roundedParsedAnswer}");
             Debug.Log($"Rounded Correct Answer: {roundedSolution}");
 
-            if (roundedSolution == roundedParsedAnswer)
+            // Using a tolerance for floating point comparison
+            float tolerance = 0.1f;
+            if (Mathf.Abs(roundedParsedAnswer - roundedSolution) <= tolerance)
             {
                 Debug.Log("Correct! Well done.");
                 DisplayFeedback("Correct! Well done.", true);
