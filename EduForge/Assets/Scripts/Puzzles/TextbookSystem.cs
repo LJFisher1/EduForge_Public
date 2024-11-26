@@ -166,7 +166,7 @@ public class TextbookSystem : MonoBehaviour
         textbook.Add("Percentage: Percentage Discount", percentageInfo);
 
         // Percentage: Ratio
-        percentageInfo.AddExample(new Example("What percent of 200 is 25?",
+        percentageInfo.AddExample(new Example("What percentage is 25 of 200?",
             "To solve this problem, follow these steps: \n" +
             "1. Divide the part by the whole: 25 / 200 = 0.125. \n" +
             "2. Multiply the result by 100 to convert it to a percentage: 0.125 * 100 = 12.5%. \n" +
