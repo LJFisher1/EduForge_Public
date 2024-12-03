@@ -19,13 +19,11 @@ public class PauseMenuScript : MonoBehaviour
     private PlayerMovement playerMovement; // reference to the player movement script
 
     // array for hint counter on the top right of the screen. goes from 5 to 0 and stops. hard-coded list currently til hints are in place
-    private int hintCounter = 5;
+    private int hintCounter = 3;
     private string[] hints = {
-        "Hint Example One",
-        "Hint Example Two",
-        "Hint Example Three",
-        "Hint Example Four",
-        "Hint Example Five"
+        "When you enter door 5, peek to the right and there you will see a secret",
+        "Take the hall past puzzle 6 and there you will find another secret",
+        "At puzzle 8, turn to your left to spot your last secret"
     };
 
     private string[] difficultyOptions = { "Easy", "Medium", "Hard" }; // array of difficulty options
@@ -38,7 +36,7 @@ public class PauseMenuScript : MonoBehaviour
         PauseMenu.SetActive(false); // pause menu not open
         HintPopUpUI1.SetActive(false); // hint pop-up not open
         SettingsUI.SetActive(false); // settings page not open
-        UpdateHintCounterUI(); // hint counter auto-set to 5
+        UpdateHintCounterUI(); // hint counter auto-set to 3
         hintCounterUI1.SetActive(true); // hint counter appearing
 
         difficultySlider.value = 0; // difficulty slider set to easy
@@ -135,7 +133,7 @@ public class PauseMenuScript : MonoBehaviour
     // displays the current hint based on remaining hints and shows the hint pop-up
     private void DisplayHint()
     {
-        hintText.text = hints[5 - hintCounter - 1]; // show next hint
+        hintText.text = hints[3 - hintCounter - 1]; // show next hint
         HintPopUpUI1.SetActive(true); // display hint
 
         Time.timeScale = 1; // resume gameplay
