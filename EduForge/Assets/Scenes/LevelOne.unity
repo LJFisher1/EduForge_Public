@@ -20258,7 +20258,7 @@ MonoBehaviour:
   isFinalDoor: 1
   openPositionOffset: {x: 0, y: 5, z: 0}
   moveSpeed: 2
-  mainMenuController: {fileID: 0}
+  mainMenuController: {fileID: 1198382297}
 --- !u!65 &1963264668
 BoxCollider:
   m_ObjectHideFlags: 0

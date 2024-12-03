@@ -95,6 +95,7 @@ public class Door : MonoBehaviour
                     Debug.LogError("MainMenuController is not assigned!");
                 }
             }
+        }
     }
 
     private void ToggleDoor()
@@ -102,4 +103,5 @@ public class Door : MonoBehaviour
         isOpen = !isOpen;  // Toggle the open state
         isMoving = true;   // Begin moving the door
     }
+
 }
