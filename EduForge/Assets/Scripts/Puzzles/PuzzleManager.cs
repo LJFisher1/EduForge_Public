@@ -5,7 +5,7 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour
 {
     public List<MathPuzzle> mainPuzzles = new List<MathPuzzle>();  // List of all main puzzles
-    public Door exitDoor;  // Reference to the exit door
+    [SerializeField] public Door exitDoor;  // Reference to the exit door
 
     private int puzzlesCompleted = 0;  // Track the number of solved puzzles
     private HashSet<string> completedPuzzles = new HashSet<string>();  // Track completed puzzle IDs
@@ -50,8 +50,13 @@ public class PuzzleManager : MonoBehaviour
     {
         if (exitDoor != null)
         {
+            Debug.Log("UnlockExitDoor: Exit door is assigned and will be unlocked.");
             exitDoor.UnlockDoor();
             Debug.Log("All puzzles solved! Exit door unlocked.");
+        }
+        else
+        {
+            Debug.LogError("UnlockExitDoor: Exit door is not assigned!");
         }
     }
 }

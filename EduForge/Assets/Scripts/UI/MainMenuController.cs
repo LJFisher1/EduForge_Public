@@ -36,4 +36,11 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void EndGame()
+    {
+        Debug.Log("End Game!");
+        // Load the first level or main gameplay scene
+        SceneManager.LoadScene("EndGame");
+    }
 }

@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
 {
     public bool isLocked = true;
     public bool showOrderNumber = false;  // Toggle for showing door order
+    public bool isFinalDoor = false; // Checks if the door is the final door
 
     private TextMeshProUGUI doorLockText;  // Updated to doorLockText
     private TextMeshProUGUI doorOrderText;
@@ -17,6 +18,8 @@ public class Door : MonoBehaviour
     private Vector3 openPosition;
     public Vector3 openPositionOffset = new Vector3(0, 5, 0);  // Offset for opening door
     public float moveSpeed = 2f;
+
+    public MainMenuController mainMenuController; // Reference to MainMenuController
 
     private void Start()
     {
@@ -78,7 +81,20 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player") && !isLocked && !isMoving)
         {
             ToggleDoor();  // Toggle the door open or close
-        }
+
+            if (isFinalDoor)
+            {
+                Debug.Log("Final door triggered.");
+                if (mainMenuController != null)
+                {
+                    Debug.Log("MainMenuController found. Calling EndGame.");
+                    mainMenuController.EndGame();
+                }
+                else
+                {
+                    Debug.LogError("MainMenuController is not assigned!");
+                }
+            }
     }
 
     private void ToggleDoor()
